@@ -11,23 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('info_com', function (Blueprint $table) {
-        $table->id();
-        $table->string('titre');
-        $table->text('description');
-        $table->timestamp('date_info')->nullable();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        $table->timestamps();
-    });
+        Schema::create('info_com', function (Blueprint $table) {
+            $table->id();
+            $table->string('titre');
+            $table->text('description');
+            $table->timestamp('date_info')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('residence_id')->constrained('residences')->onDelete('cascade'); // Relation avec residence
+            $table->timestamps();
+        });
 
-
-    // Créer la table pivot pour les résidences liées aux informations
-    Schema::create('info_com_residence', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('info_com_id')->constrained('info_com')->onDelete('cascade');
-        $table->foreignId('residence_id')->constrained()->onDelete('cascade');
-        $table->timestamps();
-    });
 }
 
 /**
@@ -37,7 +30,6 @@ return new class extends Migration
  */
 public function down()
 {
-    Schema::dropIfExists('info_com_residence');
     Schema::dropIfExists('info_com');
 }
 };

@@ -41,6 +41,8 @@ Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.
 
 Route::get('/infocom', [InfocomController::class, 'index'])->name('infocom.index');
 Route::post('/infocom-store', [InfocomController::class, 'store'])->name('infocom.store');
+Route::get('/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
+
 
 Route::get('/tchat', [TchatController::class, 'index'])->name('tchat.index');
 
@@ -50,7 +52,6 @@ Route::prefix('/inventaire')->group(function () {
     Route::post('/', action: [InventaireController::class, 'store'])->name('inventaire.store');
     Route::get('/{residence}', [InventaireController::class, 'getInventaire'])->name('inventaire.residence');
     Route::put('/update/{id}', [InventaireController::class, 'update'])->name('inventaire.update');
-
 
 });
 
