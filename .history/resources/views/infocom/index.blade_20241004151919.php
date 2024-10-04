@@ -27,9 +27,9 @@
                     <div
                         class="bg-white rounded-[20px] mb-[10px] p-[17.5px_20px_25px_15px] w-full flex flex-col items-center ">
                         <div class="flex flex-row justify-between w-full mb-[22.5px]">
-                            <span class="w-[270px] font-semibold text-[12px] text-[#6F7D93]">{{ $infocom->titre }}
-                              
-                            </span>
+                            <span class="w-[270px] font-semibold text-[12px] text-[#6F7D93]">{{ $infocom->titre }}:
+                                {{ $infocom->date_info }}</span>
+                                {{ $infocom->date_info->format('d/m/Y') }}</span>
                             <span class="text-[12px] text-[#6F7D93]">{{ $infocom->created_at->format('d/m/Y') }}</span>
                         </div>
                         <span class="text-[12px] text-[#6F7D93] mb-[15px]">

@@ -20,22 +20,30 @@
                 class="m-[0_25px_19.5px_25px] inline-block self-start break-words font-['Inter'] font-medium text-[12px] text-[#6F7D93]">
                 Choisissez Type de Déclaration
             </div>
-          
-            <div class="m-[0_0_25px_0] flex flex-row justify-around self-start w-full box-sizing-border">
-                <div class="flex flex-row box-sizing-border items-center"> <!-- Ajout de items-center pour aligner verticalement -->
-                    <input type="checkbox" id="nuisance" name="type[]" value="nuisance" onclick="updateSelectedTypes()" />
-                    <label for="nuisance" class="ml-2 inline-block break-words font-['Inter'] text-[12px] text-[#6F7D93]"> <!-- Ajout de margin-left -->
-                        Nuisance
-                    </label>
+            <div class="m-[0_0_25px_0] flex flex-row justify-around self-start w-full box-sizing-border ">
+                <div class="flex flex-row box-sizing-border">
+                    <div class="rounded-[4px] border-[1px_solid_#9EAFCE] m-[0_7px_0.5px_0] w-[20px] h-[20px]">
+                    </div>
+                    <button id="nuisance" onclick="choseType(event)" type="button" class="">
+                        <div
+                            class="m-[5.5px_0_0_0] inline-block break-words font-['Inter']  text-[12px] text-[#6F7D93]">
+                            Nuisance
+                        </div>
+                    </button>
+
                 </div>
-                <div class="flex flex-row box-sizing-border items-center"> <!-- Ajout de items-center pour aligner verticalement -->
-                    <input type="checkbox" id="sinistre" name="type[]" value="sinistre" onclick="updateSelectedTypes()" />
-                    <label for="sinistre" class="ml-2 inline-block break-words font-['Inter'] text-[12px] text-[#6F7D93]"> <!-- Ajout de margin-left -->
-                        Sinistre
-                    </label>
+                <div class="flex flex-row box-sizing-border">
+                    <div class="rounded-[4px] border-[1px_solid_#9EAFCE] m-[0_7px_0.5px_0] w-[20px] h-[20px]">
+                    </div>
+                    <button id="sinistre" type="button" onclick="choseType(event)" class="">
+                        <div
+                            class="m-[5.5px_0_0_0] inline-block break-words font-['Inter']  text-[12px] text-[#6F7D93]">
+                            Sinistre
+                        </div>
+                    </button>
+
                 </div>
             </div>
-            
 
             <input type="hidden" name="type" id="selectedType" /> <!-- Hidden input for selected type -->
 
@@ -91,18 +99,35 @@
     </form>
     @endrole
 
-@role('superadmin|admin|manager principal|manger')
+    @role('superadmin|admin|manager principal|manger')
     <script>
-        function updateSelectedTypes() {
-            const selectedTypes = [];
-            const checkboxes = document.querySelectorAll('input[name="type[]"]:checked');
+        let selectedButtonId = null;
 
-            checkboxes.forEach((checkbox) => {
-                selectedTypes.push(checkbox.value);
-            });
+        function choseType(event) {
+            const button = event.target.closest('button');
+            const divInside = button.querySelector('div');
+            const mainColor = "#6F7D93";
+            const selectColor = "#000000";
 
-            document.getElementById('selectedType').value = selectedTypes.join(','); // Join selected types with commas
+            // Remove styles from previously selected button
+            if (selectedButtonId && selectedButtonId !== button.id) {
+                const previousButton = document.getElementById(selectedButtonId);
+                const previousDiv = previousButton.querySelector('div');
+                previousDiv.classList.remove('font-bold');
+                previousDiv.classList.add('font-normal');
+                previousDiv.style.color = mainColor;
+            }
+
+            // Toggle styles for the current button
+            if (button.id !== selectedButtonId) {
+
+                selectedButtonId = button.id;
+                divInside.classList.add('font-bold');
+                divInside.classList.remove('font-normal');
+                divInside.style.color = selectColor;
+                document.getElementById('selectedType').value = selectedButtonId; // Update hidden input with selected type
+            }
         }
     </script>
-    @endrole
+    ]
 </div>

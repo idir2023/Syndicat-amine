@@ -4,7 +4,6 @@
     {{-- navbar --}}
     {{-- <x-layouts.navbar :user="Auth::user()" route="infocom.index"></x-layouts.navbar> --}}
     <x-layouts.navbar :user="Auth::user()" route="infocom.residence" />
-    
 
     <div class="flex flex-col w-full">
         <!-- Header Section -->
@@ -27,9 +26,8 @@
                     <div
                         class="bg-white rounded-[20px] mb-[10px] p-[17.5px_20px_25px_15px] w-full flex flex-col items-center ">
                         <div class="flex flex-row justify-between w-full mb-[22.5px]">
-                            <span class="w-[270px] font-semibold text-[12px] text-[#6F7D93]">{{ $infocom->titre }}
-                              
-                            </span>
+                            <span class="w-[270px] font-semibold text-[12px] text-[#6F7D93]">{{ $infocom->titre }}:
+                                {{ $infocom->date_info }}</span>
                             <span class="text-[12px] text-[#6F7D93]">{{ $infocom->created_at->format('d/m/Y') }}</span>
                         </div>
                         <span class="text-[12px] text-[#6F7D93] mb-[15px]">
@@ -41,8 +39,7 @@
             </div>
 
             <!-- Add Info Section -->
-            @role('superadmin|admin|manager principal|manger')
-
+            
             <form
                 class="shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[20px] bg-white p-[16.5px_0_18px_0] flex flex-col w-full max-w-[330px]"
                 method="POST" action="{{ route('infocom.store') }}" enctype="multipart/form-data">
@@ -93,7 +90,6 @@
                     </button>
                 </div>
             </form>
-            @endrole
 
 
         </div>

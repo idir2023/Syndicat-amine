@@ -20,7 +20,30 @@
                 class="m-[0_25px_19.5px_25px] inline-block self-start break-words font-['Inter'] font-medium text-[12px] text-[#6F7D93]">
                 Choisissez Type de Déclaration
             </div>
-          
+            {{-- <div class="m-[0_0_25px_0] flex flex-row justify-around self-start w-full box-sizing-border ">
+                <div class="flex flex-row box-sizing-border">
+                    <div class="rounded-[4px] border-[1px_solid_#9EAFCE] m-[0_7px_0.5px_0] w-[20px] h-[20px]">
+                    </div>
+                    <button id="nuisance" onclick="choseType(event)" type="button" class="">
+                        <div
+                            class="m-[5.5px_0_0_0] inline-block break-words font-['Inter']  text-[12px] text-[#6F7D93]">
+                            Nuisance
+                        </div>
+                    </button>
+
+                </div>
+                <div class="flex flex-row box-sizing-border">
+                    <div class="rounded-[4px] border-[1px_solid_#9EAFCE] m-[0_7px_0.5px_0] w-[20px] h-[20px]">
+                    </div>
+                    <button id="sinistre" type="button" onclick="choseType(event)" class="">
+                        <div
+                            class="m-[5.5px_0_0_0] inline-block break-words font-['Inter']  text-[12px] text-[#6F7D93]">
+                            Sinistre
+                        </div>
+                    </button>
+
+                </div>
+            </div> --}}
             <div class="m-[0_0_25px_0] flex flex-row justify-around self-start w-full box-sizing-border">
                 <div class="flex flex-row box-sizing-border items-center"> <!-- Ajout de items-center pour aligner verticalement -->
                     <input type="checkbox" id="nuisance" name="type[]" value="nuisance" onclick="updateSelectedTypes()" />

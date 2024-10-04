@@ -12,16 +12,50 @@ use Illuminate\Http\Request;
 class InfocomController extends Controller
 {
 
-    public function index()
-    {
-        $users = User::where('residence_id', Auth::user()->residence_id)->get(); 
-        $residence = Residence::findOrFail(Auth::user()->residence_id);
+    // public function index()
+    // {
+    //     $users = User::where('residence_id', Auth::user()->residence_id)->get(); 
+    //     $residence = Residence::findOrFail(Auth::user()->residence_id);
 
-        $infoComs = InfoCom::where('user_id', Auth::user()->id)->get();
+    //     $infoComs = InfoCom::where('user_id', Auth::user()->id)->get();
 
-        return view('infocom.index', compact('users', 'infoComs', 'residence'));
-    }   
+    //     return view('infocom.index', compact('users', 'infoComs', 'residence'));
+    // }   
     
+    public function index()
+{
+    // Récupérer l'utilisateur authentifié
+    $user = Auth::user();
+
+    // Initialiser les variables pour les utilisateurs et InfoComs
+    $users = collect();
+    $infoComs = collect();
+    $residences = collect();
+
+    // Vérifier si l'utilisateur est admin ou superadmin
+    if ($user->hasRole('admin|superadmin')) {
+        // Récupérer toutes les résidences
+        $residences = Residence::all();
+
+        // Pour chaque résidence, récupérer les utilisateurs et InfoComs
+        foreach ($residences as $residence) {
+            $resUsers = $residence->users; // Récupérer les utilisateurs associés à cette résidence
+            $resInfoComs = InfoCom::whereIn('user_id', $resUsers->pluck('id'))->get(); // Récupérer InfoComs pour ces utilisateurs
+
+            // Ajouter les utilisateurs et InfoComs à la collection
+            $users = $users->merge($resUsers);
+            $infoComs = $infoComs->merge($resInfoComs);
+        }
+    } else {
+        // Pour les utilisateurs normaux
+        $residence = Residence::findOrFail($user->residence_id);
+        $users = User::where('residence_id', $user->residence_id)->get();
+        $infoComs = InfoCom::where('user_id', $user->id)->get();
+    }
+
+    // Retourner la vue avec les données appropriées
+    return view('infocom.index', compact('users', 'infoComs', 'residences'));
+}
 
     public function getInfocom(Residence $residence)
     {
@@ -53,7 +87,7 @@ class InfocomController extends Controller
                     'description' => $validatedData['description'],
                     'user_id' => $user->id, // Assign the current user in the loop
                     'residence_id' => $validatedData['residence_id'],
-                    'date_info' => today(), // Use Laravel helper for current date/time
+                    'date_info' => now(), // Use Laravel helper for current date/time
                 ]);
             }
     
@@ -66,7 +100,7 @@ class InfocomController extends Controller
                 'description' => $validatedData['description'],
                 'user_id' => $validatedData['user_id'], // Only the selected user
                 'residence_id' => $validatedData['residence_id'],
-                'date_info' => today(), // Use Laravel helper for current date/time
+                'date_info' => now(), // Use Laravel helper for current date/time
             ]);
     
             // Redirect back with a success message

@@ -17,7 +17,7 @@
     </div>
     
 
-    <div class="bg-[#F7F7F7] m-[0_0_28px_0] w-[235px] h-[2px]"></div>
+    <div class="bg-[#F7F7F7] m-[0_0_28px_0] w-[235px] h-[1px]"></div>
 
 
     <a href="{{ route('dashboard.index') }}"

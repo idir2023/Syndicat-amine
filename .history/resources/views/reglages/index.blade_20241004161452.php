@@ -79,7 +79,7 @@
                                 <td class="p-2 text-center">
                                     @foreach ($user->roles as $role)
                                         <span
-                                            class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
+                                            class="bg-[#EAF9F0] text-[#6F7D93 px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
                                     @endforeach
                                 </td>
                                 @role('superadmin|admin|manager principal|manager')

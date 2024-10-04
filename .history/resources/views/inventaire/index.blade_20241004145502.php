@@ -72,7 +72,7 @@
                     Ajouter Inventaire
                 </div>
 
-                
+                {{-- display the messages and errors  --}}
                 
 
 

@@ -66,7 +66,7 @@ class InfocomController extends Controller
                 'description' => $validatedData['description'],
                 'user_id' => $validatedData['user_id'], // Only the selected user
                 'residence_id' => $validatedData['residence_id'],
-                'date_info' => today(), // Use Laravel helper for current date/time
+                'date_info' => to(), // Use Laravel helper for current date/time
             ]);
     
             // Redirect back with a success message

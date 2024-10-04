@@ -12,17 +12,17 @@ use Illuminate\Http\Request;
 class InfocomController extends Controller
 {
 
-    public function index()
-    {
-        $users = User::where('residence_id', Auth::user()->residence_id)->get(); 
-        $residence = Residence::findOrFail(Auth::user()->residence_id);
+    // public function index()
+    // {
+    //     $users = User::where('residence_id', Auth::user()->residence_id)->get(); 
+    //     $residence = Residence::findOrFail(Auth::user()->residence_id);
 
-        $infoComs = InfoCom::where('user_id', Auth::user()->id)->get();
+    //     $infoComs = InfoCom::where('user_id', Auth::user()->id)->get();
 
-        return view('infocom.index', compact('users', 'infoComs', 'residence'));
-    }   
+    //     return view('infocom.index', compact('users', 'infoComs', 'residence'));
+    // }   
     
-
+    
     public function getInfocom(Residence $residence)
     {
         $users = User::where('residence_id', $residence->id)->get();
@@ -53,7 +53,7 @@ class InfocomController extends Controller
                     'description' => $validatedData['description'],
                     'user_id' => $user->id, // Assign the current user in the loop
                     'residence_id' => $validatedData['residence_id'],
-                    'date_info' => today(), // Use Laravel helper for current date/time
+                    'date_info' => now(), // Use Laravel helper for current date/time
                 ]);
             }
     
@@ -66,7 +66,7 @@ class InfocomController extends Controller
                 'description' => $validatedData['description'],
                 'user_id' => $validatedData['user_id'], // Only the selected user
                 'residence_id' => $validatedData['residence_id'],
-                'date_info' => today(), // Use Laravel helper for current date/time
+                'date_info' => now(), // Use Laravel helper for current date/time
             ]);
     
             // Redirect back with a success message

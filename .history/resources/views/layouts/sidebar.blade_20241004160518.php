@@ -15,9 +15,10 @@
     <div class="m-[0_0_38px_0] inline-block self-center break-words font-['Inter'] font-bold text-[20px] text-[#3A416F]">
         Synditchat
     </div>
-    
+    <div class="bg-[#F7F7F7] m-[0_0_28px_0] w-[235px] h-[0px]">
+    </div>
 
-    <div class="bg-[#F7F7F7] m-[0_0_28px_0] w-[235px] h-[2px]"></div>
+    <div class="bg-[#F7F7F7] m-[0_0_28px_0] w-[235px] h-[1px]"></div>
 
 
     <a href="{{ route('dashboard.index') }}"
