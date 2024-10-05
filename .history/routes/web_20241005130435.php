@@ -40,13 +40,13 @@ Route::get('/index', function () {
 // Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.index');
 
+Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
+Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
 Route::get('/infocom', [InfocomController::class, 'index'])->name('infocom.index');
 Route::post('/infocom-store', [InfocomController::class, 'store'])->name('infocom.store');
-Route::get('/residence/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
+Route::get('/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
 
-Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
-Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
 Route::get('/tchat', [TchatController::class, 'index'])->name('tchat.index');
 

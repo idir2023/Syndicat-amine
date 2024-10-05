@@ -43,7 +43,7 @@ Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.
 
 Route::get('/infocom', [InfocomController::class, 'index'])->name('infocom.index');
 Route::post('/infocom-store', [InfocomController::class, 'store'])->name('infocom.store');
-Route::get('/residence/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
+Route::get('/re/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
 
 Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
 Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');

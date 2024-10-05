@@ -4,9 +4,8 @@
     <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
 <div class="w-full ">
 
-    <div
-    class="rounded-[20px] bg-[#FFFFFF]  relative flex flex-col p-[10px_0_0.5px_0] box-sizing-border box-sizing-border m-1 w-full">
-        <div class="m-[0_30px_12.5px_15px] flex flex-row justify-between  box-sizing-border ">
+    <div class="flex flex-row justify-between">
+        <div class="flex flex-col items-center pr-[20px] w-full ">
 
             <div
                 class="m-[7.5px_7.5px_7.5px_0] inline-block break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
@@ -71,7 +70,7 @@
 
 
         @role('superadmin|admin|manager principal|manager')
-            <form action="{{ route('commentaires.store') }}" method="POST" class="w-full" >
+            <form action="{{ route('commentaires.store') }}" method="POST" class="w-full">
                 @csrf
                 <div class="p-[0_12px_27px_15px] flex flex-row w-full box-sizing-border">
                     <div class="rounded-[50px]  m-[5px_5px_5px_0] w-[60px] h-[auto]"

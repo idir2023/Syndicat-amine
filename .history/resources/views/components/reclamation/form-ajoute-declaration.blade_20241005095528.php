@@ -1,6 +1,6 @@
 <div class="w-full max-w-[330px]">
     @role('superadmin|admin|manager principal|manger')
-    <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data" >
+    <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data" class="w-full max-w-[330px]">
         @csrf
 
         <div class="shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[20px] bg-[#FFFFFF] relative m-[0_0_198px_0] flex flex-col p-[16.5px_0_16px_0] box-sizing-border">

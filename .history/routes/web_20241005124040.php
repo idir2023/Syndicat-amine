@@ -19,9 +19,6 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\FormRegisterController;
 use App\Http\Controllers\GroupController;
 
-
-
-
 Route::get('/', function () {
     // return view('welcome');
     return view('auth.connect');
@@ -41,12 +38,11 @@ Route::get('/index', function () {
 Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.index');
 
 
+
 Route::get('/infocom', [InfocomController::class, 'index'])->name('infocom.index');
 Route::post('/infocom-store', [InfocomController::class, 'store'])->name('infocom.store');
-Route::get('/residence/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
+Route::get('/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
 
-Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
-Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
 Route::get('/tchat', [TchatController::class, 'index'])->name('tchat.index');
 
@@ -90,7 +86,8 @@ Route::post('/regelement/update/{id}', [ResidenceController::class, 'update'])->
 
 // Register form
 // Route::get('/inscription', [ResidenceController::class, 'show'])->name('formRegister');
-
+Route::get() '/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
+// Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
 Route::post('/admin/users/store', [InvitationController::class, 'store'])->name('admin.users.store');
 Route::get('/inscription-termine', [UserController::class, 'index'])->name('register.user');
