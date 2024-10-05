@@ -39,14 +39,12 @@
             </div>
 
             <!-- Third layout (Form) -->
-            <div class="flex text-white p-0 rounded-lg col-span-2 flex-grow">
-                @if (isset($residence_id))
-                    <x-reclamation.form-ajoute-declaration postUrl="reclamations.store"
-                        :residence="$residence_id"></x-reclamation.form-ajoute-declaration>
-                @else
-                    <p>Aucun résident trouvé.</p>
-                @endif
-            </div>
+            @if (isset($residence_id))
+                <x-reclamation.form-ajoute-declaration postUrl="reclamations.store"
+                    :residence="$residence_id"></x-reclamation.form-ajoute-declaration>
+            @else
+                <p>Aucun résident trouvé.</p>
+            @endif
         </div>
 
     </div>

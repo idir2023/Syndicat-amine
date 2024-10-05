@@ -21,6 +21,7 @@
 
         <!-- Content Section -->
         <div class="flex flex-row justify-between">
+            
             <div class="flex flex-col items-center pr-[20px] w-full ">
                 <!-- Info Block 1 -->
                 @foreach ($infoComs as $infocom)
