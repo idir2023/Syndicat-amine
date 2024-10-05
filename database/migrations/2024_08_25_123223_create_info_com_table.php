@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->timestamp('date_info')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('from_id')->nullable();
             $table->foreignId('residence_id')->constrained('residences')->onDelete('cascade'); // Relation avec residence
             $table->timestamps();
         });
