@@ -47,33 +47,6 @@
                     <a href="{{ route('formRegister') }}">Remplir le formulaire</a>
                 </button>
             </div>
-            {{-- <div class="w-full flex flex-row justify-between mt-6">
-                <div class="m-4 inline-block break-words font-['Inter'] font-normal text-[12px] text-[#9EAFCE]">
-                    Copyrights © 2024, Synditchat. All Rights Reserved.
-                </div>
-                <div class="flex flex-row box-sizing-border">
-                    <div
-                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
-                        <i class="fa-brands fa-facebook text-white"></i>
-                    </div>
-                    <div
-                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
-                        <i class="fa-brands fa-instagram text-white"></i>
-                    </div>
-                    <div
-                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
-                        <i class="fa-brands fa-linkedin text-white"></i>
-                    </div>
-                    <div
-                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
-                        <i class="fa-brands fa-twitter text-white"></i>
-                    </div>
-                    <div
-                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
-                        <i class="fa-brands fa-whatsapp text-white"></i>
-                    </div>
-                </div>
-            </div> --}}
         </div>
 
 
@@ -82,7 +55,7 @@
         <div class="w-full md:w-1/3 bg-[#F7F7F7] p-8 flex flex-col justify-center items-center">
             <h2
                 class="text-4xl font-bold mb-8 
-            font-['Fredoka_One','Roboto_Condensed'] text-[48px] text-[#3C4C7C]">
+                font-['Fredoka_One','Roboto_Condensed'] text-[48px] text-[#3C4C7C]">
                 Se Connecter
             </h2>
 

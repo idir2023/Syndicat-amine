@@ -54,6 +54,9 @@ class ResidenceController extends Controller
      */
     public function show(Residence $residence)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
         // dd($residence);
         // Check if the user has 'superadmin' or 'admin' role
         if (Auth::user()->hasAnyRole(['superadmin', 'admin'])) {

@@ -73,8 +73,23 @@ class InventaireController extends Controller
 
     // }
 
-    public function getInventaire(Request $request, Residence $residence): View
+    public function getInventaire(Request $request, Residence $residence)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        if (!Auth::user()->hasAnyRole(['superadmin', 'admin'])) {
+    
+            // Regular users can only view events for their own residence
+            $residence_id = Auth::user()->residence_id;
+
+            // If a residence is passed, make sure it matches the user's residence
+            if ($residence && $residence->id != $residence_id) {
+                abort(403, 'Unauthorized access to this residence.');
+        }}
+
+
+
         $query = $residence->inventaires();
 
         // Apply filters
