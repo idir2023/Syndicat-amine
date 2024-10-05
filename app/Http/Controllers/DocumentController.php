@@ -94,6 +94,19 @@ class DocumentController extends Controller
     // }
 
     public function getDocument(Request $request, Residence $residence): View {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        if (!Auth::user()->hasAnyRole(['superadmin', 'admin'])) {
+    
+            // Regular users can only view events for their own residence
+            $residence_id = Auth::user()->residence_id;
+
+            // If a residence is passed, make sure it matches the user's residence
+            if ($residence && $residence->id != $residence_id) {
+                abort(403, 'Unauthorized access to this residence.');
+        }}
+        
         $types = ["Compte rendu", "Facture et devis", "Autres"];
 
         $documentsQuery = $residence->documents();

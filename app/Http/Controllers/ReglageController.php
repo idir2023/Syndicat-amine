@@ -19,26 +19,18 @@ class ReglageController extends Controller
 
     public function show(Residence $residence)
     {
-        // // Fetch users associated with the given residence
-        // // $roles = Role::all();
-        // $roles = ['resident', 'manager', 'manager principal'];
-        // $residence = Residence::findOrFail($residence->id);
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        if (!Auth::user()->hasAnyRole(['superadmin', 'admin'])) {
+    
+            // Regular users can only view events for their own residence
+            $residence_id = Auth::user()->residence_id;
 
-
-        // if (Auth::user()->role == 'resident') {
-        //     $users = User::where('residence_id', $residence->id)->get('resident');
-        // } elseif (Auth::user()->role == 'manager') {
-        //     $users = User::where('residence_id', $residence->id)->get('resident', 'manager');
-        // } elseif (Auth::user()->role == 'manager principal') {
-        //     $users = User::where('residence_id', $residence->id)->get('resident', 'manager', 'manager principal');
-        // } elseif (Auth::user()->role == 'admin') {
-        //     $users = User::where('residence_id', $residence->id)->get('resident', 'manager', 'manager principal', 'admin');
-        // } else
-        //     $users = User::where('residence_id', $residence->id)->get();
-        // // dd($roles);
-        // return view('reglages.index', compact('residence', 'users'))->with(["roles" => $roles]);
-
-
+            // If a residence is passed, make sure it matches the user's residence
+            if ($residence && $residence->id != $residence_id) {
+                abort(403, 'Unauthorized access to this residence.');
+        }}
 
         // Get the current user's role
         $currentUserRole = Auth::user()->getRoleNames()->first();
@@ -78,12 +70,6 @@ class ReglageController extends Controller
                 })));
             })
             ->get();
-            // $residence_id = Auth::user()->residence_id;
-            // if ($residence->id != $residence_id) {
-            //     abort(403, 'Unauthorized access to this residence.');
-            // }
-
-            // dd($residence);
 
         // Pass the residence, users, and roles to the view
         return view('reglages.index', compact('residence', 'users'))->with([

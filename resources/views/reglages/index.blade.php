@@ -115,11 +115,12 @@
                 {{-- focus on this part --}}
                 <div class=" m-[0_0_28px_0] w-[300px] h-[0px]"></div>
 
-                <form id="updateForm" method="POST" action="{{ route('user.update', $residence->id) }}"  enctype="multipart/form-data">
+                <form id="updateForm" method="POST" action="{{ route('user.update', $residence->id) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
-                        <img id="profileImage" src="{{asset( Auth::user()->image ) ?? 'https://via.placeholder.com/60' }}"
+                        <img id="profileImage" src="{{ asset(Auth::user()->image) ?? 'https://via.placeholder.com/60' }}"
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">
@@ -250,21 +251,26 @@
             </div>
             <div class="mb-[2.5rem]">
                 <div>
-                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">Sélectionnez un rôle</label>
-                    <select id="role" name="role" class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
+                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">Sélectionnez un
+                        rôle</label>
+                    <select id="role" name="role"
+                        class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
                         @foreach ($roles as $role)
                             <option value="{{ $role }}">{{ ucfirst($role) }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mt-4">
-                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail d'utilisateur</label>
-                    <input type="email" id="email" name="email" class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
+                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail
+                        d'utilisateur</label>
+                    <input type="email" id="email" name="email"
+                        class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
                         placeholder="Exemple@synditchat.com" required>
                 </div>
             </div>
             <div class="mt-6">
-                <button type="submit" class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
+                <button type="submit"
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
             </div>
         </form>
     </div>
@@ -285,12 +291,15 @@
                 </button>
             </div>
             <div class="my-[2.5rem]">
-                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail d'utilisateur</label>
-                <input type="email" id="email" name="email" class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
+                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail
+                    d'utilisateur</label>
+                <input type="email" id="email" name="email"
+                    class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
                     placeholder="Exemple@synditchat.com" required>
             </div>
             <div>
-                <button type="submit" class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
+                <button type="submit"
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
             </div>
         </form>
     </div>

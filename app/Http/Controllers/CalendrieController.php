@@ -56,6 +56,9 @@ class CalendrieController extends Controller
 
     public function getEvents(Residence $residence = null, $view = false)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
         // Superadmin and admin can view events for any residence
         if (Auth::user()->hasAnyRole(['superadmin', 'admin'])) {
             // If residence is passed, get events for that residence, otherwise get all events

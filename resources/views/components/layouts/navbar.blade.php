@@ -12,7 +12,9 @@
 @else
 <p>No residence selected.</p>
 @endif --}}
-
+{{-- @php
+echo $user
+@endphp --}}
 <div class="relative flex flex-row justify-between w-full p-5 bg-white rounded-[20px] mb-7 box-border">
     <div class="flex">
         {{-- @if ($residence_all) --}}
@@ -115,7 +117,7 @@
                     class="m-[10px_26.2px_10px_0] w-[42px] h-[30px]">
                 <div
                     class="m-[6px_20px_6px_0] inline-block text-right break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[16px] text-[#6F7D93]">
-                    {{ $user->nom }} {{ $user->prenom }}<br />
+                    {{ $user->name }} {{ $user->prenom }}<br />
                     {{-- Propriétaire --}} {{ $user->roles[0]->name ?? 'role' }}
                 </div>
 
