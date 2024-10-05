@@ -14,22 +14,25 @@ class InfocomController extends Controller
 
     public function index()
     {
-        $users = User::where('residence_id', Auth::user()->residence_id)->get(); 
+        $users = User::where('residence_id', Auth::user()->residence_id)->get();
         $residence = Residence::findOrFail(Auth::user()->residence_id);
-
-        $infoComs = InfoCom::where('user_id', Auth::user()->id)->get();
+        $infoComs = InfoCom::where('user_id', Auth::user()->id)
+            ->where('residence_id', $residence->id)
+            ->get();
 
         return view('infocom.index', compact('users', 'infoComs', 'residence'));
-    }   
-    
+    }
+
 
     public function getInfocom(Residence $residence)
     {
         $users = User::where('residence_id', $residence->id)->get();
-        $infoComs = InfoCom::where('user_id', Auth::user()->id)->get();
-        return view("infocom.index")->with(["residence"=>$residence, "users"=>$users, "infoComs"=>$infoComs]);
+        $infoComs = InfoCom::where('user_id', Auth::user()->id)
+            ->where('residence_id', $residence->id)
+            ->get();
+        return view("infocom.index")->with(["residence" => $residence, "users" => $users, "infoComs" => $infoComs]);
     }
-    
+
 
     public function store(Request $request)
     {
@@ -40,12 +43,12 @@ class InfocomController extends Controller
             'user_id' => 'required|string', // Accept 'all' or user ID as string
             'residence_id' => 'required|exists:residences,id',
         ]);
-    
+
         // Check if 'Send to All Users' option was selected
         if ($validatedData['user_id'] === 'all') {
             // Fetch all users linked to the selected residence
             $users = User::where('residence_id', $validatedData['residence_id'])->get();
-    
+
             // Create an InfoCom for each user in the residence
             foreach ($users as $user) {
                 InfoCom::create([
@@ -56,7 +59,7 @@ class InfocomController extends Controller
                     'date_info' => today(), // Use Laravel helper for current date/time
                 ]);
             }
-    
+
             // Redirect back with a success message
             return redirect()->route('infocom.index')->with('success', 'InfoCom added for all users successfully');
         } else {
@@ -68,20 +71,17 @@ class InfocomController extends Controller
                 'residence_id' => $validatedData['residence_id'],
                 'date_info' => today(), // Use Laravel helper for current date/time
             ]);
-    
+
             // Redirect back with a success message
             return redirect()->route('infocom.index')->with('success', 'InfoCom added successfully');
         }
     }
-    
-    
+
+
 
     public function destroy(User $user)
     {
         $user->delete();
         return redirect()->route('infocom.index');
     }
-
-
-    
 }

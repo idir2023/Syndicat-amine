@@ -41,14 +41,9 @@ Route::get('/index', function () {
 Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.index');
 
 
-Route::prefix('/infocom')->group(function () {
-    // Route to list all InfoComs
-    Route::get('/', [InfocomController::class, 'index'])->name('infocom.index'); 
-    // Route to store InfoCom (no need to prefix /infocom)
-    Route::post('/store', [InfocomController::class, 'store'])->name('infocom.store');
-    // Route to get InfoCom for a specific residence
-    Route::get('/{residence}', [InfocomController::class, 'getInfocom'])->name('infocom.residence');
-});
+Route::get('/infocom', [InfocomController::class, 'index'])->name('infocom.index');
+Route::post('/infocom-store', [InfocomController::class, 'store'])->name('infocom.store');
+Route::get('/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
 
 Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
 Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');

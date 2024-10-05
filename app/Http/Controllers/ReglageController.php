@@ -78,6 +78,10 @@ class ReglageController extends Controller
                 })));
             })
             ->get();
+            // $residence_id = Auth::user()->residence_id;
+            // if ($residence->id != $residence_id) {
+            //     abort(403, 'Unauthorized access to this residence.');
+            // }
 
             // dd($residence);
 

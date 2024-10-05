@@ -21,6 +21,7 @@
 
         <!-- Content Section -->
         <div class="flex flex-row justify-between">
+            
             <div class="flex flex-col items-center pr-[20px] w-full ">
                 <!-- Info Block 1 -->
                 @foreach ($infoComs as $infocom)
@@ -42,7 +43,6 @@
 
             <!-- Add Info Section -->
             @role('superadmin|admin|manager principal|manger')
-
             <form
                 class="shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[20px] bg-white p-[16.5px_0_18px_0] flex flex-col w-full max-w-[330px]"
                 method="POST" action="{{ route('infocom.store') }}" enctype="multipart/form-data">

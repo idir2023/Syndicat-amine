@@ -8,7 +8,7 @@
         <div class="bg-[url('../assets/images/filter_11.png')] bg-center bg-cover bg-no-repeat w-[16px] h-[16px]"></div>
     </button>
 
-    <form action="{{ route('reclamations.residence', request()->route('residence') ?? Auth::user()->residence->id) }}" method="GET">
+    <form action="{{ route('document.residence', request()->route('residence') ?? Auth::user()->residence->id) }}" method="GET">
 
             <!-- Modal -->
         <div x-show="open" @click.away="open = false" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" style="display: none;">
