@@ -39,9 +39,14 @@ Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.
 
 
 
-Route::get('/infocom', [InfocomController::class, 'index'])->name('infocom.index');
-Route::post('/infocom-store', [InfocomController::class, 'store'])->name('infocom.store');
-Route::get('/{residence}',[InfocomController::class, 'getInfocom'])->name('infocom.residence');
+Route::prefix('/infocom')->group(function () {
+    // Route to list all InfoComs
+    Route::get('/', [InfocomController::class, 'index'])->name('infocom.index'); 
+    // Route to store InfoCom (no need to prefix /infocom)
+    Route::post('/store', [InfocomController::class, 'store'])->name('infocom.store');
+    // Route to get InfoCom for a specific residence
+    Route::get('/{residence}', [InfocomController::class, 'getInfocom'])->name('infocom.residence');
+});
 
 
 Route::get('/tchat', [TchatController::class, 'index'])->name('tchat.index');
@@ -54,8 +59,6 @@ Route::prefix('/inventaire')->group(function () {
     Route::put('/update/{id}', [InventaireController::class, 'update'])->name('inventaire.update');
 
 });
-
-
 
 // Route::get('/reglages', [ReglageController::class, 'index'])->name('reglages.index');
 Route::get('/reglages/{residence}', [ReglageController::class, 'show'])->name('reglages.show');
