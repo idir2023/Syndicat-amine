@@ -13,8 +13,7 @@ class Inventaire extends Model
     protected $fillable = [
         'nom',
         'details',
-        'date_achat',
-        'date_prochain_achat',
+        'date',
         "residence_id"
     ];
 

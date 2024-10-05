@@ -10,27 +10,59 @@ use Illuminate\Support\Facades\Auth;
 
 class DocumentController extends Controller
 {
+    public int $pageNumber=3;
+
+    private function filter(Request $request, $query, $titleField = 'titre', $dateField = 'created_at') {
+        if ($request->has("name")) {
+            $title = $request->input('name');
+            $query = $query->where($titleField, 'LIKE', "%" . $title . "%");
+        }
+
+        if ($request->has("order")) {
+            $order = $request->input("order");
+
+            switch ($order) {
+                case 'alphabetical_asc':
+                    $query = $query->orderBy($titleField);
+                    break;
+
+                case 'alphabetical_desc':
+                    $query = $query->orderByDesc($titleField);
+                    break;
+
+                case 'numeric_asc':
+                    $query = $query->orderBy($dateField);
+                    break;
+
+                case 'numeric_desc':
+                    $query = $query->orderByDesc($dateField);
+                    break;
+
+                default:
+                    break;
+            }
+        } else {
+            $query = $query->orderByDesc($dateField);
+        }
+
+        return $query;
+    }
+
+
     public function show_type(string $type, Residence $residence)
     {
         $types = ["Compte rendu", "Facture et devis", "Autres"];
 
-        if ($type=="tous") {
-            $documents = Document::where('residence_id', $residence->id)
-            ->get();
+        // Fetch documents based on the type filter
+        $documentsQuery = Document::where('residence_id', $residence->id);
 
-        return view('document.document')->with([
-            'residence' => $residence,
-            'types' => $types,
-            'documents' => $documents
-        ]);
+        if ($type !== "tous") {
+            $documentsQuery->where('type', $type);
         }
 
-        // Fetch documents for the selected residence and type
-        $documents = Document::where('residence_id', $residence->id)
-            ->where('type', $type)
-            ->get();
+        $documents = $documentsQuery->paginate($this->pageNumber);
 
-        return view('document.document')->with([
+        return view('document.document', [
             'residence' => $residence,
             'types' => $types,
             'documents' => $documents
@@ -38,27 +70,44 @@ class DocumentController extends Controller
     }
 
 
-    public function index(Request $request):View{
 
+    public function index(Request $request):View{
         $user = Auth::user();
         $types = ["Compte rendu","Facture et devis","Autres" ];
         if ($user->residence) {
             $residence = $user->residence;
 
-            return view("document.document")->with(["residence"=>$residence , "types"=>$types , "documents"=>$residence->documents]);
+            return view("document.document")->with(["residence"=>$residence , "types"=>$types , "documents"=>$residence->documents()->paginate($this->pageNumber)]);
         }else if($user->hasRole('admin|superadmin')){
             $residence = Residence::first();
-            return view("document.document")->with(["residence"=>$residence, "types"=>$types, "documents"=>$residence->documents]);
+            return view("document.document")->with(["residence"=>$residence, "types"=>$types, "documents"=>$residence->documents()->paginate($this->pageNumber)]);
         }
         return  view("document.document");
 
     }
 
-    public function getDocument(Residence $residence):View{
-        $types = ["Compte rendu","Facture et devis","Autres" ];
+    // public function getDocument(Residence $residence):View{
+    //     $types = ["Compte rendu","Facture et devis","Autres" ];
 
-        return view("document.document")->with(["residence"=>$residence, "types"=>$types, "documents"=>$residence->documents]);
+    //     return view("document.document")->with(["residence"=>$residence, "types"=>$types, "documents"=>$residence->documents()->paginate($this->pageNumber)]);
 
+    // }
+
+    public function getDocument(Request $request, Residence $residence): View {
+        $types = ["Compte rendu", "Facture et devis", "Autres"];
+
+        $documentsQuery = $residence->documents();
+
+        // Apply the filters for documents
+        $documentsQuery = $this->filter($request, $documentsQuery, 'titre', 'created_at');
+
+        $documents = $documentsQuery->paginate($this->pageNumber)->appends($request->all());
+
+        return view("document.document")->with([
+            "residence" => $residence,
+            "types" => $types,
+            "documents" => $documents
+        ]);
     }
 
 

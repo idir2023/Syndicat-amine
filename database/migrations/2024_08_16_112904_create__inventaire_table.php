@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('inventaires', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->text('details');
-            $table->date('date_achat');
-            $table->date('date_prochain_achat');
+            $table->string('date');
             $table->foreignId('residence_id')->constrained()->onDelete('cascade');
 
 

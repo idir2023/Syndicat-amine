@@ -1,4 +1,4 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 <!-- main -->
 @section('content')
 <div class="rounded-[20px] bg-[#FFFFFF] relative m-[0_0_10px_0] flex flex-col p-[17.5px_70px_20px_15px] w-[fit-content] box-sizing-border">
@@ -50,4 +50,4 @@
     </div>
 </div>
 
-@endsection --}}
+@endsection

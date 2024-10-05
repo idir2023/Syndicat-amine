@@ -80,13 +80,27 @@ class ReclamationController extends Controller
 
 
 
-    public function getReclamations(Residence $residence){
+    public function getReclamations(Request $request, Residence $residence) {
         $user = Auth::user();
 
-        $reclamations = $residence->reclamations()->with('commentaires.reclamation.residence', 'residence')->paginate($this->pageNumber);
+        if(!$user) {
+            return view("login");
+        }
 
-        return view("reclamation.reclamation")->with( ["reclamations"=>$reclamations  ,"user"=>$user, "residence_id"=>$residence->id]);
+        $query = $residence->reclamations()->with('commentaires.reclamation.residence', 'residence');
+
+        // Apply filters
+        $query = $this->filter($request, $query);
+
+        $reclamations = $query->paginate($this->pageNumber)->appends($request->all());
+        
+        return view("reclamation.reclamation")->with([
+            "reclamations" => $reclamations,
+            "user" => $user,
+            "residence_id" => $residence->id
+        ]);
     }
+
 
 
     public function store(Request $request)
