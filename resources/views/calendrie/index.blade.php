@@ -28,7 +28,7 @@
 
         <!-- Second layout -->
 
-        <div class="w-full rounded-lg flex flex-row box-sizing-border">
+        <div class="w-full rounded-lg flex-row box-sizing-border">
             <!-- Left Section (Calendar with Month and Year Select) -->
             <div class="flex-3/5 flex flex-col bg-white rounded-[20px] shadow-md items-center">
                 <div class="m-5">
@@ -57,7 +57,7 @@
                 <!-- Calendar Container -->
                 <div id="calendar" class="h-[700px] w-[700px]"></div>
             </div>
-            <div id="eventList" class="flex-grow flex-col bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
+            <div id="eventList" class="flex-col bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
                 <!-- Fetched events will be injected here -->
             </div>
         </div>

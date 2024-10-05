@@ -12,36 +12,86 @@ use Illuminate\Http\RedirectResponse;
 
 class InventaireController extends Controller
 {
+    public int $pageNumber=3;
+
+    private function filter(Request $request, $query, $titleField = 'name', $dateField = 'created_at') {
+        if ($request->has("name")) {
+            $title = $request->input('name');
+            $query = $query->where($titleField, 'LIKE', "%" . $title . "%");
+        }
+
+        if ($request->has("order")) {
+            $order = $request->input("order");
+
+            switch ($order) {
+                case 'alphabetical_asc':
+                    $query = $query->orderBy($titleField);
+                    break;
+
+                case 'alphabetical_desc':
+                    $query = $query->orderByDesc($titleField);
+                    break;
+
+                case 'numeric_asc':
+                    $query = $query->orderBy($dateField);
+                    break;
+
+                case 'numeric_desc':
+                    $query = $query->orderByDesc($dateField);
+                    break;
+
+                default:
+                    break;
+            }
+        } else {
+            $query = $query->orderByDesc($dateField);
+        }
+
+        return $query;
+    }
+
+
     public function index(): View
     {
         $user = Auth::user();
 
         if ($user->hasRole('admin|superadmin')) {
             $residence = Residence::first();
-            $inventaires = $residence->inventaires;
+            $inventaires = $residence->inventaires()->paginate($this->pageNumber);;
         }else {
             $residence = $user->residence;
-            $inventaires = $user->residence->inventaires;
+            $inventaires = $user->residence->inventaires()->paginate($this->pageNumber);;
         }
 
         return view('inventaire.index',compact('inventaires','residence'));
     }
 
-    public function getInventaire(Residence $residence)  {
-        $inventaires = $residence->inventaires;
+    // public function getInventaire(Residence $residence)  {
+    //     $inventaires = $residence->inventaires()->paginate($this->pageNumber);
 
-        return view('inventaire.index',compact('inventaires','residence'));
+    //     return view('inventaire.index',compact('inventaires','residence'));
 
+    // }
+
+    public function getInventaire(Request $request, Residence $residence): View
+    {
+        $query = $residence->inventaires();
+
+        // Apply filters
+        $query = $this->filter($request, $query, 'nom', 'created_at');
+
+        // Paginate and append filters
+        $inventaires = $query->paginate($this->pageNumber)->appends($request->all());
+
+        return view('inventaire.index', compact('inventaires', 'residence'));
     }
 
-
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
             'nom' => 'required|string|max:100',
             'details' => 'required|string|max:500',
-            'date_achat' => 'required|date',
-            'date_prochain_achat' => 'required|date|after_or_equal:date_achat',
+            'date' => 'required|string|max:100',
             "residence_id" => "required|exists:residences,id"
         ]);
         try {
