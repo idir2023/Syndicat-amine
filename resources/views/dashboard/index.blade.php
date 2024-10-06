@@ -12,18 +12,17 @@
             @foreach ($roleCounts as $role => $count)
                 @if (Auth::user()->hasAnyRole(['superadmin', 'admin']) ||
                         (Auth::user()->hasAnyRole(['manager principal', 'manager']) && !in_array($role, ['superadmin', 'admin'])))
-                    <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
                         <p class="text-sm text-gray-500 mb-2">{{ $role }}</p>
-                        <h2 class="text-3xl font-bold">{{ $count }}</h2>
+                        <h2 class="text-3xl font-bold text-indigo-600">{{ $count }}</h2>
                     </div>
                 @endif
             @endforeach
 
-            {{--  --}}
             @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
-                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
                     <p class="text-sm text-gray-500 mb-2">Résidence</p>
-                    <h2 class="text-3xl font-bold">{{ $residences }}</h2>
+                    <h2 class="text-3xl font-bold text-indigo-600">{{ $residences }}</h2>
                 </div>
             @endif
         </div>
@@ -50,12 +49,10 @@
                                             <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-full">
                                             <div>
                                                 <span>{{ $user->prenom }} {{ $user->nom }}</span><br>
-                                                <a href="mailto:{{ $user->email }}"
-                                                    class="text-xs text-blue-500">{{ $user->email }}</a>
+                                                <a href="mailto:{{ $user->email }}" class="text-xs text-blue-500">{{ $user->email }}</a>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4">Immeuble {{ $user->Num_Immenble }}, Appartement
-                                            {{ $user->Num_Appartement }}</td>
+                                        <td class="px-6 py-4">Immeuble {{ $user->Num_Immenble }}, Appartement {{ $user->Num_Appartement }}</td>
                                         <td class="px-6 py-4">{{ optional($user->roles->first())->name }}</td>
                                         <td class="px-6 py-4">{{ $user->phone }}</td>
                                     </tr>
@@ -63,16 +60,13 @@
                                     @if (optional($user->roles->first())->name !== 'admin' && optional($user->roles->first())->name !== 'superadmin')
                                         <tr>
                                             <td class="px-6 py-4 flex items-center space-x-3">
-                                                <img src="https://via.placeholder.com/30" alt="Profile"
-                                                    class="rounded-full">
+                                                <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-full">
                                                 <div>
                                                     <span>{{ $user->prenom }} {{ $user->nom }}</span><br>
-                                                    <a href="mailto:{{ $user->email }}"
-                                                        class="text-xs text-blue-500">{{ $user->email }}</a>
+                                                    <a href="mailto:{{ $user->email }}" class="text-xs text-blue-500">{{ $user->email }}</a>
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4">Immeuble {{ $user->Num_Immenble }}, Appartement
-                                                {{ $user->Num_Appartement }}</td>
+                                            <td class="px-6 py-4">Immeuble {{ $user->Num_Immenble }}, Appartement {{ $user->Num_Appartement }}</td>
                                             <td class="px-6 py-4">{{ optional($user->roles->first())->name }}</td>
                                             <td class="px-6 py-4">{{ $user->phone }}</td>
                                         </tr>
@@ -105,7 +99,7 @@
                     @foreach ($infoComs as $infoCom)
                         <li class="flex items-start space-x-2">
                             @if ($infoCom->date_info === $latestDate)
-                                <span class="text-green-500">🟢</span>
+                                <span class="text-green-500 text-xl">🟢</span>
                             @endif
                             <div>
                                 <p class="font-medium text-indigo-600">{{ $infoCom->titre }}</p>
@@ -114,7 +108,6 @@
                         </li>
                     @endforeach
                 </ul>
-
             </div>
         </div>
 
