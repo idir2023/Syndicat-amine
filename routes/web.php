@@ -18,6 +18,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\FormRegisterController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\LocaleController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -33,6 +34,7 @@ Route::get(
     [DashbordController::class, 'index']
 )->name('index');
 
+Route::post('/locale', LocaleController::class)->name('locale.change');
 
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashbordController::class, 'index'])->name('dashboard.index');

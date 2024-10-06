@@ -1,0 +1,45 @@
+<?php
+return [
+    'name' => 'Name',
+    'email' => 'Email',
+    'password' => 'Password',
+    'confirm_password' => 'Confirm Password',
+    'remember_me' => 'Remember Me',
+    'forgot_password' => 'Forgot Password?',
+    'login' => 'Login',
+    'register' => 'Register',
+    'register_now' => 'Register Now',
+    'logout' => 'Logout',
+    'dashboard' => 'Dashboard',
+    'home' => 'Home',
+    'profile' => 'Profile',
+
+    'Règlement'=>'Reglement',
+    'Réglements' => 'Settings',
+    'Sinistre &amp; nuisance' => 'Claims & Nuisance',
+    'Mes_documents' => 'My Documents',
+    'Info’Com' => 'InfoCom',
+    'Tchat' => 'Chat',
+    'Inventaire' => 'Inventory',
+    'Calendrier' => 'Calendar',
+
+    'Residence' => 'Residence',
+    'Useful Contacts' => 'Useful Contacts',
+    'Manager' => 'Manager',
+    'Address' => 'Address',
+    'Role' => 'Role',
+    'Phone' => 'Phone',
+    'No users found.' => 'No users found.',
+    'InfoCom' => 'InfoCom',
+    'Building' => 'Building',
+    'Apartment' => 'Apartment',
+
+    'superadmin' => 'Super Admin',
+    'admin' => 'Admin',
+    'manager' => 'Manager',
+    'manager principal' => 'Principal Manager',
+    'proprietaire' => 'Proprietaire',
+    'resident' => 'Resident',
+
+];
+?>

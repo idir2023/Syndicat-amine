@@ -5,6 +5,15 @@
 
     <div class="flex flex-col w-full p-4 space-y-4">
 
+        <form action="{{ route('locale.change') }}" method="POST">
+            @csrf
+            <select name="locale" onchange="this.form.submit()">
+                <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>English</option>
+                <option value="es"{{ app()->getLocale() == 'ar' ? ' selected' : '' }}>Arabe</option>
+                <!-- Additional language options -->
+            </select>
+        </form>
+
         <!-- First layout -->
         <div class="w-full p-4 rounded-lg flex flex-row justify-between items-center space-x-4">
             <!-- Heading on the left -->
