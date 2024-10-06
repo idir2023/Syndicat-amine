@@ -9,7 +9,7 @@ use App\Models\Residence;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Http\Request;
 class DashbordController extends Controller
 {
     public function index()

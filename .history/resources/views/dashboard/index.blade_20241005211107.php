@@ -7,14 +7,16 @@
 <div class="flex-1 p-8">
 
     <div class="grid grid-cols-6 gap-4 mb-10">
+        @if(Auth::check() && Auth::user()->hasAnyRole(['Super Manager', 'Manager']))
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Super Manager</p>
-            <h2 class="text-3xl font-bold">{{ $superManagerCount }}</h2>
+            <h2 class="text-3xl font-bold">01</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Manager</p>
-            <h2 class="text-3xl font-bold">{{ $managerCount }}</h2>
+            <h2 class="text-3xl font-bold">03</h2>
         </div>
+    @endif
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Propriétaire</p>
             <h2 class="text-3xl font-bold">{{ $proprietaireCount }}</h2>

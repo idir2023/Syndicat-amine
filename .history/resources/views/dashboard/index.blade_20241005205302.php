@@ -6,30 +6,31 @@
 <!-- Main content -->
 <div class="flex-1 p-8">
 
+    <!-- Statistics Section -->
     <div class="grid grid-cols-6 gap-4 mb-10">
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Super Manager</p>
-            <h2 class="text-3xl font-bold">{{ $superManagerCount }}</h2>
+            <h2 class="text-3xl font-bold">01</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Manager</p>
-            <h2 class="text-3xl font-bold">{{ $managerCount }}</h2>
+            <h2 class="text-3xl font-bold">03</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Propriétaire</p>
-            <h2 class="text-3xl font-bold">{{ $proprietaireCount }}</h2>
+            <h2 class="text-3xl font-bold">12</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Résident</p>
-            <h2 class="text-3xl font-bold">{{ $residentCount }}</h2>
+            <h2 class="text-3xl font-bold">14</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Admin</p>
-            <h2 class="text-3xl font-bold">{{ $adminCount }}</h2>
+            <h2 class="text-3xl font-bold">06</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Résidences</p>
-            <h2 class="text-3xl font-bold">{{ $residenceCount }}</h2>
+            <h2 class="text-3xl font-bold">122</h2>
         </div>
     </div>
 
