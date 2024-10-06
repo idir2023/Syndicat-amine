@@ -1,5 +1,5 @@
     @role('superadmin|admin|manager principal|manger')
-        <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data" class="min-w-[350px]">
             @csrf
 
             <div
