@@ -27,6 +27,8 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        // Store login time in session
+        $request->session()->put('login_time', now());
 
         return redirect()->intended(route('index', absolute: false));
     }
