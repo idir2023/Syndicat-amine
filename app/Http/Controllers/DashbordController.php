@@ -20,10 +20,6 @@ class DashbordController extends Controller
 
         // Vérifier si residence_id existe
         $user = Auth::user();
-        if (!$user->residence_id) {
-            return redirect()->route('some.route')->withErrors('Residence ID is not set.'); // Gérer le cas où residence_id est null
-        }
-
         // Récupérer la résidence de l'utilisateur
         $residence = Residence::findOrFail($user->residence_id);
 
