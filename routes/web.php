@@ -18,32 +18,32 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\FormRegisterController;
 use App\Http\Controllers\GroupController;
-
-
-
+use App\Http\Controllers\LocaleController;
 
 Route::get('/', function () {
     // return view('welcome');
     return view('auth.connect');
-
 });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
+Route::get(
+    '/index',
+    [DashbordController::class, 'index']
+)->name('index');
 
+Route::post('/locale', LocaleController::class)->name('locale.change');
 
-// Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.index');
-Route::get('/dashboard', [DashbordController::class, 'index'])->name('dashboard.index');
-
+Route::prefix('/dashboard')->group(function () {
+    Route::get('/', [DashbordController::class, 'index'])->name('dashboard.index');
+    Route::get('/{residence}', [DashbordController::class, 'getDashbord'])->name('dashboard.residence');
+});
 
 Route::prefix('/infocom')->group(function () {
     // Route to list all InfoComs
-    Route::get('/', [InfocomController::class, 'index'])->name('infocom.index'); 
+    Route::get('/', [InfocomController::class, 'index'])->name('infocom.index');
     // Route to store InfoCom (no need to prefix /infocom)
     Route::post('/store', [InfocomController::class, 'store'])->name('infocom.store');
     // Route to get InfoCom for a specific residence
@@ -61,7 +61,6 @@ Route::prefix('/inventaire')->group(function () {
     Route::post('/', action: [InventaireController::class, 'store'])->name('inventaire.store');
     Route::get('/{residence}', [InventaireController::class, 'getInventaire'])->name('inventaire.residence');
     Route::put('/update/{id}', [InventaireController::class, 'update'])->name('inventaire.update');
-
 });
 
 // Route::get('/reglages', [ReglageController::class, 'index'])->name('reglages.index');
@@ -134,23 +133,21 @@ Route::group(['prefix' => '/calendar'], function () {
 // Route::resource('regelements', RegelementController::class);
 
 
-Route::group(['prefix'=> '/reclamation'], function () {
-    Route::get('',[ReclamationController::class, 'index'])->name('reclamations');
-    Route::post('',[ReclamationController::class, 'store'])->name('reclamations.store');
-    Route::get('/{residence}',[ReclamationController::class, 'getReclamations'])->name('reclamations.residence');
+Route::group(['prefix' => '/reclamation'], function () {
+    Route::get('', [ReclamationController::class, 'index'])->name('reclamations');
+    Route::post('', [ReclamationController::class, 'store'])->name('reclamations.store');
+    Route::get('/{residence}', [ReclamationController::class, 'getReclamations'])->name('reclamations.residence');
     //add comment
-    Route::post('/commentaire',[CommentaireController::class, 'store'])->name('commentaires.store');
-
+    Route::post('/commentaire', [CommentaireController::class, 'store'])->name('commentaires.store');
 });
 
-Route::group(['prefix'=> '/document'], function () {
-    Route::get('',[DocumentController::class, 'index'])->name('document.index');
-    Route::post('',[DocumentController::class, 'store'])->name('document.store');
-    Route::get('/{residence}',[DocumentController::class, 'getDocument'])->name('document.residence');
-    Route::post('',[DocumentController::class, 'store'])->name('document.store');
+Route::group(['prefix' => '/document'], function () {
+    Route::get('', [DocumentController::class, 'index'])->name('document.index');
+    Route::post('', [DocumentController::class, 'store'])->name('document.store');
+    Route::get('/{residence}', [DocumentController::class, 'getDocument'])->name('document.residence');
+    Route::post('', [DocumentController::class, 'store'])->name('document.store');
 
-    Route::get('type/{type}/{residence}',[DocumentController::class, 'show_type'])->name('document.type');
-
+    Route::get('type/{type}/{residence}', [DocumentController::class, 'show_type'])->name('document.type');
 });
 
 
@@ -161,4 +158,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

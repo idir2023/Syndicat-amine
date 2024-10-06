@@ -67,7 +67,7 @@ class InfocomController extends Controller
                     'user_id' => $user->id, // Assign the current user in the loop
                     'residence_id' => $validatedData['residence_id'],
                     'from_id' => null,
-                    'date_info' => today(), // Use Laravel helper for current date/time
+                    'date_info' => now(), // Use Laravel helper for current date/time
                 ]);
             }
 
@@ -81,7 +81,7 @@ class InfocomController extends Controller
                 'user_id' => $validatedData['user_id'], // Only the selected user
                 'residence_id' => $validatedData['residence_id'],
                 'from_id' => Auth::id(),
-                'date_info' => today(), // Use Laravel helper for current date/time
+                'date_info' => now(), // Use Laravel helper for current date/time
             ]);
 
             // Redirect back with a success message
