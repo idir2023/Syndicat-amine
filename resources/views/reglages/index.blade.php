@@ -4,21 +4,11 @@
     <x-layouts.navbar :user="Auth::user()" route="reglages.show" :residence="$residence"></x-layouts.navbar>
 
     <div class="flex flex-col w-full p-4 space-y-4">
-
-        <form action="{{ route('locale.change') }}" method="POST">
-            @csrf
-            <select name="locale" onchange="this.form.submit()">
-                <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>English</option>
-                <option value="es"{{ app()->getLocale() == 'ar' ? ' selected' : '' }}>Arabe</option>
-                <!-- Additional language options -->
-            </select>
-        </form>
-
         <!-- First layout -->
         <div class="w-full p-4 rounded-lg flex flex-row justify-between items-center space-x-4">
             <!-- Heading on the left -->
             <h2 class="inline-block break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                Contacts utiles
+                {{ __('messages.Contacts utiles') }}
             </h2>
 
             <!-- Buttons on the right -->
@@ -29,7 +19,7 @@
                     <button id="openModalBtnUser"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            Ajouter utilisateur +
+                            {{__('messages.Ajouter utilisateur')}} +
                         </span>
                     </button>
                 @endrole
@@ -38,7 +28,8 @@
                     <button id="openModalBtnAdmin"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            Ajouter admin +
+                            {{__('messages.Ajouter admin')}} +
+
                         </span>
                     </button>
                 @endrole
@@ -47,9 +38,6 @@
 
         </div>
 
-
-
-
         <!-- Second layout -->
         <div class="w-full rounded-lg flex flex-row box-sizing-border  ">
             <!-- Left Section (Table) -->
@@ -57,14 +45,22 @@
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr>
-                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">GESTIONNAIRE
+                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">
+                                {{__('messages.Manager')}}
                             </th>
-                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">ADRESSE</th>
-                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">ROLE</th>
+                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">
+                                {{__('messages.Address')}}
+                            </th>
+                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
+                                {{__('messages.Role')}}
+                            </th>
                             @role('superadmin|admin|manager principal|manager')
-                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">TELEPHONE
+                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
+                                    {{__('messages.Phone')}}
                                 </th>
-                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">ACTION</th>
+                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
+                                    {{__('messages.ACTION')}}
+                                </th>
                             @endrole
                         </tr>
                     </thead>
@@ -81,15 +77,15 @@
                                     </div>
                                 </td>
                                 <td class="p-2 text-left">
-                                    <p class="font-['Inter'] font-semibold text-[12px] text-[rgba(58,65,111,0.8)]">Immeuble
+                                    <p class="font-['Inter'] font-semibold text-[12px] text-[rgba(58,65,111,0.8)]">{{__('messages.Immeuble')}}
                                         {{ $user->Num_Immenble }}</p>
-                                    <p class="text-[12px] text-[#6F7D93]">Appartement {{ $user->Num_Appartement }}</p>
+                                    <p class="text-[12px] text-[#6F7D93]">{{__('messages.Appartement')}} {{ $user->Num_Appartement }}</p>
                                 </td>
                                 <td class="p-2 text-center">
                                     @foreach ($user->roles as $role)
-                                        <span
-                                            class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
-                                    @endforeach
+                                    <span
+                                    class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ __('messages.' . $role->name) }}</span>
+                                     @endforeach
                                 </td>
                                 @role('superadmin|admin|manager principal|manager')
                                     <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">{{ $user->phone }}
@@ -101,7 +97,7 @@
                                             @method('DELETE')
                                             <button type="submit"
                                                 class="font-['Inter'] text-[12px] text-[#6F7D93] hover:text-[#3e4044]">
-                                                Supprimer
+                                                {{__('messages.Supprimer')}}
                                             </button>
                                         </form>
                                     </td>
@@ -118,7 +114,8 @@
             <div class="flex-grow bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
                 <h2
                     class="mb-6 inline-block self-start break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                    Mon Profil</h2>
+                    
+                    {{__('messages.Profil')}}</h2>
 
                 <!-- Image taking full width -->
                 {{-- focus on this part --}}
@@ -144,14 +141,14 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                Prénom:</h3>
+                                {{__('messages.Prénom')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->prenom }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                Nom:</h3>
+                                {{__('messages.Nom')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->nom }}
                             </p>
@@ -163,14 +160,14 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                Immeuble:</h3>
+                                {{__('messages.Immeuble')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Immenble }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                Appartement:</h3>
+                                {{__('messages.Appartement')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Appartement }}</p>
                         </div>
@@ -179,7 +176,7 @@
                     <!-- Role -->
                     <div class="mb-6">
                         <h3 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                            Role:
+                            {{__('messages.Role')}}:
                         </h3>
                         <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                             {{ Auth::user()->getRoleNames()->first() }}</p>
@@ -191,7 +188,7 @@
                     <div class="flex justify-between items-center mb-6">
                         <div>
                             <h3 class="m-[0_7.5px_0_0] break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                Numéro de Téléphone:
+                                {{__('messages.Phone')}}:
                             </h3>
                             <p id="phoneDisplay" class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->phone }}
@@ -209,7 +206,7 @@
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="m-[0_7.5px_0_0] break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                Password:
+                                {{__('messages.Password')}}:
                             </h3>
                             <p id="passwordDisplay"
                                 class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
@@ -238,54 +235,48 @@
 
             </div>
         </div>
-    </div>
-
 
     </div>
+
 
     <!-- Modal structure -->
     <div id="userModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
-        <form action="{{ route('admin.users.store') }}" method="POST"
-            class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+        <form action="{{ route('admin.users.store') }}" method="POST" class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
             @csrf
             <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">Ajouter un utilisateur</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{ __('messages.Ajouter un utilisateur') }}</h2>
                 <button type="button" id="closeModalBtn" class="text-gray-500 hover:text-gray-700">
                     &times;
                 </button>
             </div>
             <div class="text-[#6F7D93] font-semibold my-[2.5rem]">
-                <p>Résidence {{ $residence->nomResidence }}</p>
+                <p>{{ __('messages.Résidence') }} {{ $residence->nomResidence }}</p>
             </div>
             <div class="mb-[2.5rem]">
                 <div>
-                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">Sélectionnez un
-                        rôle</label>
-                    <select id="role" name="role"
-                        class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
+                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">
+                        {{ __('messages.Role') }}
+                    </label>
+                    <select id="role" name="role" class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
                         @foreach ($roles as $role)
-                            <option value="{{ $role }}">{{ ucfirst($role) }}</option>
+                            <option value="{{ $role }}">{{ ucfirst(__('messages.' . $role)) }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mt-4">
-                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail
-                        d'utilisateur</label>
-                    <input type="email" id="email" name="email"
-                        class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
-                        placeholder="Exemple@synditchat.com" required>
+                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">
+                        {{ __('messages.EnterUserEmail') }}
+                    </label>
+                    <input type="email" id="email" name="email" class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" placeholder="{{ __('messages.ExampleEmail') }}" required>
                 </div>
             </div>
             <div class="mt-6">
-                <button type="submit"
-                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
+                <button type="submit" class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{ __('messages.Add') }}</button>
             </div>
         </form>
     </div>
-
-
-
+    
 
     <!-- Modal structure -->
     <div id="adminModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
@@ -294,26 +285,25 @@
             @csrf
             <input type="hidden" name="role" value="admin">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">Ajouter un admin</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{ __('messages.Ajouter admin') }}</h2>
                 <button type="button" id="closeModalBtnAdmin" class="text-gray-500 hover:text-gray-700 close-modal-btn">
                     &times;
                 </button>
             </div>
             <div class="my-[2.5rem]">
-                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail
-                    d'utilisateur</label>
+                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">
+                    {{ __('messages.EnterUserEmail') }}
+                </label>
                 <input type="email" id="email" name="email"
                     class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
                     placeholder="Exemple@synditchat.com" required>
             </div>
             <div>
                 <button type="submit"
-                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{ __('messages.Add') }}</button>
             </div>
         </form>
     </div>
-
-
 
 
     <script>
