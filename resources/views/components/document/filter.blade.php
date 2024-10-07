@@ -3,7 +3,7 @@
     <!-- Button to open the modal -->
     <button @click="open = true" class="rounded-[8px] bg-gradient-to-r from-[#9EAFCE] to-[#697C9B] relative flex flex-row p-[4px_18px_4px_19px]">
         <div class="mr-2 font-['Inter'] font-medium text-[12px] text-white">
-            Filter
+            {{ __('messages.Filter') }}
         </div>
         <div class="bg-[url('../assets/images/filter_11.png')] bg-center bg-cover bg-no-repeat w-[16px] h-[16px]"></div>
     </button>

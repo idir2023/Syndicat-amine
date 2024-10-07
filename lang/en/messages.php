@@ -87,5 +87,25 @@ return [
     'Role' => 'Role',
     'EnterUserEmail' => 'Enter User Email',
     'ExampleEmail' => 'Example@synditchat.com',
+    'Jour_entier'=> 'Full Day',
+
+    'ajouter_document' => 'Add document',
+    'Sélectionnez_document_type' => 'Select document type',
+    'Compte_rendu' => 'Report',
+    'Facture_et_devis' => 'Invoice and quote',
+    'Autres' => 'Others',
+    'Entrez_le_titre' => 'Enter the title',
+    'Titre_du_document' => 'Document title',
+    'Importez_le_document' => 'Import the document',
+    'Importer_votre_fichier' => 'Import your file',
+    'Ajouter_un_commentaire' => 'Add a comment',
+    'Ajoutez_un_commentaire' => 'Add a comment',
+    'Envoyer' => 'Send',
+    'all_documents' => 'All Documents',
+    'Autres' => 'Others',
+    'Compte rendu' => 'Report',
+    'Facture et devis' => 'Invoice and quote',
+    'Filter' => 'Filter',
+
 
 ];

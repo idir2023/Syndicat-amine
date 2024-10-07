@@ -24,7 +24,7 @@
 
     <div class="mt-4 flex items-center justify-between gap-2">
         <label for="{{ $isUpdate ? 'toggleSwitch_update' : 'toggleSwitch' }}"
-            class="text-sm text-[#6F7D93] font-semibold">Jour entier</label>
+            class="text-sm text-[#6F7D93] font-semibold">{{ __('messages.Jour_entier') }}</label>
         <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" id="{{ $isUpdate ? 'toggleSwitch_update' : 'toggleSwitch' }}" name="jour_entier"
                 class="sr-only peer">
