@@ -13,12 +13,10 @@ class DashbordController extends Controller
 {
     public function index()
     {
-        // Vérifier si l'utilisateur est authentifié
         if (!Auth::check()) {
-            return redirect()->route('login'); // Rediriger si non authentifié
+            return redirect()->route('login'); 
         }
 
-        // Vérifier si residence_id existe
         $user = Auth::user();
         // Récupérer la résidence de l'utilisateur
         $residence = Residence::findOrFail($user->residence_id);

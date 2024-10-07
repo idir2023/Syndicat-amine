@@ -28,7 +28,7 @@
         </div>
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'dashboard.index') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
-            {{ __('messages.Tableau de Bord') }}
+            {{ __('messages.dashboard') }}
         </span>
     </a>
     <a href="{{ route('regelement.show', $residenceId) }}"

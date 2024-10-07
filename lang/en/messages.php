@@ -14,7 +14,7 @@ return [
     'home' => 'Home',
     'profile' => 'Profile',
 
-    'Règlement'=>'Reglement',
+    'Règlement' => 'Reglement',
     'Réglements' => 'Settings',
     'Sinistre &amp; nuisance' => 'Claims & Nuisance',
     'Mes_documents' => 'My Documents',
@@ -41,5 +41,51 @@ return [
     'proprietaire' => 'Proprietaire',
     'resident' => 'Resident',
 
+    'Contacts utiles' => 'Useful Contacts',
+    'Ajouter utilisateur' => 'Add User ',
+    'Ajouter admin' => 'Add Admin ',
+    'GESTIONNAIRE' => 'Manager',
+    'ADRESSE' => 'Address',
+    'ROLE' => 'Role',
+    'TELEPHONE' => 'Phone',
+    'ACTION' => 'Action',
+    'Supprimer' => 'Delete',
+    'Prénom' => 'First Name',
+    'Nom' => 'Last Name',
+    'Immeuble' => 'Building',
+    'Appartement' => 'Apartment',
+    'Role' => 'Role',
+    'Numéro de Téléphone' => 'Phone Number',
+    'Password' => 'Password',
+    'Save' => 'Save',
+    'Profil' => 'My Profile',
+
+    'Calendrier' => 'Calendar',
+    'Add Event' => 'Add Event +',
+    'Add' => 'Add',
+    'Add Event Title' => 'Add an Event',
+
+    'Enter Event' => 'Enter the event',
+    'Start' => 'Start',
+    'End' => 'End',
+    'Add Note' => 'Add a note',
+
+    'InfoCom' => 'InfoCom',
+    'Filter' => 'Filter',
+    'Add' => 'Add',
+    'SelectRecipient' => 'Select Recipient',
+    'EnterTitle' => 'Enter Title',
+    'EnterDescription' => 'Enter Description',
+    'ExampleTitle' => 'Example: Water cut scheduled on: 23/07/2024',
+    'ExampleDescription' => 'Example: We invite all residents to take the necessary precautions...',
+
+    'ReglementInterieurTitle' => 'Internal Regulations of the Residence : :nomResidence', // English
+    'EditButton' => 'Edit',
+
+    'Ajouter un utilisateur' => 'Add a User',
+    'Résidence' => 'Residence',
+    'Role' => 'Role',
+    'EnterUserEmail' => 'Enter User Email',
+    'ExampleEmail' => 'Example@synditchat.com',
+
 ];
-?>

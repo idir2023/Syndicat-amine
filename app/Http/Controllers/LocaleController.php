@@ -12,7 +12,7 @@ class LocaleController extends Controller
     {
         $locale = $request->input('locale');
 
-        if (in_array($locale, ['en', 'ar'])) {
+        if (in_array($locale, ['en', 'ar','fr'])) {
             Session::put('locale', $locale);
             App::setLocale($locale);
         }
