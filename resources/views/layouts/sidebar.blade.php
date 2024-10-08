@@ -28,7 +28,7 @@
         </div>
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'dashboard.index') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
-            {{ __('messages.dashboard') }}
+            {{ __('dashboard') }}
         </span>
     </a>
     <a href="{{ route('regelement.show', $residenceId) }}"
@@ -41,7 +41,7 @@
         </div>
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px] @if (Route::currentRouteName() == 'regelement.show') font-bold text-[#3C4C7C] @else font-normal  @if (Route::currentRouteName() == 'regelement.show') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif @endif">
-            {{ __('messages.Règlement') }}
+            {{ __('Règlement') }}
         </span>
     </a>
     <a href="{{ route('reclamations.residence', $residenceId) }}"
@@ -55,7 +55,7 @@
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'reclamations') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
 
-            {{ __('messages.Sinistre &amp; nuisance') }}
+            {{ __('Sinistre') }} - {{ __('Nuisance') }}
 
         </span>
     </a>
@@ -69,7 +69,7 @@
         </div>
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'document.index') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
-            {{ __('messages.Mes_documents') }}
+            {{ __('Mes_documents') }}
 
         </span>
     </a>
@@ -83,7 +83,7 @@
         </div>
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'infocom.index') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
-            {{ __('messages.Info’Com') }}
+            {{ __('Info’Com') }}
 
         </span>
     </a>
@@ -104,7 +104,7 @@
         <span
             class="m-[12.5px_0] inline-block break-words font-['Inter'] text-[12px] 
         {{ Route::currentRouteName() == 'tchat.index' ? 'font-bold text-[#3C4C7C]' : 'font-normal text-[#6F7D93]' }}">
-            {{ __('messages.Tchat') }}
+            {{ __('Tchat') }}
 
         </span>
     </a>
@@ -120,7 +120,7 @@
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'inventaire.index') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
 
-            {{ __('messages.Inventaire') }}
+            {{ __('Inventaire') }}
 
         </span>
     </a>
@@ -135,7 +135,7 @@
         </div>
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'events.index') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
-            {{ __('messages.Calendrier') }}
+            {{ __('Calendrier') }}
         </span>
     </a>
     @if ($residenceId)
@@ -149,7 +149,7 @@
             </div>
             <span
                 class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'reglages.show') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
-                {{ __('messages.Réglements') }}
+                {{ __('Réglements') }}
             </span>
         </a>
     @endif

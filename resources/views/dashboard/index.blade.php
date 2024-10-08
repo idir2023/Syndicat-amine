@@ -14,7 +14,7 @@
                         (Auth::user()->hasAnyRole(['manager principal', 'manager']) && !in_array($role, ['superadmin', 'admin'])))
                     <div
                         class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
-                        <p class="text-sm text-gray-500 mb-2">{{ __('messages.' . $role) }}</p>
+                        <p class="text-sm text-gray-500 mb-2">{{ __('' . $role) }}</p>
                         <h2 class="text-3xl font-bold text-indigo-600">{{ $count }}</h2>
                     </div>
                 @endif
@@ -22,7 +22,7 @@
 
             @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
-                    <p class="text-sm text-gray-500 mb-2">{{ __('messages.Residence') }}</p>
+                    <p class="text-sm text-gray-500 mb-2">{{ __('Residence') }}</p>
                     <h2 class="text-3xl font-bold text-indigo-600">{{ $residences }}</h2>
                 </div>
             @endif
@@ -32,19 +32,19 @@
         <div class="flex justify-between space-x-8">
             <!-- Contacts Section -->
             <div class="w-2/3 bg-white rounded-xl shadow-md p-6">
-                <h2 class="text-lg font-semibold text-gray-700 mb-4">{{ __('messages.Useful Contacts') }}</h2>
+                <h2 class="text-lg font-semibold text-gray-700 mb-4">{{ __('Useful Contacts') }}</h2>
                 <div class="overflow-x-auto">
                     <table class="min-w-full table-auto">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-6 py-3 text-left text-gray-600 text-sm font-semibold">
-                                    {{ __('messages.Manager') }}</th>
+                                    {{ __('Manager') }}</th>
                                 <th class="px-6 py-3 text-left text-gray-600 text-sm font-semibold">
-                                    {{ __('messages.Address') }}</th>
+                                    {{ __('Address') }}</th>
                                 <th class="px-6 py-3 text-left text-gray-600 text-sm font-semibold">
-                                    {{ __('messages.Role') }}</th>
+                                    {{ __('Role') }}</th>
                                 <th class="px-6 py-3 text-left text-gray-600 text-sm font-semibold">
-                                    {{ __('messages.Phone') }}</th>
+                                    {{ __('Phone') }}</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 text-gray-700">
@@ -59,10 +59,10 @@
                                                     class="text-xs text-blue-500">{{ $user->email }}</a>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4">{{ __('messages.Building') }} {{ $user->Num_Immenble }},
-                                            {{ __('messages.Apartment') }} {{ $user->Num_Appartement }}</td>
+                                        <td class="px-6 py-4">{{ __('Building') }} {{ $user->Num_Immenble }},
+                                            {{ __('Apartment') }} {{ $user->Num_Appartement }}</td>
                                         <td class="px-6 py-4">
-                                            {{ __('messages.' . optional($user->roles->first())->name) }}</td>
+                                            {{ __('' . optional($user->roles->first())->name) }}</td>
                                         <td class="px-6 py-4">{{ $user->phone }}</td>
                                     </tr>
                                 @else
@@ -77,17 +77,17 @@
                                                         class="text-xs text-blue-500">{{ $user->email }}</a>
                                                 </div>
                                             </td>
-                                            <td class="px-6 py-4">{{ __('messages.Building') }} {{ $user->Num_Immenble }},
-                                                {{ __('messages.Apartment') }} {{ $user->Num_Appartement }}</td>
+                                            <td class="px-6 py-4">{{ __('Building') }} {{ $user->Num_Immenble }},
+                                                {{ __('Apartment') }} {{ $user->Num_Appartement }}</td>
                                             <td class="px-6 py-4">
-                                                {{ __('messages.' . optional($user->roles->first())->name) }}</td>
+                                                {{ __('' . optional($user->roles->first())->name) }}</td>
                                             <td class="px-6 py-4">{{ $user->phone }}</td>
                                         </tr>
                                     @endif
                                 @endif
                             @empty
                                 <tr>
-                                    <td colspan="4" class="px-6 py-4 text-center">{{ __('messages.No users found.') }}
+                                    <td colspan="4" class="px-6 py-4 text-center">{{ __('No users found.') }}
                                     </td>
                                 </tr>
                             @endforelse
@@ -100,7 +100,7 @@
             <div class="w-1/3 bg-white rounded-xl shadow-md p-6">
                 <!-- Title and Date -->
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-lg font-semibold text-gray-700">{{ __('messages.InfoCom') }}</h2>
+                    <h2 class="text-lg font-semibold text-gray-700">{{ __('InfoCom') }}</h2>
                     <span class="text-gray-400 text-xs">{{ now()->format('d/m/Y') }}</span>
                 </div>
 

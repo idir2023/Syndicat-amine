@@ -6,7 +6,7 @@
                 class="shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-[20px] bg-[#FFFFFF] relative m-[0_0_198px_0] flex flex-col p-[16.5px_0_16px_0] box-sizing-border">
                 <div
                     class="m-[0_25px_26.5px_25px] inline-block self-start break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                    Ajouter Votre Déclaration
+                    {{ __('Ajouter Votre Déclaration') }}
                 </div>
                 {{-- display the messages and errors  --}}
                 {{-- <div class="px-2">
@@ -18,7 +18,7 @@
                 </div>
                 <div
                     class="m-[0_25px_19.5px_25px] inline-block self-start break-words font-['Inter'] font-medium text-[12px] text-[#6F7D93]">
-                    Choisissez Type de Déclaration
+                    {{ __('Choisissez Type de Déclaration') }}
                 </div>
 
                 <div class="m-[0_0_25px_0] flex flex-row justify-around self-start w-full box-sizing-border">
@@ -29,7 +29,7 @@
                         <label for="nuisance"
                             class="ml-2 inline-block break-words font-['Inter'] text-[12px] text-[#6F7D93]">
                             <!-- Ajout de margin-left -->
-                            Nuisance
+                            {{ __('Nuisance') }}
                         </label>
                     </div>
                     <div class="flex flex-row box-sizing-border items-center">
@@ -39,36 +39,34 @@
                         <label for="sinistre"
                             class="ml-2 inline-block break-words font-['Inter'] text-[12px] text-[#6F7D93]">
                             <!-- Ajout de margin-left -->
-                            Sinistre
+                            {{ __('Sinistre') }}
                         </label>
                     </div>
                 </div>
-
 
                 <input type="hidden" name="type" id="selectedType" /> <!-- Hidden input for selected type -->
 
 
                 <div class="m-[0_25px_12.5px_25px] font-medium text-[12px] text-[#6F7D93]">
-                    Entrez l’objet de votre déclaration
-                </div>
+                    {{ __('Entrez l’objet de votre déclaration') }} </div>
                 <div class="relative m-[0_25px_29px_25px]">
-                    <input type="text" placeholder="Objet de votre déclaration" id="titre" name="titre"
+                    <input type="text" placeholder="{{__('Objet de votre déclaration')}}" id="titre" name="titre"
                         class="rounded-[8px] border-[1px solid #9EAFCE] bg-[#F1F1F1] p-[12.5px_15px] w-full text-[12px] text-[#A2A2A2]" />
                 </div>
                 <div class="m-[0_25px_12.5px_25px] font-medium text-[12px] text-[#6F7D93]">
-                    Entrez le lieu
+                    {{ __('Entrez le lieu') }}
                 </div>
                 <div class="relative m-[0_25px_29px_25px]">
-                    <input type="text" placeholder="Exemple: Immeuble D" id="lieu" name="lieu"
+                    <input type="text" placeholder="{{__('Exemple: Immeuble D')}}" id="lieu" name="lieu"
                         class="rounded-[8px] border-[1px solid #9EAFCE] bg-[#F1F1F1] p-[12.5px_15px] w-full text-[12px] text-[#A2A2A2]" />
                 </div>
 
                 <div
                     class="m-[0_25px_12.5px_25px] inline-block self-start break-words font-['Inter'] font-medium text-[12px] text-[#6F7D93]">
-                    Descrivez de votre déclaration
+                    {{ __('Descrivez déclaration') }}
                 </div>
                 <div class="relative m-[0_25px_29px_25px] items-center">
-                    <textarea placeholder="Centenu de votre déclaration" id="description" name="description"
+                    <textarea placeholder="{{__('Centenu de votre déclaration')}}" id="description" name="description"
                         class="rounded-[8px] border-[1px_solid_#9EAFCE] bg-[#F1F1F1]  p-[12.5px_15px] inline-block break-words font-['Inter'] font-normal text-[12px] text-[#A2A2A2] box-sizing-border w-full"></textarea>
                     <div class="relative flex items-center justify-end">
                         <!-- Label for image upload -->
@@ -89,7 +87,7 @@
                     <div
                         class="rounded-[60px] border border-[#9EAFCE] bg-[#3C4C7C] flex items-center justify-center p-[11.5px_0_11.5px_0] max-w-[300px] w-full">
                         <span class="break-words font-['Inter'] font-bold text-[14px] text-[#FFFFFF]">
-                            Envoyer
+                            {{ __('Envoyer') }}
                         </span>
                     </div>
                 </button>
