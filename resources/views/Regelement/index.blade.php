@@ -9,7 +9,7 @@
         <div class="w-full rounded-lg flex flex-row justify-between items-center">
             <div class="flex-1 text-white p-2 rounded-lg">
                 <p class="m-[3px_8.5px_4px_0] inline-block break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C] title-selector">
-                    {{ __('messages.ReglementInterieurTitle', ['nomResidence' => $residence->nomResidence]) }}
+                    {{ __('ReglementInterieurTitle', ['nomResidence' => $residence->nomResidence]) }}
                 </p>
             </div>
             <div class="flex-1 text-white p-2 rounded-lg flex items-center justify-end">
@@ -18,7 +18,7 @@
                     <button
                         class="rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] flex flex-row p-[4px_12px_4px_15px] box-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-[0.5px_9.4px_0.5px_0] inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            {{ __('messages.EditButton') }}
+                            {{ __('EditButton') }}
                         </span>
                         <img src="{{ asset('assets/images/edit_41.png') }}" class="w-[16px] h-[16px] ml-2" />
                     </button>

@@ -30,7 +30,7 @@ echo $user
                             (!request()->route('residence') && $user->residence && $user->residence->id == $residence->id)
                                 ? 'selected'
                                 : '' }}>
-                            Résidence {{ $residence->nomResidence }}
+                            {{__('Résidence')}} : {{ $residence->nomResidence }}
                         </option>
                     @endforeach
                 </select>
@@ -48,15 +48,15 @@ echo $user
                     <select name="active"
                         class="box-border rounded-[8px] p-2 w-30 h-[60px] bg-[#E9ECEE] font-['Fredoka_One','Roboto_Condensed'] text-[#6F7D93] font-normal text-[20px] ml-4"
                         onchange="this.form.submit()">
-                        <option value="0" {{ $residencePassed->active == 0 ? 'selected' : '' }}>Active</option>
-                        <option value="1" {{ $residencePassed->active == 1 ? 'selected' : '' }}>Inactive</option>
+                        <option value="0" {{ $residencePassed->active == 0 ? 'selected' : '' }}>{{__('Active')}}</option>
+                        <option value="1" {{ $residencePassed->active == 1 ? 'selected' : '' }}>{{__('Inactive')}}</option>
                     </select>
                 </form>
 
                 <!-- Button to open modal -->
                 <button id="openModalButton"
                     class=" py-2 px-4 flex items-center box-border rounded-[8px] p-2 w-30 h-[60px] bg-[#E9ECEE] font-['Fredoka_One','Roboto_Condensed'] text-[#6F7D93] font-normal text-[20px] ml-4">
-                    Ajouter Résidence +
+                    {{__('Ajouter Résidence')}} +
                 </button>
 
                 <!-- Modal -->
@@ -64,19 +64,19 @@ echo $user
                     <div class="bg-white rounded-lg shadow-lg w-full max-w-sm p-6">
                         <!-- Modal Header -->
                         <div class="flex justify-between items-center border-b pb-2 mb-4">
-                            <h2 class="text-lg font-semibold">Ajouter une résidence</h2>
+                            <h2 class="text-lg font-semibold">{{__('Ajouter Résidence')}}</h2>
                             <button id="closeModalButton" class="text-gray-500 hover:text-gray-800">&times;</button>
                         </div>
 
                         <form action="{{ route('residence.store') }}" method="POST">
                             @csrf
                             <div class="mb-4">
-                                <label for="nomResidence" class="block text-gray-700">Saisir le nom</label>
+                                <label for="nomResidence" class="block text-gray-700">{{__('Saisir nom')}}</label>
                                 <input type="text" name="nomResidence" id="nomResidence"
-                                    class="w-full border rounded p-2" placeholder="Nom du résidence" required>
+                                    class="w-full border rounded p-2" placeholder="{{__('Nom du résidence')}}" required>
                             </div>
                             <div class="flex justify-end">
-                                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Enregistrer</button>
+                                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">{{__('Enregistrer')}}</button>
                             </div>
                         </form>
                     </div>
@@ -97,23 +97,13 @@ echo $user
         @role('manager|resident|proprietaire|manager principal')
             <div
                 class="m-[13.5px_11.5px_13.5px_0] inline-block w-[375px] break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[20px] text-[#6F7D93]">
-                Résidence {{ $user->residence->nomResidence }}
+               {{ __('Résidence')}} {{ $user->residence->nomResidence }}
             </div>
         @endrole
     </div>
 
     {{-- <div class="relative inline-block text-left z-20">{{ $residence_all }}</div> --}}
     {{-- @endif --}}
-
-
-
-
-
-
-
-
-
-
 
 
     <div class="relative  flex-row box-sizing-border">
@@ -127,7 +117,7 @@ echo $user
                 <div
                     class="m-[6px_20px_6px_0] inline-block text-right break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[16px] text-[#6F7D93]">
                     {{ $user->name }} {{ $user->prenom }}<br />
-                    {{-- Propriétaire --}} {{ $user->roles[0]->name ?? 'role' }}
+                    {{-- Propriétaire --}} {{ __($user->roles[0]->name) ?? 'role' }}
                 </div>
 
                 <img src="{{asset( Auth::user()->image ) ?? 'https://via.placeholder.com/60' }}" alt="User Profile"

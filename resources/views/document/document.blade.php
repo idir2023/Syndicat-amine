@@ -44,11 +44,11 @@
                         <select class="m-[3px_8.5px_4px_0]  break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C] border-2 border-[#3c4c7c] rounded p-1"
                             onchange="window.location.href = this.value">
                             <option value="{{ route('document.type', ['type' => 'tous', 'residence' => $residence->id]) }}">
-                                {{ __('messages.all_documents') }}
+                                {{ __('all_documents') }}
                             </option>
                             @foreach ($types as $type)
                                 <option value="{{ route('document.type', ['type' => $type, 'residence' => $residence->id]) }}">
-                                    {{ __('messages.' . $type) }}
+                                    {{ __($type) }}
                                 </option>
                             @endforeach
                         </select>
