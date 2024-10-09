@@ -26,14 +26,15 @@
                 @endrole
             </div>
         </div>
-    
+
         <!-- Second layout -->
         <div class="w-full">
             <!-- Content for the second layout -->
             <div id="editor-container" style="border: none; white-space: pre-wrap;" class="p-5 font-['Inter'] font-normal text-[#6F7D93]">
+                
             </div>
         </div>
-    
+
     </div>
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>

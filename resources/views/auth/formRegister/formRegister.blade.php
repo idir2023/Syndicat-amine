@@ -107,29 +107,34 @@
             </form>
             <div class="w-full flex flex-row justify-between mt-6">
                 <div class="m-4 inline-block break-words font-['Inter'] font-normal text-[12px] text-[#9EAFCE]">
-                    Copyrights © 2024, Synditchat. All Rights Reserved.
+                    @if(isset($appParameters) && $appParameters->copyright)
+                        Copyrights © {{ $appParameters->copyright }}. All Rights Reserved.
+                    @else
+                        Copyrights © {{ date('Y') }}. All Rights Reserved.
+                    @endif
+
                 </div>
                 <div class="flex flex-row box-sizing-border">
-                    <div
+                    <a href="{{ $appParameters->facebook_link  }}"
                         class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
                         <i class="fa-brands fa-facebook text-white"></i>
-                    </div>
-                    <div
+                    </a>
+                    <a                    <a href="{{ $appParameters->instagram_link  }}"
+
                         class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
                         <i class="fa-brands fa-instagram text-white"></i>
-                    </div>
-                    <div
+                    </a>
+                    <a                    <a href="{{ $appParameters->linkedin_link  }}"
+
                         class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
                         <i class="fa-brands fa-linkedin text-white"></i>
-                    </div>
-                    <div
+                    </a>
+                    <a                    <a href="{{ $appParameters->twitter_link  }}"
+
                         class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
                         <i class="fa-brands fa-twitter text-white"></i>
-                    </div>
-                    <div
-                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
-                        <i class="fa-brands fa-whatsapp text-white"></i>
-                    </div>
+                    </a>
+                    
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\FormRegisterController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ParameterController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -28,6 +29,9 @@ Route::get('/', function () {
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
+
+Route::post('/parameter',[ParameterController::class,'updateParameters'])->name('parameters.upadate');
+
 
 Route::get(
     '/index',

@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('parameters', function (Blueprint $table) {
             $table->id();
             $table->string('logo')->nullable();
             $table->string('app_name')->nullable();
             $table->string('copyright')->nullable();
+            $table->string('facebook_link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('linkedin_link')->nullable();
+            $table->string('instagram_link')->nullable();
             $table->timestamps();
         });
     }

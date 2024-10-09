@@ -25,6 +25,7 @@
                 @endrole
                 @role('superadmin')
                     <!-- Second Button -->
+                    <x-parameters.parameter-button class=""></x-parameters.parameter-button>
                     <button id="openModalBtnAdmin"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
@@ -114,7 +115,7 @@
             <div class="flex-grow bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
                 <h2
                     class="mb-6 inline-block self-start break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                    
+
                     {{__('Profil')}}</h2>
 
                 <!-- Image taking full width -->
@@ -276,7 +277,7 @@
             </div>
         </form>
     </div>
-    
+
 
     <!-- Modal structure -->
     <div id="adminModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">

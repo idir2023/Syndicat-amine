@@ -27,9 +27,19 @@ class AppServiceProvider extends ServiceProvider
         // View::share('residences', $residences);
 
         // Retrieve the parameters from the database (you can limit to one or handle multiple rows)
-        $parameters = Parameter::first(); // Assuming you have one row or want the first one
+        $parameters = Parameter::first();
 
-        // Share the parameters with all views
-        View::share('appParameters', $parameters);
+        // Guard if there are no parameters
+        if ($parameters) {
+            // Share the parameters with all views if found
+            View::share('appParameters', $parameters);
+        } else {
+            // Optionally, you can share default values if no parameters exist
+            View::share('appParameters', (object)[
+                'logo' => 'default-logo.png', // Default logo path
+                'app_name' => 'Default App Name' // Default app name
+            ]);
+        }
+
     }
 }
