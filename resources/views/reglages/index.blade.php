@@ -290,6 +290,7 @@
             class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
             @csrf
             <input type="hidden" name="role" value="admin">
+            <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
                 <h2 class="text-lg text-[#3C4C7C] font-semibold">Ajouter un admin</h2>
                 <button type="button" id="closeModalBtnAdmin" class="text-gray-500 hover:text-gray-700 close-modal-btn">

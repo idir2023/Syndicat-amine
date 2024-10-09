@@ -39,7 +39,7 @@ class UserController extends Controller
         }
 
         // Check if the role is either 'superadmin' or 'admin'
-        if (in_array($invitation->role, ['superadmin', 'admin'])) {
+        if (in_array($invitation->role, ['superadmin'])) {
             return view('emails.register.register', [
                 'token' => $token,
                 'email' => $invitation->email,
@@ -47,6 +47,7 @@ class UserController extends Controller
             ]);
         }
         $residence = Residence::findOrFail($invitation->residence_id);
+        // dd($residence);
 
         return view('emails.register.register', [
             'token' => $token,
