@@ -12,7 +12,7 @@
             <div class="flex-1 text-white  rounded-lg">
                 <div
                     class="m-[3px_8.5px_4px_0] inline-block w-[409px] break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                    Sinistres et Nuisances Déclarés au Sein de la Résidence
+                    {{__('Sinistres et Nuisances Déclarés au Sein de la Résidence')}}
                 </div>space-y-4
             </div>
             <div class="flex-1 text-white  rounded-lg flex justify-end">

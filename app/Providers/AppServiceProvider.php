@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Residence;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,10 +21,8 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        //
-        // $residences = Residence::all();
-        // View::share('residences', $residences);
+        App::setLocale(Session::get('locale', config('app.locale')));
     }
 }

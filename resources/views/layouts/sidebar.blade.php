@@ -55,7 +55,7 @@
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'reclamations') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
 
-            {{ __('Sinistre') }} - {{ __('Nuisance') }}
+            {{ __('Sinistre & Nuisance') }}
 
         </span>
     </a>
@@ -91,18 +91,18 @@
     <a href="{{ route(config('chatify.routes.prefix')) }}"
         class="m-[0_15px_25px_15px] flex flex-row self-start w-fit box-sizing-border">
         <div
-            class="shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[8px] 
-        {{ Route::currentRouteName() == config('chatify.routes.prefix') ? 'bg-[#cb0b9e]' : 'bg-[#E9ECEE]' }} 
+            class="shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[8px]
+        {{ Route::currentRouteName() == config('chatify.routes.prefix') ? 'bg-[#cb0b9e]' : 'bg-[#E9ECEE]' }}
         relative m-[0_10px_0_0] flex p-[10px] w-[40px] h-[40px] box-sizing-border">
             <div
                 class="{{ Route::currentRouteName() == config('chatify.routes.prefix')
                     ? 'bg-[url(' . asset('assets/images/message_21.png') . ')]'
-                    : 'bg-[url(' . asset('assets/images/message_31.png') . ')]' }} 
+                    : 'bg-[url(' . asset('assets/images/message_31.png') . ')]' }}
             bg-center bg-cover bg-no-repeat w-[20px] h-[20px]">
             </div>
         </div>
         <span
-            class="m-[12.5px_0] inline-block break-words font-['Inter'] text-[12px] 
+            class="m-[12.5px_0] inline-block break-words font-['Inter'] text-[12px]
         {{ Route::currentRouteName() == 'tchat.index' ? 'font-bold text-[#3C4C7C]' : 'font-normal text-[#6F7D93]' }}">
             {{ __('Tchat') }}
 

@@ -19,6 +19,7 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\FormRegisterController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LocaleController;
+use Illuminate\Support\Facades\Request;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -35,6 +36,8 @@ Route::get(
 )->name('index');
 
 Route::post('/locale', LocaleController::class)->name('locale.change');
+
+Route::post('/import-lang', [LocaleController::class, 'importLang'])->name('importLang');
 
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashbordController::class, 'index'])->name('dashboard.index');
