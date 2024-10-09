@@ -93,7 +93,7 @@
         <div>
             <button type="submit"
                 class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">
-                {{ __('website parameter') }}
+                {{ __('update parameter') }}
             </button>
         </div>
     </form>
