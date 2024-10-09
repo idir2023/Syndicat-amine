@@ -1,4 +1,3 @@
-<!-- resources/views/partials/event-modal.blade.php -->
 @props(['action', 'submitText', 'modalTitle', 'isUpdate' => false, 'residenceId'])
 
 <form action="{{ $action }}" method="POST" class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
@@ -17,15 +16,15 @@
 
     <div class="mt-4">
         <label for="{{ $isUpdate ? 'title_update' : 'title' }}"
-            class="block text-sm text-[#6F7D93] font-semibold mb-2">Saisir l’évenement</label>
+            class="block text-sm text-[#6F7D93] font-semibold mb-2">{{ __('Enter Event') }}</label>
         <input type="text" id="{{ $isUpdate ? 'title_update' : 'title' }}" name="title"
-            class="border rounded-lg w-full py-2 px-3 bg-[#f1f1f1] border-[#dce1e8]" placeholder="Titre d’évnement"
+            class="border rounded-lg w-full py-2 px-3 bg-[#f1f1f1] border-[#dce1e8]" placeholder="{{ __('Enter Event') }}"
             required>
     </div>
 
     <div class="mt-4 flex items-center justify-between gap-2">
         <label for="{{ $isUpdate ? 'toggleSwitch_update' : 'toggleSwitch' }}"
-            class="text-sm text-[#6F7D93] font-semibold">Jour entier</label>
+            class="text-sm text-[#6F7D93] font-semibold">{{ __('Jour_entier') }}</label>
         <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" id="{{ $isUpdate ? 'toggleSwitch_update' : 'toggleSwitch' }}" name="jour_entier"
                 class="sr-only peer">
@@ -37,7 +36,7 @@
 
     <div class="mt-4 flex items-center gap-4">
         <label for="{{ $isUpdate ? 'start_update' : 'start' }}"
-            class="block text-sm text-[#6F7D93] font-semibold w-[120px]">Début</label>
+            class="block text-sm text-[#6F7D93] font-semibold w-[120px]">{{ __('Start') }}</label>
         <input type="text" id="{{ $isUpdate ? 'start_update' : 'start' }}"
             placeholder="Ex: 19 septembre 2020 | 14:00"
             class="flatpickr border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
@@ -46,7 +45,7 @@
 
     <div class="mt-4 flex items-center gap-4">
         <label for="{{ $isUpdate ? 'end_update' : 'end' }}"
-            class="block text-sm text-[#6F7D93] font-semibold w-[120px]">Fin</label>
+            class="block text-sm text-[#6F7D93] font-semibold w-[120px]">{{ __('End') }}</label>
         <input type="text" id="{{ $isUpdate ? 'end_update' : 'end' }}" placeholder="Ex: 19 septembre 2020 | 14:00"
             class="flatpickr border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
         <input type="hidden" id="{{ $isUpdate ? 'end_hidden_update' : 'end_hidden' }}" name="end">
@@ -54,12 +53,11 @@
 
     <div class="mt-4">
         <label for="{{ $isUpdate ? 'note_update' : 'note' }}"
-            class="block text-sm text-[#6F7D93] font-semibold mb-2">Ajouter une note</label>
+            class="block text-sm text-[#6F7D93] font-semibold mb-2">{{ __('Add Note') }}</label>
         <textarea id="{{ $isUpdate ? 'note_update' : 'note' }}" name="note" placeholder="Notes ( Facultatif )"
             class="h-[80px] w-full border-2 p-1 bg-[#f1f1f1] border-[#dce1e8] rounded-lg"></textarea>
     </div>
-    <input type="hidden" name="residence_id" value=" {{ $residenceId }}">
-
+    <input type="hidden" name="residence_id" value="{{ $residenceId }}">
 
     <div class="mt-6">
         <button type="submit"

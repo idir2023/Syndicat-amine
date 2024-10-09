@@ -13,22 +13,22 @@
             <!-- Content for the first layout -->
             <div class="flex-1 text-white">
                 <h2 class="inline-block break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                    Calendrier
+                    {{ __('Calendrier') }}
                 </h2>
             </div>
             <div class="flex-1 text-white flex justify-end">
                 <button id="openModalBtnUser"
                     class="w-[12rem] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                     <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                        Ajouter un évenement +
+                        {{ __('Add Event') }}
                     </span>
                 </button>
             </div>
-        </div>
+        </div>        
 
         <!-- Modal structure -->
         <!-- Create Modal -->
-        <div id="eventModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
+        {{-- <div id="eventModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
             @include('components.events.event-modal', [
                 'action' => route('events.store'),
                 'submitText' => 'Ajouter',
@@ -36,7 +36,18 @@
                 'isUpdate' => false,
                 'residenceId' => $residence,
             ])
+        </div> --}}
+
+        <div id="eventModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
+            @include('components.events.event-modal', [
+                'action' => route('events.store'),
+                'submitText' => __('Add'),  
+                'modalTitle' => __('Add Event Title'), 
+                'isUpdate' => false,
+                'residenceId' => $residence,
+            ])
         </div>
+        
 
 
         <!-- Second layout -->

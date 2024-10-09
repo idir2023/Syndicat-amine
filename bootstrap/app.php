@@ -15,7 +15,13 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([           
             'check_session_expiration' => \App\Http\Middleware\CheckSessionExpiration::class,
         ]);
-    })
-->withExceptions(function (Exceptions $exceptions) {
+        $middleware->web(append:[
+            \App\Http\Middleware\LocaleMiddleware::class,
+        ]);
+        
+    })->withEvents(discover: [
+        __DIR__.'/../app/Domain/Listeners',
+    ])
+    ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

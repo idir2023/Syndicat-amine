@@ -42,7 +42,7 @@
                         class="rounded-[8px] bg-[linear-gradient(90deg,#80C637,#34B734)] relative flex flex-row p-[4.5px_12px_4.5px_15px] box-sizing-border hover:bg-[linear-gradient(90deg,#34B734,#80C637)] transition duration-300 ease-in-out transform hover:scale-105"
                         type="button">
                         <span class="m-[0_4.3px_0_0] break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            Enregistrer
+                            {{__('Enregistrer')}}
                         </span>
                         <div
                             class="bg-[url('{{ asset('assets/images/save_1.png') }}')] bg-[50%_50%] bg-cover bg-no-repeat m-[1.5px_0_1.5px_0] w-[12px] h-[12px]">

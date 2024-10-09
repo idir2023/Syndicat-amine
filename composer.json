@@ -9,12 +9,14 @@
         "laravel/framework": "^11.9",
         "laravel/reverb": "^1.0",
         "laravel/tinker": "^2.9",
+        "mcamara/laravel-localization": "^2.0",
         "munafio/chatify": "^1.6",
         "spatie/laravel-permission": "^6.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.23",
+        "laravel-lang/common": "^6.3",
         "laravel/breeze": "^2.1",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.26",
