@@ -29,7 +29,7 @@
                         <label for="nuisance"
                             class="ml-2 inline-block break-words font-['Inter'] text-[12px] text-[#6F7D93]">
                             <!-- Ajout de margin-left -->
-                            {{ __('Nuisance') }}
+                            {{ __('nuisance') }}
                         </label>
                     </div>
                     <div class="flex flex-row box-sizing-border items-center">
@@ -39,7 +39,7 @@
                         <label for="sinistre"
                             class="ml-2 inline-block break-words font-['Inter'] text-[12px] text-[#6F7D93]">
                             <!-- Ajout de margin-left -->
-                            {{ __('Sinistre') }}
+                            {{ __('sinistre') }}
                         </label>
                     </div>
                 </div>

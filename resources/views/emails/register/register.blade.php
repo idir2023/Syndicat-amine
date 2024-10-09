@@ -42,7 +42,7 @@
             <input type="hidden" name="email" value="{{ $email }}">
             <input type="hidden" name="role" value="{{ $role }}">
             <input type="hidden" name="token" value="{{ $token }}">
-            @if (in_array($role, ['resident', 'manager', 'manager principal']))
+            @if (in_array($role, ['resident', 'manager', 'manager principal','admin']))
                 <input type="hidden" name="residence_id" value="{{ $residence->id }}">
             @endif
 

@@ -62,7 +62,7 @@
         <span
             class="m-[12.5px_0_12.5px_0] inline-block break-words font-['Inter'] text-[12px]  @if (Route::currentRouteName() == 'reclamations') font-bold text-[#3C4C7C] @else font-normal text-[#6F7D93] @endif">
 
-            {{ __('Sinistre') }} - {{ __('Nuisance') }}
+            {{ __('Sinistre & Nuisance') }}
 
         </span>
     </a>

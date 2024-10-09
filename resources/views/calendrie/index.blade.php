@@ -78,11 +78,11 @@
                 </div>
 
                 <!-- Image taking full width -->
-                focus on this part 
+                focus on this part
                 <div class=" m-[0_0_28px_0] w-[300px] h-[0px]"></div>
                 {{-- {{ $today }} --}}
         {{-- @foreach ($events as $event)
-                    {{-- {{ $event }} 
+                    {{-- {{ $event }}
                     <div class="flex flex-row items-center m-3 justify-between">
                         <div class="flex flex-col flex-2/3 p-2 font-medium text-[12px] text-[#6F7D93]">
                             <p>{{ $event->title }}</p>
@@ -97,11 +97,11 @@
                             <img src="{{ asset('assets/images/edit_57.png') }}" class="w-[12px] h-[12px]" alt="Edit icon">
                         </button>
                     </div>
-                @endforeach 
-                
-                
-            </div> 
-                
+                @endforeach
+
+
+            </div>
+
             </div> --}}
 
 
@@ -128,7 +128,7 @@
             @include('components.events.event-modal', [
                 // 'action' => $event ? route('events.update', $event) : null,
                 'action' => route('events.store'),
-            
+
                 'submitText' => 'Modifier',
                 'modalTitle' => 'Modifier un évenement',
                 'isUpdate' => true,
@@ -359,9 +359,9 @@
                         <p>${event.title}</p>
                         <p>${event.formatted_start} - ${event.formatted_end}</p>
                     </div>
-                    <button data-id="${event.id}" 
-                            data-title="${event.title}" data-start="${event.start}" 
-                            data-end="${event.end}" data-note="${event.note}" 
+                    <button data-id="${event.id}"
+                            data-title="${event.title}" data-start="${event.start}"
+                            data-end="${event.end}" data-note="${event.note}"
                             class="edit-button">
                         <img src="/assets/images/edit_57.png" class="w-[12px] h-[12px]" alt="Edit icon">
                     </button>
