@@ -14,7 +14,8 @@ class Residence extends Model
     protected $fillable = [
         'nomResidence',
         'titre_regelement',
-        'description'
+        'description',
+        'active'
     ];
 
     public function users(): hasMany

@@ -60,46 +60,51 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
-                            <tr class="border-b">
-                                <td class="p-2 flex items-center space-x-2 text-left">
-                                    <img src="https://via.placeholder.com/40" alt="User Profile"
-                                        class="rounded-[8px] w-[40px] h-[40px] bg-cover bg-center">
-                                    <div>
-                                        <p class="font-['Inter'] font-semibold text-[12px] text-[#3A416F]">
-                                            {{ $user->prenom }} {{ $user->nom }}</p>
-                                        <p class="text-[12px] text-[#6F7D93]">{{ $user->email }}</p>
-                                    </div>
+                    {{-- @php
+                    dd($users)
+                    @endphp --}}
+                    @if (!empty($users) && $users->count() > 0)
+                    @foreach ($users as $user)
+                        <tr class="border-b">
+                            <td class="p-2 flex items-center space-x-2 text-left">
+                                <img src="{{ $user->image ? asset($user->image) : 'https://via.placeholder.com/40' }}"
+                                    alt="User Profile" class="rounded-[8px] w-[40px] h-[40px] bg-cover bg-center">
+                                <div>
+                                    <p class="font-['Inter'] font-semibold text-[12px] text-[#3A416F]">
+                                        {{ $user->prenom }} {{ $user->nom }}</p>
+                                    <p class="text-[12px] text-[#6F7D93]">{{ $user->email }}</p>
+                                </div>
+                            </td>
+                            <td class="p-2 text-left">
+                                <p class="font-['Inter'] font-semibold text-[12px] text-[rgba(58,65,111,0.8)]">
+                                    Immeuble {{ $user->Num_Immenble }}</p>
+                                <p class="text-[12px] text-[#6F7D93]">Appartement {{ $user->Num_Appartement }}</p>
+                            </td>
+                            <td class="p-2 text-center">
+                                @foreach ($user->roles as $role)
+                                    <span
+                                        class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
+                                @endforeach
+                            </td>
+                            @role('superadmin|admin|manager principal|manager')
+                                <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">
+                                    {{ $user->phone }}
                                 </td>
-                                <td class="p-2 text-left">
-                                    <p class="font-['Inter'] font-semibold text-[12px] text-[rgba(58,65,111,0.8)]">Immeuble
-                                        {{ $user->Num_Immenble }}</p>
-                                    <p class="text-[12px] text-[#6F7D93]">Appartement {{ $user->Num_Appartement }}</p>
+                                <td class="p-2 text-center text-red-600 cursor-pointer">
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                        onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="font-['Inter'] text-[12px] text-[#6F7D93] hover:text-[#3e4044]">Supprimer</button>
+                                    </form>
                                 </td>
-                                <td class="p-2 text-center">
-                                    @foreach ($user->roles as $role)
-                                        <span
-                                            class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
-                                    @endforeach
-                                </td>
-                                @role('superadmin|admin|manager principal|manager')
-                                    <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">{{ $user->phone }}
-                                    </td>
-                                    <td class="p-2 text-center text-red-600 cursor-pointer">
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
-                                            onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="font-['Inter'] text-[12px] text-[#6F7D93] hover:text-[#3e4044]">
-                                                Supprimer
-                                            </button>
-                                        </form>
-                                    </td>
-                                @endrole
+                            @endrole
+                        </tr>
+                    @endforeach
+                @endif
+                
 
-                            </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -120,7 +125,8 @@
                     @csrf
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
-                        <img id="profileImage" src="{{ asset(Auth::user()->image) ?? 'https://via.placeholder.com/60' }}"
+                        <img id="profileImage"
+                            src="{{ Auth::user()->image ? asset(Auth::user()->image) : 'https://via.placeholder.com/60' }}"
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">
@@ -144,7 +150,7 @@
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
                                 Nom:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
-                                {{ Auth::user()->nom }}
+                                {{ Auth::user()->name }}
                             </p>
                         </div>
                     </div>
