@@ -91,7 +91,7 @@ echo $user
                 <option value="ar"{{ app()->getLocale() == 'ar' ? ' selected' : '' }}>العربية</option>
                 <option value="fr"{{ app()->getLocale() == 'fr' ? ' selected' : '' }}>Français</option>
             </select>
-        </form>        
+        </form>
 
         {{-- @else --}}
         @role('manager|resident|proprietaire|manager principal')

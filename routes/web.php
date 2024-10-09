@@ -39,6 +39,9 @@ Route::post('/locale', LocaleController::class)->name('locale.change');
 
 Route::post('/import-lang', [LocaleController::class, 'importLang'])->name('importLang');
 
+// Route::get('/locale/form', [LocaleController::class, 'showForm'])->name('locale.form');
+
+
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashbordController::class, 'index'])->name('dashboard.index');
     Route::get('/{residence}', [DashbordController::class, 'getDashbord'])->name('dashboard.residence');
