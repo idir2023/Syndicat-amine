@@ -39,9 +39,9 @@ echo $user
 
             @if (Route::is('reglages.show'))
                 <!-- Select bar HTML code -->
-                @php
+                {{-- @php
                     $residencePassed = $residence;
-                @endphp
+                @endphp --}}
                 <form action="{{ route('residence.update-status', $residencePassed->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -120,7 +120,7 @@ echo $user
                     {{-- Propriétaire --}} {{ __($user->roles[0]->name) ?? 'role' }}
                 </div>
 
-                <img src="{{asset( Auth::user()->image ) ?? 'https://via.placeholder.com/60' }}" alt="User Profile"
+                <img src="{{ $user->image ? asset($user->image) : 'https://via.placeholder.com/60' }}" alt="User Profile"
                     class="w-[50px] h-[50px] rounded-full bg-cover bg-center">
                 {{-- <div class="w-[50px] h-[50px] rounded-full bg-cover bg-center"
                     style="background-image: url({{ asset($user->image) }})">

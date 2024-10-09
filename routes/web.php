@@ -21,10 +21,11 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Request;
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('auth.connect');
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('auth.connect');
+
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -96,8 +97,8 @@ Route::post('/regelement/update/{id}', [ResidenceController::class, 'update'])->
 
 // Register form
 // Route::get('/inscription', [ResidenceController::class, 'show'])->name('formRegister');
-Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
-Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
+Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister')->withoutMiddleware([\App\Http\Middleware\EnsureAuthenticated::class]);
+Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister')->withoutMiddleware([\App\Http\Middleware\EnsureAuthenticated::class]);;
 
 Route::post('/admin/users/store', [InvitationController::class, 'store'])->name('admin.users.store');
 Route::get('/inscription-termine', [UserController::class, 'index'])->name('register.user');

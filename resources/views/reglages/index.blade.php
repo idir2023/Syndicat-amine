@@ -4,34 +4,13 @@
     <x-layouts.navbar :user="Auth::user()" route="reglages.show" :residence="$residence"></x-layouts.navbar>
 
     <div class="flex flex-col w-full p-4 space-y-4">
+
         <!-- First layout -->
         <div class="w-full p-4 rounded-lg flex flex-row justify-between items-center space-x-4">
             <!-- Heading on the left -->
             <h2 class="inline-block break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                {{ __('Useful Contacts') }}
+                Contacts utiles
             </h2>
-
-            <form action="{{ route('importLang') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-4">
-                    <label for="lang_file" class="block text-sm font-medium text-gray-700 mb-2">{{__('Upload Language File')}}:</label>
-                    <input
-                        type="file"
-                        name="lang_file"
-                        id="lang_file"
-                        accept=".json"
-                        required
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    >
-                </div>
-
-                <button
-                    type="submit"
-                    class="py-2 px-4 bg-indigo-600 font-semibold text-xs text-white uppercase tracking-widest rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
-                >
-                    {{__('Upload')}}
-                </button>
-            </form>
 
             <!-- Buttons on the right -->
 
@@ -41,7 +20,7 @@
                     <button id="openModalBtnUser"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            {{ __('Ajouter utilisateur') }} +
+                            Ajouter utilisateur +
                         </span>
                     </button>
                 @endrole
@@ -50,8 +29,7 @@
                     <button id="openModalBtnAdmin"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            {{ __('Ajouter admin') }} +
-
+                            Ajouter admin +
                         </span>
                     </button>
                 @endrole
@@ -59,6 +37,10 @@
 
 
         </div>
+
+
+
+
         <!-- Second layout -->
         <div class="w-full rounded-lg flex flex-row box-sizing-border  ">
             <!-- Left Section (Table) -->
@@ -66,68 +48,63 @@
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr>
-                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">
-                                {{ __('Manager') }}
+                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">GESTIONNAIRE
                             </th>
-                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">
-                                {{ __('Address') }}
-                            </th>
-                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
-                                {{ __('Role') }}
-                            </th>
+                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">ADRESSE</th>
+                            <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">ROLE</th>
                             @role('superadmin|admin|manager principal|manager')
-                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
-                                    {{ __('Phone') }}
+                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">TELEPHONE
                                 </th>
-                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
-                                    {{ __('ACTION') }}
-                                </th>
+                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">ACTION</th>
                             @endrole
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
-                            <tr class="border-b">
-                                <td class="p-2 flex items-center space-x-2 text-left">
-                                    <img src="https://via.placeholder.com/40" alt="User Profile"
-                                        class="rounded-[8px] w-[40px] h-[40px] bg-cover bg-center">
-                                    <div>
-                                        <p class="font-['Inter'] font-semibold text-[12px] text-[#3A416F]">
-                                            {{ $user->prenom }} {{ $user->nom }}</p>
-                                        <p class="text-[12px] text-[#6F7D93]">{{ $user->email }}</p>
-                                    </div>
+                    {{-- @php
+                    dd($users)
+                    @endphp --}}
+                    @if (!empty($users) && $users->count() > 0)
+                    @foreach ($users as $user)
+                        <tr class="border-b">
+                            <td class="p-2 flex items-center space-x-2 text-left">
+                                <img src="{{ $user->image ? asset($user->image) : 'https://via.placeholder.com/40' }}"
+                                    alt="User Profile" class="rounded-[8px] w-[40px] h-[40px] bg-cover bg-center">
+                                <div>
+                                    <p class="font-['Inter'] font-semibold text-[12px] text-[#3A416F]">
+                                        {{ $user->prenom }} {{ $user->nom }}</p>
+                                    <p class="text-[12px] text-[#6F7D93]">{{ $user->email }}</p>
+                                </div>
+                            </td>
+                            <td class="p-2 text-left">
+                                <p class="font-['Inter'] font-semibold text-[12px] text-[rgba(58,65,111,0.8)]">
+                                    Immeuble {{ $user->Num_Immenble }}</p>
+                                <p class="text-[12px] text-[#6F7D93]">Appartement {{ $user->Num_Appartement }}</p>
+                            </td>
+                            <td class="p-2 text-center">
+                                @foreach ($user->roles as $role)
+                                    <span
+                                        class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
+                                @endforeach
+                            </td>
+                            @role('superadmin|admin|manager principal|manager')
+                                <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">
+                                    {{ $user->phone }}
                                 </td>
-                                <td class="p-2 text-left">
-                                    <p class="font-['Inter'] font-semibold text-[12px] text-[rgba(58,65,111,0.8)]">
-                                        {{ __('Immeuble') }}
-                                        {{ $user->Num_Immenble }}</p>
-                                    <p class="text-[12px] text-[#6F7D93]">{{ __('Appartement') }}
-                                        {{ $user->Num_Appartement }}</p>
+                                <td class="p-2 text-center text-red-600 cursor-pointer">
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                        onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="font-['Inter'] text-[12px] text-[#6F7D93] hover:text-[#3e4044]">Supprimer</button>
+                                    </form>
                                 </td>
-                                <td class="p-2 text-center">
-                                    @foreach ($user->roles as $role)
-                                        <span
-                                            class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ __('' . $role->name) }}</span>
-                                    @endforeach
-                                </td>
-                                @role('superadmin|admin|manager principal|manager')
-                                    <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">{{ $user->phone }}
-                                    </td>
-                                    <td class="p-2 text-center text-red-600 cursor-pointer">
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
-                                            onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="font-['Inter'] text-[12px] text-[#6F7D93] hover:text-[#3e4044]">
-                                                {{ __('Supprimer') }}
-                                            </button>
-                                        </form>
-                                    </td>
-                                @endrole
+                            @endrole
+                        </tr>
+                    @endforeach
+                @endif
+                
 
-                            </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -137,8 +114,7 @@
             <div class="flex-grow bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
                 <h2
                     class="mb-6 inline-block self-start break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-
-                    {{ __('Profil') }}</h2>
+                    Mon Profil</h2>
 
                 <!-- Image taking full width -->
                 {{-- focus on this part --}}
@@ -149,7 +125,8 @@
                     @csrf
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
-                        <img id="profileImage" src="{{ asset(Auth::user()->image) ?? 'https://via.placeholder.com/60' }}"
+                        <img id="profileImage"
+                            src="{{ Auth::user()->image ? asset(Auth::user()->image) : 'https://via.placeholder.com/60' }}"
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">
@@ -164,16 +141,16 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{ __('Prénom') }}:</h3>
+                                Prénom:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->prenom }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{ __('name') }}:</h3>
+                                Nom:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
-                                {{ Auth::user()->nom }}
+                                {{ Auth::user()->name }}
                             </p>
                         </div>
                     </div>
@@ -183,14 +160,14 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{ __('Immeuble') }}:</h3>
+                                Immeuble:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Immenble }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{ __('Appartement') }}:</h3>
+                                Appartement:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Appartement }}</p>
                         </div>
@@ -199,7 +176,7 @@
                     <!-- Role -->
                     <div class="mb-6">
                         <h3 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                            {{ __('Role') }}:
+                            Role:
                         </h3>
                         <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                             {{ Auth::user()->getRoleNames()->first() }}</p>
@@ -211,7 +188,7 @@
                     <div class="flex justify-between items-center mb-6">
                         <div>
                             <h3 class="m-[0_7.5px_0_0] break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{ __('Phone') }}:
+                                Numéro de Téléphone:
                             </h3>
                             <p id="phoneDisplay" class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->phone }}
@@ -229,7 +206,7 @@
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="m-[0_7.5px_0_0] break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{ __('Password') }}:
+                                Password:
                             </h3>
                             <p id="passwordDisplay"
                                 class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
@@ -258,9 +235,10 @@
 
             </div>
         </div>
-
     </div>
 
+
+    </div>
 
     <!-- Modal structure -->
     <div id="userModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
@@ -269,41 +247,41 @@
             @csrf
             <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{ __('Ajouter un utilisateur') }}</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">Ajouter un utilisateur</h2>
                 <button type="button" id="closeModalBtn" class="text-gray-500 hover:text-gray-700">
                     &times;
                 </button>
             </div>
             <div class="text-[#6F7D93] font-semibold my-[2.5rem]">
-                <p>{{ __('Résidence') }} {{ $residence->nomResidence }}</p>
+                <p>Résidence {{ $residence->nomResidence }}</p>
             </div>
             <div class="mb-[2.5rem]">
                 <div>
-                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">
-                        {{ __('Role') }}
-                    </label>
+                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">Sélectionnez un
+                        rôle</label>
                     <select id="role" name="role"
                         class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
                         @foreach ($roles as $role)
-                            <option value="{{ $role }}">{{ ucfirst(__('' . $role)) }}</option>
+                            <option value="{{ $role }}">{{ ucfirst($role) }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mt-4">
-                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">
-                        {{ __('EnterUserEmail') }}
-                    </label>
+                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail
+                        d'utilisateur</label>
                     <input type="email" id="email" name="email"
                         class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
-                        placeholder="{{ __('ExampleEmail') }}" required>
+                        placeholder="Exemple@synditchat.com" required>
                 </div>
             </div>
             <div class="mt-6">
                 <button type="submit"
-                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{ __('Add') }}</button>
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
             </div>
         </form>
     </div>
+
+
 
 
     <!-- Modal structure -->
@@ -312,26 +290,28 @@
             class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
             @csrf
             <input type="hidden" name="role" value="admin">
+            <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{ __('Ajouter admin') }}</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">Ajouter un admin</h2>
                 <button type="button" id="closeModalBtnAdmin" class="text-gray-500 hover:text-gray-700 close-modal-btn">
                     &times;
                 </button>
             </div>
             <div class="my-[2.5rem]">
-                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">
-                    {{ __('EnterUserEmail') }}
-                </label>
+                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">Entrez adresse E-mail
+                    d'utilisateur</label>
                 <input type="email" id="email" name="email"
                     class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
                     placeholder="Exemple@synditchat.com" required>
             </div>
             <div>
                 <button type="submit"
-                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{ __('Add') }}</button>
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">Ajouter</button>
             </div>
         </form>
     </div>
+
+
 
 
     <script>
