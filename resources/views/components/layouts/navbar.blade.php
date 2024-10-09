@@ -39,9 +39,9 @@ echo $user
 
             @if (Route::is('reglages.show'))
                 <!-- Select bar HTML code -->
-                {{-- @php
+                @php
                     $residencePassed = $residence;
-                @endphp --}}
+                @endphp
                 <form action="{{ route('residence.update-status', $residencePassed->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -84,16 +84,6 @@ echo $user
             @endif
         @endrole
 
-
-
-        {{-- @else --}}
-        {{-- @role('manager|resident|proprietaire|manager principal')
-            <div
-                class="m-[13.5px_11.5px_13.5px_0] inline-block w-[375px] break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[20px] text-[#6F7D93]">
-               {{ __('Résidence')}} {{ $user->residence->nomResidence }}
-            </div>
-        @endrole --}}
-
         <form action="{{ route('locale.change') }}" method="POST" class="inline-block">
             @csrf
             <select name="locale" onchange="this.form.submit()" class="border ml-5 mt-2 border-gray-300 rounded-lg py-2 px-4 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -101,7 +91,7 @@ echo $user
                 <option value="ar"{{ app()->getLocale() == 'ar' ? ' selected' : '' }}>العربية</option>
                 <option value="fr"{{ app()->getLocale() == 'fr' ? ' selected' : '' }}>Français</option>
             </select>
-        </form>
+        </form>   
 
         {{-- @else --}}
         @role('manager|resident|proprietaire|manager principal')
@@ -110,7 +100,6 @@ echo $user
                {{ __('Résidence')}} {{ $user->residence->nomResidence }}
             </div>
         @endrole
-        </form>
     </div>
 
     {{-- <div class="relative inline-block text-left z-20">{{ $residence_all }}</div> --}}
@@ -131,7 +120,7 @@ echo $user
                     {{-- Propriétaire --}} {{ __($user->roles[0]->name) ?? 'role' }}
                 </div>
 
-                <img src="{{ $user->image ? asset($user->image) : 'https://via.placeholder.com/60' }}" alt="User Profile"
+                <img src="{{asset( Auth::user()->image ) ?? 'https://via.placeholder.com/60' }}" alt="User Profile"
                     class="w-[50px] h-[50px] rounded-full bg-cover bg-center">
                 {{-- <div class="w-[50px] h-[50px] rounded-full bg-cover bg-center"
                     style="background-image: url({{ asset($user->image) }})">
