@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
+use App\Models\Parameter;
 use App\Models\Residence;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -48,14 +49,15 @@ class DocumentController extends Controller
         return $query;
     }
 
-
     public function show_type(string $type, Residence $residence)
     {
+        $selctiontype = $type;
         $types = ["Compte rendu", "Facture et devis", "Autres"];
 
         // Fetch documents based on the type filter
         $documentsQuery = Document::where('residence_id', $residence->id);
 
+        // If 'tous' is selected, we don't need to add any filters.
         if ($type !== "tous") {
             $documentsQuery->where('type', $type);
         }
@@ -65,9 +67,11 @@ class DocumentController extends Controller
         return view('document.document', [
             'residence' => $residence,
             'types' => $types,
-            'documents' => $documents
+            'documents' => $documents,
+            "activeType" => $selctiontype
         ]);
     }
+
 
 
 
@@ -93,12 +97,13 @@ class DocumentController extends Controller
 
     // }
 
-    public function getDocument(Request $request, Residence $residence): View {
+    public function getDocument(Request $request, Residence $residence) {
+
         if (!Auth::check()) {
             return redirect()->route('login');
         }
         if (!Auth::user()->hasAnyRole(['superadmin', 'admin'])) {
-    
+
             // Regular users can only view events for their own residence
             $residence_id = Auth::user()->residence_id;
 
@@ -106,7 +111,7 @@ class DocumentController extends Controller
             if ($residence && $residence->id != $residence_id) {
                 abort(403, 'Unauthorized access to this residence.');
         }}
-        
+
         $types = ["Compte rendu", "Facture et devis", "Autres"];
 
         $documentsQuery = $residence->documents();

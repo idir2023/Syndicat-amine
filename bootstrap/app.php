@@ -12,11 +12,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->alias([           
+            'check_session_expiration' => \App\Http\Middleware\CheckSessionExpiration::class,
+        ]);
         $middleware->web(append:[
             \App\Http\Middleware\LocaleMiddleware::class,
         ]);
-    })
-    ->withEvents(discover: [
+        
+    })->withEvents(discover: [
         __DIR__.'/../app/Domain/Listeners',
     ])
     ->withExceptions(function (Exceptions $exceptions) {

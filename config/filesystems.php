@@ -74,6 +74,8 @@ return [
         public_path('reclamations') => storage_path('app/public/reclamations'),
         public_path('documents') => storage_path('app/public/documents'),
         public_path('profile_images') => storage_path('app/public/profile_images'),
+        public_path(path: 'logo') => storage_path(path: 'app/public/logo'),
+
     ],
 
 ];

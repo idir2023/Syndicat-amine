@@ -10,7 +10,7 @@
 
             <div
                 class="m-[7.5px_7.5px_7.5px_0] inline-block break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                <span class="capitalize">{{ $data->type }}</span> : {{ $data->titre }}
+                <span class="capitalize">{{ __($data->type) }}</span> : {{ $data->titre }}
             </div>
             <div>
                 <span class="text-right break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
@@ -80,7 +80,7 @@
 
                     <div
                         class="rounded-[40px] border-[1px_solid_#9EAFCE] bg-[#F1F1F1] relative m-[0_8px_0_0] p-[12.5px_15px_12.5px_15px] w-full box-sizing-border">
-                        <input type="text" placeholder="Centenu de votre commentaire" id="text" name="text"
+                        <input type="text" placeholder="{{__('Centenu de votre commentaire')}}" id="text" name="text"
                             class="rounded-[8px] border-[1px_solid_#9EAFCE] bg-[#F1F1F1] m-[0_120px_0_0] inline-block break-words font-['Inter'] font-normal text-[12px] text-[#A2A2A2] box-sizing-border w-full" />
                         <input name="reclamation_id" value="{{ $data->id }}" type="hidden">
 
@@ -89,7 +89,7 @@
                         <div
                             class="rounded-[60px] border-[1px_solid_#9EAFCE] bg-[#3C4C7C] relative flex p-[12.5px_0_12.5px_0] w-full min-w-[160px] box-sizing-border justify-center">
                             <span class="break-words font-['Inter'] font-bold text-[12px] text-[#FFFFFF]">
-                                Ajouter un commentaire
+                                {{__('Ajouter un commentaire')}}
                             </span>
                         </div>
                     </button>

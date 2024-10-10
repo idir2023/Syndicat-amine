@@ -84,7 +84,14 @@ echo $user
             @endif
         @endrole
 
-           
+        <form action="{{ route('locale.change') }}" method="POST" class="inline-block">
+            @csrf
+            <select name="locale" onchange="this.form.submit()" class="border ml-5 mt-2 border-gray-300 rounded-lg py-2 px-4 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <option value="en"{{ app()->getLocale() == 'en' ? ' selected' : '' }}>English</option>
+                <option value="ar"{{ app()->getLocale() == 'ar' ? ' selected' : '' }}>العربية</option>
+                <option value="fr"{{ app()->getLocale() == 'fr' ? ' selected' : '' }}>Français</option>
+            </select>
+        </form>   
 
         {{-- @else --}}
         @role('manager|resident|proprietaire|manager principal')

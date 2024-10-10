@@ -56,11 +56,11 @@ class InvitationController extends Controller
         ]);
 
         // Include residenceId in the link
-        if($role == "admin"){
-            $link = route('register.user') . '?token=' . $token ;
-        }else{
+        // if($role == "admin"){
+        //     $link = route('register.user') . '?token=' . $token ;
+        // }else{
             $link = route('register.user') . '?token=' . $token . '&residenceId=' . $residence_id;
-        }
+        // }
 
         try {
             Mail::to($email)->send(new InvitationMail($link));

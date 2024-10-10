@@ -5,7 +5,7 @@
         <div class="mr-2 font-['Inter'] font-medium text-[12px] text-white">
             {{ __('Filter') }}
         </div>
-        <div class="bg-[url('../assets/images/filter_11.png')] bg-center bg-cover bg-no-repeat w-[16px] h-[16px]"></div>
+        <div class="bg-[url('{{ asset("../assets/images/filter_11.png") }}')] bg-center bg-cover bg-no-repeat w-[16px] h-[16px]"></div>
     </button>
 
     <form action="{{ route('document.residence', request()->route('residence') ?? Auth::user()->residence->id) }}" method="GET">

@@ -24,7 +24,7 @@
                     </span>
                 </button>
             </div>
-        </div>        
+        </div>
 
         <!-- Modal structure -->
         <!-- Create Modal -->
@@ -41,13 +41,13 @@
         <div id="eventModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
             @include('components.events.event-modal', [
                 'action' => route('events.store'),
-                'submitText' => __('Add'),  
-                'modalTitle' => __('Add Event Title'), 
+                'submitText' => __('Add'),
+                'modalTitle' => __('Add Event Title'),
                 'isUpdate' => false,
                 'residenceId' => $residence,
             ])
         </div>
-        
+
 
 
         <!-- Second layout -->
@@ -59,18 +59,18 @@
                     <!-- Month Select Dropdown -->
                     <select id="selectMonth" class="mx-7 px-5 py-2 rounded-lg font-semibold text-[14px] text-[#3C4C7C]"
                         style="background-color: #e3e6eb;">
-                        <option value="0">Janvier</option>
-                        <option value="1">Février</option>
-                        <option value="2">Mars</option>
-                        <option value="3">Avril</option>
-                        <option value="4">Mai</option>
-                        <option value="5">Juin</option>
-                        <option value="6">Juillet</option>
-                        <option value="7">Août</option>
-                        <option value="8">Septembre</option>
-                        <option value="9">Octobre</option>
-                        <option value="10">Novembre</option>
-                        <option value="11">Décembre</option>
+                        <option value="0">{{__('Janvier')}}</option>
+                        <option value="1">{{__('Février')}}</option>
+                        <option value="2">{{__('Mars')}}</option>
+                        <option value="3">{{__('Avril')}}</option>
+                        <option value="4">{{__('Mai')}}</option>
+                        <option value="5">{{__('Juin')}}</option>
+                        <option value="6">{{__('Juillet')}}</option>
+                        <option value="7">{{__('Août')}}</option>
+                        <option value="8">{{__('Septembre')}}</option>
+                        <option value="9">{{__('Octobre')}}</option>
+                        <option value="10">{{__('Novembre')}}</option>
+                        <option value="11">{{__('Décembre')}}</option>
                     </select>
 
                     <!-- Year Select Dropdown (populated dynamically) -->
@@ -120,7 +120,7 @@
             <!-- FullCalendar French Language -->
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales/fr.js"></script>
             <script>
-                // Flatpicker model 
+                // Flatpicker model
                 // Initialize Flatpickr for "Create Event" modal
                 function formatDateToMySQL(date) {
                     const year = date.getFullYear();
@@ -346,9 +346,9 @@
                                         <p>${event.id}</p>
                                         <p>${event.formatted_start} - ${event.formatted_end}</p>
                                     </div>
-                                    <button data-id="${event.id}" 
-                                            data-title="${event.title}" data-start="${event.start}" 
-                                            data-end="${event.end}" data-note="${event.note}" 
+                                    <button data-id="${event.id}"
+                                            data-title="${event.title}" data-start="${event.start}"
+                                            data-end="${event.end}" data-note="${event.note}"
                                             class="edit-button">
                                         <img src="/assets/images/edit_57.png" class="w-[12px] h-[12px]" alt="Edit icon">
                                     </button>
@@ -445,8 +445,8 @@
 
                     // // Render the calendar
                     // calendar.render();
-                
-                
+
+
                     // {{-- select month & year --}}
                 // Dynamically populate the year select with the current year + 10 years
                 var currentYear = new Date().getFullYear();

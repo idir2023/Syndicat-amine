@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Mail;
 
 class FormRegisterController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('auth.formRegister.formRegister');
     }
     public function submit(Request $request)
@@ -25,18 +26,21 @@ class FormRegisterController extends Controller
             'terms' => 'required|accepted',
         ]);
 
-        // // Retrieve the email addresses
-        // $superAdminEmail = User::where('role', 'superAdmin')->pluck('email')->first();
-        // $adminEmails = User::where('role', 'admin')->pluck('email')->toArray();
+        // // Retrieve the email address of the first Super Admin
+        // $superAdminEmail = User::role('superadmin')->pluck('email')->first();
+
+        // // Retrieve the email addresses of all Admins
+        // $adminEmails = User::role('admin')->pluck('email')->toArray();
 
         // // Combine the superAdmin email with the admin emails
         // $recipients = array_merge([$superAdminEmail], $adminEmails);
+        // // dd($recipients);
 
         // // Send the email to multiple recipients
         // Mail::to($recipients)->send(new FormSubmissionMail($data));
 
         // Send the email
-        Mail::to('recipient@example.com')->send(new FormSubmissionMail($data));
+        Mail::to('izamine2000@gmail.com')->send(new FormSubmissionMail($data));
 
         // Redirect or return response
         return back()->with('success', 'Form submitted successfully!');

@@ -35,7 +35,7 @@
         </div>
         <div class="rounded-[8px] border-[1px_solid_#9EAFCE] bg-[#F1F1F1] relative m-[0_25px_19.5px_25px] flex flex-col items-center p-[33px_0_30.5px_0] box-border">
             <label for="file-input" class="cursor-pointer flex flex-col items-center">
-                <img class="rotate-[45deg] m-[0_4px_18.5px_0] w-[25px] h-[50px]" src="../assets/vectors/vector_3_x2.svg" />
+                <img class="rotate-[45deg] m-[0_4px_18.5px_0] w-[25px] h-[50px]" src="{{ asset("assets/vectors/vector_3_x2.svg")}}" />
                 <span class="break-words font-['Inter'] font-normal text-[12px] text-[#A2A2A2]">{{ __('Importez_le_document') }}</span>
             </label>
             <input type="file" id="file-input" name="fichier" class="hidden" />
