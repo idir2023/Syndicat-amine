@@ -113,11 +113,11 @@
 
             <!-- Right Section (Profile Info) -->
             <div class="flex-grow bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
-                <h2
+                <
                     class="mb-6 inline-block self-start break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
 
-                    {{__('Profil')}}</h2>
-                    Mon Profil</h2>
+                    {{__('Profil')}}</
+                </h2>
 
                 <!-- Image taking full width -->
                 {{-- focus on this part --}}
