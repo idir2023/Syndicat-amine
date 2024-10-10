@@ -71,30 +71,31 @@
 
 
         @role('superadmin|admin|manager principal|manager')
-            <form action="{{ route('commentaires.store') }}" method="POST" class="w-full" >
-                @csrf
-                <div class="p-[0_12px_27px_15px] flex flex-row w-full box-sizing-border">
-                    <div class="rounded-[50px]  m-[5px_5px_5px_0] w-[60px] h-[auto]"
-                        style="background-image: url('{{ asset($user->image) }}'); background-size: cover; background-position: center;">
-                    </div>
-
-                    <div
-                        class="rounded-[40px] border-[1px_solid_#9EAFCE] bg-[#F1F1F1] relative m-[0_8px_0_0] p-[12.5px_15px_12.5px_15px] w-full box-sizing-border">
-                        <input type="text" placeholder="{{__('Centenu de votre commentaire')}}" id="text" name="text"
-                            class="rounded-[8px] border-[1px_solid_#9EAFCE] bg-[#F1F1F1] m-[0_120px_0_0] inline-block break-words font-['Inter'] font-normal text-[12px] text-[#A2A2A2] box-sizing-border w-full" />
-                        <input name="reclamation_id" value="{{ $data->id }}" type="hidden">
-
-                    </div>
-                    <button type="submit">
-                        <div
-                            class="rounded-[60px] border-[1px_solid_#9EAFCE] bg-[#3C4C7C] relative flex p-[12.5px_0_12.5px_0] w-full min-w-[160px] box-sizing-border justify-center">
-                            <span class="break-words font-['Inter'] font-bold text-[12px] text-[#FFFFFF]">
-                                {{__('Ajouter un commentaire')}}
-                            </span>
-                        </div>
-                    </button>
+        <form action="{{ route('commentaires.store') }}" method="POST" class="w-full">
+            @csrf
+            <div class="p-[0_12px_27px_15px] flex flex-row w-full box-sizing-border">
+                <div class="rounded-full m-[5px_5px_5px_0] w-[60px] h-[60px] bg-cover bg-center"
+                    style="background-image: url('{{ asset($user->image) }}');">
                 </div>
-            </form>
+
+                <div class="relative w-full m-[0_8px_0_0] p-5">
+                    <div class="rounded-[40px] border border-[#9EAFCE] bg-[#F1F1F1] transition-all duration-200 ease-in-out focus-within:border-[#6c757d]">
+                        <input type="text" placeholder="{{__('Centenu de votre commentaire')}}" id="text" name="text"
+                            class=" bg-[#F1F1F1] m-[0_120px_0_0] inline-block break-words font-['Inter'] rounded-[40px]  font-normal text-[12px] text-[#A2A2A2] box-sizing-border w-full focus:outline-none p-[12.5px]"/>
+                        <input name="reclamation_id" value="{{ $data->id }}" type="hidden">
+                    </div>
+                </div>
+
+                <button type="submit" class="ml-2">
+                    <div class="rounded-[60px] border border-[#9EAFCE] bg-[#3C4C7C] flex p-[12.5px_0] w-full min-w-[160px] justify-center">
+                        <span class="font-['Inter'] font-bold text-[12px] text-[#FFFFFF]">
+                            {{__('Ajouter un commentaire')}}
+                        </span>
+                    </div>
+                </button>
+            </div>
+        </form>
+
         @endrole
 
 
