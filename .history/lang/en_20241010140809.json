@@ -125,26 +125,6 @@
     "Centenu de votre commentaire": "Comment Content",
     "Upload": "Upload",
     "Upload Language File": "Upload Language File",
-    "Janvier": "January",
-    "Février": "February",
-    "Mars": "March",
-    "Avril": "April",
-    "Mai": "May",
-    "Juin": "June",
-    "Juillet": "July",
-    "Août": "August",
-    "Septembre": "September",
-    "Octobre": "October",
-    "Novembre": "November",
-    "Décembre": "December",
-    "Monday": "Monday",
-    "Tuesday": "Tuesday",
-    "Wednesday": "Wednesday",
-    "Thursday": "Thursday",
-    "Friday": "Friday",
-    "Saturday": "Saturday",
-    "Sunday": "Sunday",
-    "Upload Language File": "Upload Language File",
     "Paramètres du site": "Site Parameters",
     "Entrez le nom du site": "Enter Site Name",
     "Entrez le nom du copyright": "Enter Copyright Name",
@@ -160,6 +140,13 @@
     "Contenu de votre commentaire": "Comment Content",
     "Télécharger": "Upload",
     "Télécharger le fichier de langue": "Upload Language File"
+      
+      
+
 }
+      
+      
+      
+
 
 

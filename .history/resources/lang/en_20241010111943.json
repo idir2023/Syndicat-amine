@@ -143,23 +143,7 @@
     "Thursday": "Thursday",
     "Friday": "Friday",
     "Saturday": "Saturday",
-    "Sunday": "Sunday",
-    "Upload Language File": "Upload Language File",
-    "Paramètres du site": "Site Parameters",
-    "Entrez le nom du site": "Enter Site Name",
-    "Entrez le nom du copyright": "Enter Copyright Name",
-    "Télécharger le logo": "Upload Logo",
-    "Lien Facebook": "Facebook Link",
-    "Lien Twitter": "Twitter Link",
-    "Lien LinkedIn": "LinkedIn Link",
-    "Lien Instagram": "Instagram Link",
-    "Télécharger le fichier JSON de langue": "Upload JSON lan",
-    "Mettre à jour les paramètres": "Update parameter",
-    "Caractéristiques du site": "Website Characteristics",
-    "Ajouter un commentaire": "Add a Comment",
-    "Contenu de votre commentaire": "Comment Content",
-    "Télécharger": "Upload",
-    "Télécharger le fichier de langue": "Upload Language File"
+    "Sunday": "Sunday"
 }
 
 

@@ -21,7 +21,6 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ParameterController;
 use Illuminate\Support\Facades\Request;
-use App\Http\Middleware\EnsureAuthenticated;
 
 // });
 

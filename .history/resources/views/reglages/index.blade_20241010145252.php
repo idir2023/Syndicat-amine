@@ -113,11 +113,11 @@
 
             <!-- Right Section (Profile Info) -->
             <div class="flex-grow bg-white p-6 rounded-[20px] shadow-md ml-4 h-[600px]">
-                <
+                <h2
                     class="mb-6 inline-block self-start break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
 
-                    {{__('Profil')}}
-                </h2>
+                    {{__('Profil')}}</h2>
+                    Mon </h2>
 
                 <!-- Image taking full width -->
                 {{-- focus on this part --}}
@@ -144,15 +144,14 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                              
-                                {{__('Prénom:')}}</h3>
+                                Prénom:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->prenom }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Nom:')}}</h3>
+                                Nom:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->name }}
                             </p>
@@ -164,7 +163,7 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Immeuble')}}</h3>
+                                Immeuble:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Immenble }}</p>
                         </div>

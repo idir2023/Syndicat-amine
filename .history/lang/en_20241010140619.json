@@ -125,41 +125,47 @@
     "Centenu de votre commentaire": "Comment Content",
     "Upload": "Upload",
     "Upload Language File": "Upload Language File",
-    "Janvier": "January",
-    "Février": "February",
-    "Mars": "March",
-    "Avril": "April",
-    "Mai": "May",
-    "Juin": "June",
-    "Juillet": "July",
-    "Août": "August",
-    "Septembre": "September",
-    "Octobre": "October",
-    "Novembre": "November",
-    "Décembre": "December",
-    "Monday": "Monday",
-    "Tuesday": "Tuesday",
-    "Wednesday": "Wednesday",
-    "Thursday": "Thursday",
-    "Friday": "Friday",
-    "Saturday": "Saturday",
-    "Sunday": "Sunday",
-    "Upload Language File": "Upload Language File",
-    "Paramètres du site": "Site Parameters",
-    "Entrez le nom du site": "Enter Site Name",
-    "Entrez le nom du copyright": "Enter Copyright Name",
-    "Télécharger le logo": "Upload Logo",
-    "Lien Facebook": "Facebook Link",
-    "Lien Twitter": "Twitter Link",
-    "Lien LinkedIn": "LinkedIn Link",
-    "Lien Instagram": "Instagram Link",
-    "Télécharger le fichier JSON de langue": "Upload JSON lan",
-    "Mettre à jour les paramètres": "Update parameter",
-    "Caractéristiques du site": "Website Characteristics",
-    "Ajouter un commentaire": "Add a Comment",
-    "Contenu de votre commentaire": "Comment Content",
-    "Télécharger": "Upload",
-    "Télécharger le fichier de langue": "Upload Language File"
+    "Site Parameters": "Paramètres du site",
+        "Enter Site Name": "Entrez le nom du site",
+        "Enter Copyright Name": "Entrez le nom du copyright",
+        "Upload Logo": "Télécharger le logo",
+        "Facebook Link": "Lien Facebook",
+        "Twitter Link": "Lien Twitter",
+        "LinkedIn Link": "Lien LinkedIn",
+        "Instagram Link": "Lien Instagram",
+        "Upload JSON lan": "Télécharger le fichier JSON de langue",
+        "Update parameter": "Mettre à jour les paramètres",
+        "Website Characteristics": "Caractéristiques du site",
+    "Add a Comment": "Ajouter un commentaire",
+    "Comment Content": "Contenu de votre commentaire",
+    "Upload": "Télécharger",
+    "Upload Language File": "Télécharger le fichier de langue"
+      
+
+
+    {
+        "Paramètres du site": "Site Parameters",
+        "Entrez le nom du site": "Enter Site Name",
+        "Entrez le nom du copyright": "Enter Copyright Name",
+        "Télécharger le logo": "Upload Logo",
+        "Lien Facebook": "Facebook Link",
+        "Lien Twitter": "Twitter Link",
+        "Lien LinkedIn": "LinkedIn Link",
+        "Lien Instagram": "Instagram Link",
+        "Télécharger le fichier JSON de langue": "Upload JSON lan",
+        "Mettre à jour les paramètres": "Update parameter",
+        "Caractéristiques du site": "Website Characteristics",
+        "Ajouter un commentaire": "Add a Comment",
+        "Contenu de votre commentaire": "Comment Content",
+        "Télécharger": "Upload",
+        "Télécharger le fichier de langue": "Upload Language File"
+      }
+      
+
 }
+      
+      
+      
+
 
 

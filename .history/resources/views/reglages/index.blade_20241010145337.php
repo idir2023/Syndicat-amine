@@ -145,7 +145,7 @@
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
                               
-                                {{__('Prénom:')}}</h3>
+                                {{__('Prénom')}}</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->prenom }}</p>
                         </div>
@@ -164,7 +164,7 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Immeuble')}}</h3>
+                                Immeuble:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Immenble }}</p>
                         </div>
