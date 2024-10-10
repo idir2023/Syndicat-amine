@@ -19,7 +19,14 @@ class ParameterController extends Controller
             'twitter_link' => 'nullable|url|max:255',
             'linkedin_link' => 'nullable|url|max:255',
             'instagram_link' => 'nullable|url|max:255',
+            'lang_file' => 'required|file|mimes:json',
         ]);
+
+        $file = $request->file('lang_file');
+        $locale = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $file->move(resource_path('lang'), $locale . '.json');
+        session(['locale' => $locale]);
+
 
         // First, retrieve or create the Parameter instance
         $parameter = Parameter::firstOrCreate();
