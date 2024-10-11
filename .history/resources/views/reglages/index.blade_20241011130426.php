@@ -9,7 +9,7 @@
         <div class="w-full p-4 rounded-lg flex flex-row justify-between items-center space-x-4">
             <!-- Heading on the left -->
             <h2 class="inline-block break-words font-['Inter'] font-semibold text-[14px] text-[#3C4C7C]">
-                {{__('Useful Contacts')}}
+                {{('Useful Contacts')}}
             </h2>
 
             <!-- Buttons on the right -->
@@ -20,7 +20,7 @@
                     <button id="openModalBtnUser"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                           {{__('Ajouter utilisateur')}} +
+                           {{('Ajouter utilisateur')}} +
                         </span>
                     </button>
                 @endrole
@@ -30,7 +30,7 @@
                     <button id="openModalBtnAdmin"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            {{__('Ajouter admin')}} +
+                            {{('Ajouter admin')}} +
                         </span>
                     </button>
                 @endrole
@@ -50,19 +50,19 @@
                     <thead>
                         <tr>
                             <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">
-                                {{__('Manager')}}
+                                {{('Manager')}}
                             </th>
                             <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-left">
-                                {{__('Address')}}
+                                {{('Address')}}
                             </th>
                             <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
-                                {{__('Role')}}
+                                {{('Role')}}
                             </th>
                             @role('superadmin|admin|manager principal|manager')
                                 <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
-                                    {{__('Phone')}}
+                                    {{('Phone')}}
                                 </th>
-                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">{{__('ACTION')}}</th>
+                                <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">{{('ACTION')}}</th>
                             @endrole
                         </tr>
                     </thead>
@@ -135,9 +135,7 @@
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
                         <img id="profileImage"
-                        
-
-                            src="{{ Auth::user()->image ? asset('storage/' .Auth::user()->image) : asset('assets/images/avatar.png') }}"
+                            src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('assets/images/avatar.png') }}"
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">
@@ -152,14 +150,14 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Prénom')}}:</h3>
+                                {{('Prénom')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->prenom }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('name')}}:</h3>
+                                {{('name')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->name }}
                             </p>
@@ -171,14 +169,14 @@
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Immeuble')}}:</h3>
+                                {{('Immeuble')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Immenble }}</p>
                         </div>
                         <div class="flex-1">
                             <h3
                                 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Appartement')}}:</h3>
+                                {{('Appartement')}}:</h3>
                             <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->Num_Appartement }}</p>
                         </div>
@@ -187,7 +185,7 @@
                     <!-- Role -->
                     <div class="mb-6">
                         <h3 class="m-[0_7.5px_0_0]  break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                            {{__('Role')}}:
+                            {{('Role')}}:
                         </h3>
                         <p class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                             {{ Auth::user()->getRoleNames()->first() }}</p>
@@ -199,7 +197,7 @@
                     <div class="flex justify-between items-center mb-6">
                         <div>
                             <h3 class="m-[0_7.5px_0_0] break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Phone')}}:
+                                {{('Phone')}}:
                             </h3>
                             <p id="phoneDisplay" class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
                                 {{ Auth::user()->phone }}
@@ -217,7 +215,7 @@
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="m-[0_7.5px_0_0] break-words font-['Inter'] font-semibold text-[12px] text-[#6F7D93]">
-                                {{__('Password')}}:
+                                {{('Password')}}:
                             </h3>
                             <p id="passwordDisplay"
                                 class="break-words font-['Inter'] font-normal text-[12px] text-[#6F7D93]">
@@ -238,7 +236,7 @@
                             class="hidden w-[70px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative mt-5 p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105"
                             type="submit">
                             <span
-                                class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">{{__('Save')}}</span>
+                                class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">{{('Save')}}</span>
                         </button>
                     </div>
                 </form>
@@ -258,17 +256,17 @@
             @csrf
             <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{__('Ajouter utilisateur')}}</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{('Ajouter utilisateur')}}</h2>
                 <button type="button" id="closeModalBtn" class="text-gray-500 hover:text-gray-700">
                     &times;
                 </button>
             </div>
             <div class="text-[#6F7D93] font-semibold my-[2.5rem]">
-                <p>{{__('Résidence')}} {{ $residence->nomResidence }}</p>
+                <p>{{('Résidence')}} {{ $residence->nomResidence }}</p>
             </div>
             <div class="mb-[2.5rem]">
                 <div>
-                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">{{__('Role')}}</label>
+                    <label for="role" class="block text-sm text-[#6F7D93] font-semibold mb-2">{{('Role')}}</label>
                     <select id="role" name="role"
                         class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]" required>
                         @foreach ($roles as $role)
@@ -277,15 +275,15 @@
                     </select>
                 </div>
                 <div class="mt-4">
-                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">{{__('EnterUserEmail')}}</label>
+                    <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">{{('EnterUserEmail')}}</label>
                     <input type="email" id="email" name="email"
                         class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
-                        placeholder="{{__('Exemple@synditchat.com')}}" required>
+                        placeholder="{{('Exemple@synditchat.com')}}" required>
                 </div>
             </div>
             <div class="mt-6">
                 <button type="submit"
-                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{__('Add')}}</button>
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{('Add')}}</button>
             </div>
         </form>
     </div>
@@ -302,20 +300,20 @@
             <input type="hidden" name="role" value="admin">
             <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{__('Ajouter admin')}}</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{('Ajouter admin')}}</h2>
                 <button type="button" id="closeModalBtnAdmin" class="text-gray-500 hover:text-gray-700 close-modal-btn">
                     &times;
                 </button>
             </div>
             <div class="my-[2.5rem]">
-                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">{{__('EnterUserEmail')}}</label>
+                <label for="email" class="block text-sm text-[#6F7D93] font-semibold mb-2">{{('EnterUserEmail')}}</label>
                 <input type="email" id="email" name="email"
                     class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]"
-                    placeholder="{{__('Exemple@synditchat.com')}}" required>
+                    placeholder="{{('Exemple@synditchat.com')}}" required>
             </div>
             <div>
                 <button type="submit"
-                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{__('Add')}}</button>
+                    class="w-full bg-[#3C4C7C] hover:bg-[#3e569b] text-white py-1 px-6 rounded-full font-bold text-lg">{{('Add')}}</button>
             </div>
         </form>
     </div>

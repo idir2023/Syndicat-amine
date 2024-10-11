@@ -85,7 +85,7 @@
             </label>
             <div class="flex space-x-2">
                 <input type="text" name="address" placeholder="Nom du résidence, ville..."
-                       value="{{ old('address') }}"
+                       value="{{ old('address') }}" 
                        class="w-1/3 h-16 px-6 py-2 border rounded-[25px] focus:outline-none focus:ring-2 focus:ring-indigo-700">
                 <input type="text" name="building_number" placeholder="Numéro d'immeuble"
                        value="{{ old('building_number') }}"
@@ -119,44 +119,35 @@
 
             <div class="w-full flex flex-row justify-between mt-6">
                 <div class="m-4 inline-block break-words font-['Inter'] font-normal text-[12px] text-[#9EAFCE]">
-                    @if(!empty($appParameters->copyright))
+                    @if(isset($appParameters) && $appParameters->copyright)
                         Copyrights © {{ $appParameters->copyright }}. All Rights Reserved.
                     @else
                         Copyrights © {{ date('Y') }}. All Rights Reserved.
                     @endif
 
-
                 </div>
                 <div class="flex flex-row box-sizing-border">
-                    @if(!empty($appParameters->facebook_link))
-                        <a href="{{ $appParameters->facebook_link }}"
-                            class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px] w-[30px] h-[30px] box-sizing-border">
-                            <i class="fa-brands fa-facebook text-white"></i>
-                        </a>
-                    @endif
+                    <a href="{{ $appParameters->facebook_link  }}"
+                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
+                        <i class="fa-brands fa-facebook text-white"></i>
+                    </a>
+                    <a                    <a href="{{ $appParameters->instagram_link  }}"
 
-                    @if(!empty($appParameters->instagram_link))
-                        <a href="{{ $appParameters->instagram_link }}"
-                            class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px] w-[30px] h-[30px] box-sizing-border">
-                            <i class="fa-brands fa-instagram text-white"></i>
-                        </a>
-                    @endif
+                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
+                        <i class="fa-brands fa-instagram text-white"></i>
+                    </a>
+                    <a                    <a href="{{ $appParameters->linkedin_link  }}"
 
-                    @if(!empty($appParameters->linkedin_link))
-                        <a href="{{ $appParameters->linkedin_link }}"
-                            class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px] w-[30px] h-[30px] box-sizing-border">
-                            <i class="fa-brands fa-linkedin text-white"></i>
-                        </a>
-                    @endif
+                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
+                        <i class="fa-brands fa-linkedin text-white"></i>
+                    </a>
+                    <a                    <a href="{{ $appParameters->twitter_link  }}"
 
-                    @if(!empty($appParameters->twitter_link))
-                        <a href="{{ $appParameters->twitter_link }}"
-                            class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px] w-[30px] h-[30px] box-sizing-border">
-                            <i class="fa-brands fa-twitter text-white"></i>
-                        </a>
-                    @endif
+                        class="rounded-[15px] bg-[#9EAFCE] relative m-[0_20px_0_0] flex p-[7px_7px_7px_7px] w-[30px] h-[30px] box-sizing-border">
+                        <i class="fa-brands fa-twitter text-white"></i>
+                    </a>
+                    
                 </div>
-
             </div>
         </div>
 

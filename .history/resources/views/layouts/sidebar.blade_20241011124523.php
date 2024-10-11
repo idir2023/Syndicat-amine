@@ -15,13 +15,9 @@
     class="rounded-[20px] bg-[#FFFFFF] relative m-[0_30px_20px_0] flex flex-col p-[38px_0_252px_0] box-sizing-border h-fit">
     <div class="m-[0_0_38px_0] inline-block self-center break-words font-['Inter'] font-bold text-[20px] text-[#3A416F]">
         @if (isset($appParameters))
-            {{-- <img src="{{ $appParameters->logo ? asset($appParameters->logo) : '' }}" alt="logo"
+            <img src="{{ $appParameters->logo ? asset($appParameters->logo) : '' }}" alt="logo"
                 class="rounded-full w-[50px] inline-block" >
-            {{ $appParameters->app_name ?? '' }} --}}
-            <img src="{{ $appParameters->logo ? asset('storage/' . $appParameters->logo) : '' }}" alt="logo"
-    class="rounded-full w-[50px] inline-block">
-{{ $appParameters->app_name ?? '' }}
-
+            {{ $appParameters->app_name ?? '' }}*
         
         @endif
 

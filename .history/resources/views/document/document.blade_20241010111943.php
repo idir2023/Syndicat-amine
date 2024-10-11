@@ -58,11 +58,8 @@
                                 </div>
 
                                 <div class="p-5 w-full h-full">
-                                    {{-- <embed id="pdf-viewer" src="{{ asset($document->fichier) }}" class="w-full h-full" /> --}}
-                                        <embed id="pdf-viewer" src="{{ asset('storage/' . $document->fichier) }}" class="w-full h-full" />
-
+                                    <embed id="pdf-viewer" src="{{ asset($document->fichier) }}" class="w-full h-full" />
                                 </div>
-                                
                             </div>
                         @endforeach
 
