@@ -1006,36 +1006,36 @@ function getFavoritesList() {
     });
 }
 
-// function getGroupsList() {
+ function getGroupsList() {
 //     // Show loading animation while fetching data
-//     $(".messenger-groups").html(avatarLoading(2));
+    $(".messenger-groups").html(avatarLoading(2));
 
-//     // Make an AJAX request to fetch groups
-//     $.ajax({
-//         url: route("chatify.getGroups"),
-//         method: "POST", // HTTP method
-//         data: { _token: csrfToken }, // CSRF token for security
-//         dataType: "JSON", // Expect JSON response
-//         success: (data) => {
-//             // Check if HTML is present in the response
-//             if (data.html) {
-//                 $(".groups-section").show(); // Show the groups section
-//                 $(".messenger-groups").html(data.html); // Update the groups list with received HTML
-//             } else {
-//                 $(".groups-section").hide(); // Hide if no groups found
-//             }
-//             cssMediaQueries(); // Call function to adjust CSS for responsive design
-//         },
-//         error: () => {
-//             // Log error to the console
-//             console.error("Server error, check your response");
-//             // Optionally, display an error message to the user
-//             $(".messenger-groups").html(
-//                 '<div class="text-red-500 text-center">Erreur de chargement des groupes.</div>'
-//             );
-//         },
-//     });
-// }
+    // Make an AJAX request to fetch groups
+    $.ajax({
+        url: route("chatify.getGroups"),
+        method: "POST", // HTTP method
+        data: { _token: csrfToken }, // CSRF token for security
+        dataType: "JSON", // Expect JSON response
+        success: (data) => {
+            // Check if HTML is present in the response
+            if (data.html) {
+                $(".groups-section").show(); // Show the groups section
+                $(".messenger-groups").html(data.html); // Update the groups list with received HTML
+            } else {
+                $(".groups-section").hide(); // Hide if no groups found
+            }
+            cssMediaQueries(); // Call function to adjust CSS for responsive design
+        },
+        error: () => {
+            // Log error to the console
+            console.error("Server error, check your response");
+            // Optionally, display an error message to the user
+            $(".messenger-groups").html(
+                '<div class="text-red-500 text-center">Erreur de chargement des groupes.</div>'
+            );
+        },
+    });
+ }
 
 /**
  *-------------------------------------------------------------

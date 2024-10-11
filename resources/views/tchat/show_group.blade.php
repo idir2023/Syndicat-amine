@@ -47,7 +47,7 @@
                             <!-- User Information -->
                             <div class="flex items-center space-x-4">
                                 <!-- Avatar -->
-                                <div class="avatar av-m" style="background-image: url('{{ $user->avatar }}');"></div>
+                                <div class="avatar av-m" style="background-image: url('{{ asset('assets/images/avatar.png') }}');"></div>
                                 <!-- User Details -->
                                 <div>
                                     <p class="font-medium text-gray-900">{{ $user->name }}</p>

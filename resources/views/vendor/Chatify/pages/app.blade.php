@@ -41,10 +41,11 @@
                     </div>
 
                      {{-- groups --}}
-                     {{-- <div class="groups-section">
+                      <div class="groups-section">
                         <p class="messenger-title"><span>Groups</span></p>
                         <div class="messenger-groups app-scroll-hidden"></div>
-                    </div> --}}
+                        
+                    </div>
 
                     {{-- Contacts --}}
                     <p class="messenger-title"><span>Tous les messages</span></p>
