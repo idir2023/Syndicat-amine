@@ -26,6 +26,9 @@
             
            
     <h2 class="text-4xl font-bold text-white">{{ $appParameters->app_name ?? '' }}</h2>
+
+
+        
         @endif
                 <p
                     class="text-lg text-white text-center py-12 font-['Fredoka_One','Roboto_Condensed'] font-normal text-[30px]">

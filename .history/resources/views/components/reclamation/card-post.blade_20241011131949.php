@@ -5,7 +5,7 @@
 <div class="w-full ">
 
     <div
-    class="rounded-[20px] bg-[#FFFFFF]  relative flex flex-col p-[10px_0_0.5px_0] box-sizing-border box-sizing-border m-1 w-full">
+        class="rounded-[20px] bg-[#FFFFFF]  relative flex flex-col p-[10px_0_0.5px_0] box-sizing-border box-sizing-border m-1 w-full">
         <div class="m-[0_30px_12.5px_15px] flex flex-row justify-between  box-sizing-border ">
 
             <div
@@ -28,13 +28,11 @@
             {{ $data->description }}
         </div>
 
-      
         @if ($data->image)
-    <div class="rounded-[10px] bg-[50%_50%] bg-cover bg-no-repeat m-[0_30px_13.9px_30px] self-start w-4/5 h-[230.1px]"
-         style="background-image: url('{{ asset('storage/' . $data->image) }}');">
-    </div>
-@endif
-
+            <div class="rounded-[10px] bg-[50%_50%] bg-cover bg-no-repeat m-[0_30px_13.9px_30px] self-start w-4/5 h-[230.1px] "
+                style="background-image: url('{{ asset($data->image) }}');">
+            </div>
+        @endif
 
 
         <div class="bg-[#F7F7F7] m-[0_0_8px_0] w-full h-[0px]">
@@ -45,7 +43,7 @@
                 @foreach ($data->commentaires as $comment)
                     <div class="p-[0_30px_0_15px] flex flex-row w-full box-sizing-border">
                         <div class="rounded-[100px] m-[0_5px_15.5px_0] w-[30px] h-[30px]"
-                            style="background-image: url('{{ asset('storage/' . $comment->user->image) }}'); background-size: cover; background-position: center;">
+                            style="background-image: url('{{ asset($comment->user->image) }}'); background-size: cover; background-position: center;">
                         </div>
 
                         <div class="flex flex-col items box-sizing-border w-full b">
@@ -73,7 +71,6 @@
 
 
         @role('superadmin|admin|manager principal|manager')
-<<<<<<< HEAD
             <form action="{{ route('commentaires.store') }}" method="POST" class="w-full">
                 @csrf
                 <div class="p-[0_12px_27px_15px] flex flex-row w-full box-sizing-border">
@@ -97,33 +94,8 @@
                             </span>
                         </div>
                     </button>
-=======
-        <form action="{{ route('commentaires.store') }}" method="POST" class="w-full">
-            @csrf
-            <div class="p-[0_12px_27px_15px] flex flex-row w-full box-sizing-border">
-                <div class="rounded-full m-[5px_5px_5px_0] w-[60px] h-[60px] bg-cover bg-center"
-                    style="background-image: url('{{ asset($user->image) }}');">
->>>>>>> c818c38208f04f4254df78835b56d98cb0fceaa1
                 </div>
-
-                <div class="relative w-full m-[0_8px_0_0] p-5">
-                    <div class="rounded-[40px] border border-[#9EAFCE] bg-[#F1F1F1] transition-all duration-200 ease-in-out focus-within:border-[#6c757d]">
-                        <input type="text" placeholder="{{__('Centenu de votre commentaire')}}" id="text" name="text"
-                            class=" bg-[#F1F1F1] m-[0_120px_0_0] inline-block break-words font-['Inter'] rounded-[40px]  font-normal text-[12px] text-[#A2A2A2] box-sizing-border w-full focus:outline-none p-[12.5px]"/>
-                        <input name="reclamation_id" value="{{ $data->id }}" type="hidden">
-                    </div>
-                </div>
-
-                <button type="submit" class="ml-2">
-                    <div class="rounded-[60px] border border-[#9EAFCE] bg-[#3C4C7C] flex p-[12.5px_0] w-full min-w-[160px] justify-center">
-                        <span class="font-['Inter'] font-bold text-[12px] text-[#FFFFFF]">
-                            {{__('Ajouter un commentaire')}}
-                        </span>
-                    </div>
-                </button>
-            </div>
-        </form>
-
+            </form>
         @endrole
 
 

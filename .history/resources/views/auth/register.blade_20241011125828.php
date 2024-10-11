@@ -79,7 +79,7 @@
             <div class="m-[0_0_24px_0] inline-block break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#F7F7F7]">
                 {{ $appParameters->app_name ?? '' }}
             </div>
-        @else
+        @endif
         
         </div>
         <div
