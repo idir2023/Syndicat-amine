@@ -21,6 +21,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ParameterController;
 use Illuminate\Support\Facades\Request;
+use App\Http\Middleware\EnsureAuthenticated;
 
 // });
 
@@ -38,11 +39,6 @@ Route::get(
 
 Route::post('/locale', LocaleController::class)->name('locale.change');
 
-Route::post('/import-lang', [LocaleController::class, 'importLang'])->name('importLang');
-
-// Route::get('/locale/form', [LocaleController::class, 'showForm'])->name('locale.form');
-
-
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', [DashbordController::class, 'index'])->name('dashboard.index');
     Route::get('/{residence}', [DashbordController::class, 'getDashbord'])->name('dashboard.residence');
@@ -57,6 +53,8 @@ Route::prefix('/infocom')->group(function () {
     Route::get('/{residence}', [InfocomController::class, 'getInfocom'])->name('infocom.residence');
 });
 
+Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
+Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
 Route::get('/tchat', [TchatController::class, 'index'])->name('tchat.index');
 
@@ -97,8 +95,8 @@ Route::post('/regelement/update/{id}', [ResidenceController::class, 'update'])->
 
 // Register form
 // Route::get('/inscription', [ResidenceController::class, 'show'])->name('formRegister');
-Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister')->withoutMiddleware([\App\Http\Middleware\EnsureAuthenticated::class]);
-Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister')->withoutMiddleware([\App\Http\Middleware\EnsureAuthenticated::class]);;
+Route::get('/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
+Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
 Route::post('/admin/users/store', [InvitationController::class, 'store'])->name('admin.users.store');
 Route::get('/inscription-termine', [UserController::class, 'index'])->name('register.user');

@@ -9,7 +9,6 @@ class ParameterController extends Controller
 {
         public function updateParameters(Request $request)
     {
-
         // Validate the input, including the logo file
         $request->validate([
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Allow logo to be optional
@@ -19,8 +18,14 @@ class ParameterController extends Controller
             'twitter_link' => 'nullable|url|max:255',
             'linkedin_link' => 'nullable|url|max:255',
             'instagram_link' => 'nullable|url|max:255',
+            'lang_file' => 'nullable|file|mimes:json',
         ]);
-
+        if ($request->hasFile('lang_file')) {
+            $file = $request->file('lang_file');
+            $locale = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $file->move(resource_path('lang'), $locale . '.json');
+            session(['locale' => $locale]);
+        }
         // First, retrieve or create the Parameter instance
         $parameter = Parameter::firstOrCreate();
 

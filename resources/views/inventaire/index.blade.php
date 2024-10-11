@@ -35,7 +35,8 @@
                                 {!! nl2br(e($inventaire->details)) !!}
                             </div>
                             <div class="text-right text-[12px] text-[#6F7D93] whitespace-nowrap">
-                                {{ $inventaire->date }}
+                                {!! nl2br(e($inventaire->date)) !!}
+
                             </div>
                         </div>
 
@@ -89,8 +90,7 @@
                 <div class="text-[12px] font-medium text-[#6F7D93] mb-2">
                     Saisir Détails
                 </div>
-
-                <div class="w-full border border-[#9EAFCE] bg-[#F1F1F1] rounded-lg p-3 text-[#A2A2A2] text-[12px] mb-4 h-fit">
+{{-- <div class="w-full border border-[#9EAFCE] bg-[#F1F1F1] rounded-lg p-3 text-[#A2A2A2] text-[12px] mb-4 h-fit">
                     <textarea placeholder="Marque : Synditchat" rows="3" name="details"
                         class="bg-[#F1F1F1] border-none w-full mb-2 text-[#A2A2A2] text-[12px]  ">{{ old('details') }}</textarea>
                 </div>
@@ -103,8 +103,23 @@
                     <textarea placeholder="Date d'achat : Juillet 2023
 Prochain achat : Janvier 2024" rows="3" name="date"
                         class="bg-[#F1F1F1] border-none w-full mb-2 text-[#A2A2A2] text-[12px]  ">{{ old('date') }}</textarea>
+                </div> --}}
+
+                <div class="border border-[#9EAFCE] bg-[#F1F1F1] rounded-lg p-3 transition-all duration-200 ease-in-out focus-within:border-black">
+                    <textarea placeholder="Marque : Synditchat" rows="3" name="details"
+                        class="bg-[#F1F1F1] border-none w-full mb-2 text-[#A2A2A2] text-[12px] focus:outline-none resize-none"
+                        >{{ old('details') }}</textarea>
                 </div>
 
+                <div class="text-[12px] font-medium text-[#6F7D93] mb-2">
+                    Saisir les dates
+                </div>
+
+                <div class="border border-[#9EAFCE] bg-[#F1F1F1] rounded-lg transition-all duration-200 ease-in-out focus-within:border-black">
+                    <textarea placeholder="Date d'achat : Juillet 2023 &#10; Prochain achat : Janvier 2024" rows="3" name="date"
+                        class="bg-[#F1F1F1] border-none w-full mb-2 text-[#A2A2A2] text-[12px] focus:outline-none resize-none pl-2"
+                        >{{ old('date') }}</textarea>
+                </div>
 
                 <input type="hidden" name="residence_id" value="{{ $residence->id }}">
                 <div class="bg-[#F7F7F7] h-1 mb-6"></div>

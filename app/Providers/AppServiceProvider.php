@@ -7,6 +7,7 @@ use App\Models\Residence;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Session;
 
 class AppServiceProvider extends ServiceProvider
@@ -26,15 +27,24 @@ class AppServiceProvider extends ServiceProvider
     {
         App::setLocale(Session::get('locale', config('app.locale')));
 
-        // Retrieve the parameters from the database (you can limit to one or handle multiple rows)
-        $parameters = Parameter::first();
+        // Check if the parameters table exists before querying
+        if (Schema::hasTable('parameters')) {
+            // Retrieve the parameters from the database (you can limit to one or handle multiple rows)
+            $parameters = Parameter::first();
 
-        // Guard if there are no parameters
-        if ($parameters) {
-            // Share the parameters with all views if found
-            View::share('appParameters', $parameters);
+            // Guard if there are no parameters
+            if ($parameters) {
+                // Share the parameters with all views if found
+                View::share('appParameters', $parameters);
+            } else {
+                // Optionally, you can share default values if no parameters exist
+                View::share('appParameters', (object)[
+                    'logo' => 'default-logo.png', // Default logo path
+                    'app_name' => 'Default App Name' // Default app name
+                ]);
+            }
         } else {
-            // Optionally, you can share default values if no parameters exist
+            // Share default values if the table does not exist
             View::share('appParameters', (object)[
                 'logo' => 'default-logo.png', // Default logo path
                 'app_name' => 'Default App Name' // Default app name
