@@ -77,14 +77,14 @@
                     placeholder="https://instagram.com/yourprofile">
             </div>
 
+            <!-- JSON File Upload -->
             <div class="my-[1rem] col-span-2">
                 <label for="lan" class="block text-sm text-[#6F7D93] font-semibold mb-2">
                     {{ __('Upload JSON lan') }}
                 </label>
-                <input type="file" id="logo" name="lan" accept=""
+                <input type="file" id="lang_file" name="lang_file" accept=".json"
                     class="border rounded-lg w-full py-2 px-3 text-gray-600 bg-[#f1f1f1] border-[#dce1e8]">
             </div>
-
 
         </div>
 

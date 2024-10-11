@@ -33,14 +33,4 @@ class LocaleController extends Controller
         return redirect()->back();
     }
 
-    function importLang(Request $request) {
-        $request->validate([
-            'lang_file' => 'required|file|mimes:json',
-        ]);
-        $file = $request->file('lang_file');
-        $locale = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-        $file->move(resource_path('lang'), $locale . '.json');
-        session(['locale' => $locale]);
-        return redirect()->back()->with('success', 'Language file imported and language switched to ' . $locale);
-    }
 }
