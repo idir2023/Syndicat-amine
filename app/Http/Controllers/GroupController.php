@@ -59,26 +59,27 @@ class GroupController extends Controller
     {
         // Get all user groups associated with the authenticated user
         $userGroups = Group::join('group_users', 'groups.id', '=', 'group_users.group_id')
-            // ->where('group_users.user_id', auth()->id())
+            ->where('group_users.user_id', auth()->id()) // Correct the syntax here
             ->select('groups.*')
             ->get();
-
+    
         // Check if groups exist
         if ($userGroups->isEmpty()) {
             return response()->json([
                 'html' => '<div class="text-center text-gray-500">Aucun groupe disponible</div>' // Return a message if no groups exist
             ], 200);
         }
-
+    
         // Render the groups view
         $groupsList = view('Chatify::layouts.groups', [
             'groups' => $userGroups, // Pass groups to the view
         ])->render(); // Use render() to get the HTML string
-
+    
         // Send the response with the rendered HTML
         return response()->json([
             'html' => $groupsList // Return the rendered HTML
         ], 200);
     }
+    
     ////////////////////////////////////////
 }

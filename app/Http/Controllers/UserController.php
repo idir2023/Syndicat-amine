@@ -147,7 +147,7 @@ class UserController extends Controller
         // Return the view with users
         return view('tchat.show', compact('users'));
     }
-    public function getGroup(Request $request)
+/*     public function getGroup(Request $request)
     {
         // Get the search input, or default to an empty string
         $search = $request->search ?? '';
@@ -171,6 +171,24 @@ class UserController extends Controller
         // Return the view with users
         return view('tchat.show_group', compact('users'));
     }
+ */
+public function getGroup(Request $request)
+{
+    // Get the search input, or default to an empty string
+    $search = $request->search ?? '';
+
+    // Query for users who belong to the same residence as the authenticated user
+    $users = User::leftJoin('residences', 'users.residence_id', '=', 'residences.id')
+            ->where('users.residence_id', Auth::user()->residence_id) // Filter by the same residence
+            ->where('users.name', 'like', '%' . $search . '%') // Search by user name
+            ->where('users.id', '!=', Auth::id()) // Exclude the current user
+            ->distinct('users.id') // Ensure unique users
+            ->select('users.*') // Select user details
+            ->paginate(10); // Optionally paginate results
+
+    // Return the view with users
+    return view('tchat.show_group', compact('users'));
+}
 
     public function update(Request $request, string $id)
     {
