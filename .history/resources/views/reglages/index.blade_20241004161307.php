@@ -119,7 +119,7 @@
                     @csrf
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
-                        <img id="profileImage" src="{{asset( Auth::user()->image ) ?? 'https://via.placeholder.com/60' }}"
+                        <img id="profileImage" src="  {{ asset('assets/images/avatar.png')?? 'https://via.placeholder.com/60' }} "
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">

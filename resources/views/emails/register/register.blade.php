@@ -25,7 +25,7 @@
             Bienvenue chez Synditchat
         </h2>
         <div class="flex items-center justify-center mb-8">
-            <img src="{{ Auth::user()->image ?? 'https://via.placeholder.com/60' }}" alt="User Profile"
+            <img src="{{ asset('assets/images/avatar.png')?? 'https://via.placeholder.com/60' }}" alt="User Profile"
                 class="h-24 w-24 rounded-full border-2 mr-6">
             <div class="text-gray-700 font-['Fredoka_One','Roboto_Condensed'] font-normal text-[14px] leading-[1.786]">
                 @if (in_array($role, ['resident', 'manager', 'manager principal']))
