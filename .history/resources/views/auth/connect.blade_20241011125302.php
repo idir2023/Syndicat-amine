@@ -21,11 +21,14 @@
         <div class="w-2/3 flex flex-col md:flex-row bg-[#7d8fae] p-10 space-y-8 md:space-y-0 md:space-x-8">
             <!-- Left Section -->
             <div class="flex-1 flex flex-col items-center text-center md:text-left space-y-6 mt-9 mr-5">
-               
+                <h2 class="text-4xl font-bold text-white">{{ $appParameters->app_name ?? '' }}</h2>
                 @if (isset($appParameters))
             
-           
-    <h2 class="text-4xl font-bold text-white">{{ $appParameters->app_name ?? '' }}</h2>
+            <img src="{{ $appParameters->logo ? asset('storage/' . $appParameters->logo) : '' }}" alt="logo"
+    class="rounded-full w-[50px] inline-block">
+
+
+        
         @endif
                 <p
                     class="text-lg text-white text-center py-12 font-['Fredoka_One','Roboto_Condensed'] font-normal text-[30px]">

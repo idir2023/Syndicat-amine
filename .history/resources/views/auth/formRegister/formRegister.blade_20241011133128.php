@@ -155,10 +155,12 @@
         <div class="w-full md:w-1/3 bg-[#7d8fae] text-white flex flex-col justify-center items-center text-center p-8">
             <div class="text-center space-y-6">
                 
-                
-                
-                <h2 class="font-bold mb-4 text-[48px]">{{ $appParameters->app_name ?? '' }}</h2>
-            
+                @if (isset($appParameters))
+                <div class="m-[0_0_24px_0] inline-block break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#F7F7F7]">
+                    {{ $appParameters->app_name ?? '' }}
+                </div>
+                <h2 class="font-bold mb-4 text-[48px]">Synditchat</h2>
+            @else
                 <p class="mb-8">votre solution complète pour la gestion de copropriété, assurant conformité,
                     transparence et communication fluide</p>
                 <div class="w-80 h-auto mx-auto">

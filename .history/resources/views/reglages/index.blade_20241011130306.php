@@ -75,7 +75,7 @@
                     @foreach ($users as $user)
                         <tr class="border-b">
                             <td class="p-2 flex items-center space-x-2 text-left">
-                                    <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('assets/images/avatar.png') }}"
+                                    <img src="{{ $user->image ? asset($user->image) : asset('assets/images/avatar.png') }}"
                                     alt="User Profile" class="rounded-[8px] w-[40px] h-[40px] bg-cover bg-center">
                                 <div>
                                     <p class="font-['Inter'] font-semibold text-[12px] text-[#3A416F]">
@@ -135,9 +135,7 @@
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
                         <img id="profileImage"
-                        
-
-                            src="{{ Auth::user()->image ? asset('storage/' .Auth::user()->image) : asset('assets/images/avatar.png') }}"
+                            src="{{ Auth::user()->image ? asset(Auth::user()->image) : asset('assets/images/avatar.png') }}"
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">

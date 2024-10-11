@@ -156,9 +156,6 @@
             <div class="text-center space-y-6">
                 
                 
-                
-                <h2 class="font-bold mb-4 text-[48px]">{{ $appParameters->app_name ?? '' }}</h2>
-            
                 <p class="mb-8">votre solution complète pour la gestion de copropriété, assurant conformité,
                     transparence et communication fluide</p>
                 <div class="w-80 h-auto mx-auto">

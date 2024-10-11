@@ -28,7 +28,11 @@
             {{ $data->description }}
         </div>
 
-      
+        @if ($data->image)
+            <div class="rounded-[10px] bg-[50%_50%] bg-cover bg-no-repeat m-[0_30px_13.9px_30px] self-start w-4/5 h-[230.1px] "
+                style="background-image: url('{{ asset($data->image) }}');">
+            </div>
+        @endif
         @if ($data->image)
     <div class="rounded-[10px] bg-[50%_50%] bg-cover bg-no-repeat m-[0_30px_13.9px_30px] self-start w-4/5 h-[230.1px]"
          style="background-image: url('{{ asset('storage/' . $data->image) }}');">
@@ -45,7 +49,7 @@
                 @foreach ($data->commentaires as $comment)
                     <div class="p-[0_30px_0_15px] flex flex-row w-full box-sizing-border">
                         <div class="rounded-[100px] m-[0_5px_15.5px_0] w-[30px] h-[30px]"
-                            style="background-image: url('{{ asset('storage/' . $comment->user->image) }}'); background-size: cover; background-position: center;">
+                            style="background-image: url('{{ asset($comment->user->image) }}'); background-size: cover; background-position: center;">
                         </div>
 
                         <div class="flex flex-col items box-sizing-border w-full b">

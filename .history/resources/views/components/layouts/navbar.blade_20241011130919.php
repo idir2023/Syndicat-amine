@@ -120,7 +120,9 @@ echo $user
                     {{-- Propriétaire --}} {{ __($user->roles[0]->name) ?? 'role' }}
                 </div>
 
-                <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('assets/images/avatar.png') }}" alt="User Profile" 
+                <img src="{{ asset($user->image ?? 'assets/images/avatar.png') }}" alt="User Profile"
+                              class="w-[50px] h-[50px] rounded-full bg-cover bg-center">
+                              <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('assets/images/avatar.png') }}" alt="User Profile" 
      class="w-[50px] h-[50px] rounded-full bg-cover bg-center">
 
 

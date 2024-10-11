@@ -73,7 +73,7 @@
             class="relative m-[0_0_14.5px_148.2px] flex flex-row justify-between self-center w-[1057.5px] box-sizing-border">
             <div
                 class="m-[24px_28px_0_0] inline-block w-[1005px] break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#3C4C7C]">
-                Remplir le Formulaire
+                Remplir le Formulaireeee
             </div>
             @if (isset($appParameters))
             <div class="m-[0_0_24px_0] inline-block break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#F7F7F7]">

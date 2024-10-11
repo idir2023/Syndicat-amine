@@ -75,12 +75,11 @@
                 class="m-[24px_28px_0_0] inline-block w-[1005px] break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#3C4C7C]">
                 Remplir le Formulaire
             </div>
-            @if (isset($appParameters))
-            <div class="m-[0_0_24px_0] inline-block break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#F7F7F7]">
-                {{ $appParameters->app_name ?? '' }}
+            <div
+                
+                class="m-[0_0_24px_0] inline-block break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[48px] text-[#F7F7F7]"> {{ $appParameters->app_name ?? '' }}</class=>
+                 @endif
             </div>
-        @else
-        
         </div>
         <div
             class="relative m-[0_28.2px_29px_28.2px] inline-block text-center break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[20px] text-[#F7F7F7]">

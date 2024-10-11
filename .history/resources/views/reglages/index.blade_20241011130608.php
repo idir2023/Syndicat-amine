@@ -135,9 +135,11 @@
                     @method('PUT')
                     <div class="flex justify-center mb-6 relative">
                         <img id="profileImage"
-                        
+                        <img src="{{ Auth::user()->image ? asset('storage/' . Auth::user()->image) : asset('assets/images/avatar.png') }}"
+     alt="User Profile" 
+     class="rounded-full w-24 h-24">
 
-                            src="{{ Auth::user()->image ? asset('storage/' .Auth::user()->image) : asset('assets/images/avatar.png') }}"
+                            src="{{ Auth::user()->image ? asset('storage/' Auth::user()->image) : asset('assets/images/avatar.png') }}"
                             alt="User Profile" class="rounded-full w-24 h-24">
                         <input type="file" id="imageUpload" class="hidden" name="profile_image"
                             onchange="previewImage(event)">

@@ -45,7 +45,7 @@
                 @foreach ($data->commentaires as $comment)
                     <div class="p-[0_30px_0_15px] flex flex-row w-full box-sizing-border">
                         <div class="rounded-[100px] m-[0_5px_15.5px_0] w-[30px] h-[30px]"
-                            style="background-image: url('{{ asset('storage/' . $comment->user->image) }}'); background-size: cover; background-position: center;">
+                            style="background-image: url('{{ asset($comment->user->image) }}'); background-size: cover; background-position: center;">
                         </div>
 
                         <div class="flex flex-col items box-sizing-border w-full b">
