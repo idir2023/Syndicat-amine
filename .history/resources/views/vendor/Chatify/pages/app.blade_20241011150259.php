@@ -22,7 +22,7 @@
                             class="payPurchase_due rounded-[6px] bg-gradient-to-r from-[#9EAFCE] to-[#697C9B] p-[4px] w-[24px] h-[24px] flex justify-center items-center cursor-pointer">
                             <img src="{{ asset('assets/images/chat_31.png') }}" class="w-[16px] h-[16px]" alt="Chat">
                         </a>
-                        <a href="{{ route('getGroup($request,$residentId)') }}" class="getGroup rounded-[6px] bg-gradient-to-r from-[#9EAFCE] to-[#697C9B] p-[4px] w-[24px] h-[24px] flex justify-center items-center cursor-pointer">
+                        <a href="{{ route('getGroup($request,$RésidentId)') }}" class="getGroup rounded-[6px] bg-gradient-to-r from-[#9EAFCE] to-[#697C9B] p-[4px] w-[24px] h-[24px] flex justify-center items-center cursor-pointer">
                             <img src="{{ asset('assets/images/add_group_1.png') }}" class="w-[16px] h-[16px]" alt="Ajouter un groupe">
                         </a>
                     </nav>

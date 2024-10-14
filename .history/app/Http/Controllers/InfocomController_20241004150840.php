@@ -32,8 +32,8 @@ public function index()
     $infoComs = collect();
     $residence = null; // Initialiser la variable $residence
 
-    // Vérifier si l'utilisateur est admin ou superadmin
-    if ($user->hasRole('admin|superadmin')) {
+    // Vérifier si l'utilisateur est Admin ou Super Admin
+    if ($user->hasRole('Admin|Super Admin')) {
         // Récupérer toutes les résidences
         $residences = Residence::all();
 

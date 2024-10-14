@@ -2,7 +2,7 @@
     <form action="{{ route('parameters.upadate') }}" method="POST" enctype="multipart/form-data"
         class="bg-white rounded-lg shadow-lg p-6 max-w-lg w-full">
         @csrf
-        <input type="hidden" name="role" value="admin">
+        <input type="hidden" name="role" value="Admin">
 
         <div class="flex justify-between items-center">
             <h2 class="text-lg text-[#3C4C7C] font-semibold">{{ __('Site Parameters') }}</h2>

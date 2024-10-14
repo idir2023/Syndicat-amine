@@ -1,7 +1,7 @@
 @php
     use App\Models\Residence;
 
-    if ($user->hasAnyRole(['superadmin', 'admin'])) {
+    if ($user->hasAnyRole(['Super Admin', 'Admin'])) {
         $residence_all = Residence::all();
     } else {
         $residence_all = $user->residences;
@@ -18,7 +18,7 @@ echo $user
 <div class="relative flex flex-row justify-between w-full p-5 bg-white rounded-[20px] mb-7 box-border">
     <div class="flex">
         {{-- @if ($residence_all) --}}
-        @role('superadmin|admin')
+        @role('Super Admin|Admin')
             <div
                 class="shadow-md rounded-[8px] bg-[#E9ECEE] relative flex flex-row justify-between p-2 box-border
          w-80 h-[60px] break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[20px] text-[#6F7D93]">
@@ -87,7 +87,7 @@ echo $user
         
 
         {{-- @else --}}
-        @role('manager|resident|proprietaire|manager principal')
+        @role('Manager|Résident|Propriétaire|Manager principal')
             <div
                 class="m-[13.5px_11.5px_13.5px_0] inline-block w-[375px] break-words font-['Fredoka_One','Roboto_Condensed'] font-normal text-[20px] text-[#6F7D93]">
                {{ __('Résidence')}} {{ $user->residence->nomResidence }}

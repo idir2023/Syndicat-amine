@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         
-        // Create a default admin user
+        // Create a default Admin user
        
         User::create([
             'name' => 'Admin',
             'prenom' => 'User',
             'phone' => '1234567890',
-            'email' => 'admin@example.com',
+            'email' => 'Admin@example.com',
             'password' => Hash::make('password123'), // Use a secure password
             'adress' => '123 Admin St',
             'Num_Immenble' => '1',

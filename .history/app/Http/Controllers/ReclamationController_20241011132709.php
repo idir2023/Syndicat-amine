@@ -62,7 +62,7 @@ class ReclamationController extends Controller
             $residenceId = $user->residence->id;
 
 
-        }else if($user->hasRole('admin|superadmin')){
+        }else if($user->hasRole('Admin|Super Admin')){
             $residenceId = Residence::first()->id;
 
 
@@ -84,7 +84,7 @@ class ReclamationController extends Controller
         if (!Auth::check()) {
             return redirect()->route('login');
         }
-        if (!Auth::user()->hasAnyRole(['superadmin', 'admin'])) {
+        if (!Auth::user()->hasAnyRole(['Super Admin', 'Admin'])) {
     
             // Regular users can only view events for their own residence
             $residence_id = Auth::user()->residence_id;

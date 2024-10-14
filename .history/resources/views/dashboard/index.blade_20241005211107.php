@@ -19,15 +19,15 @@
     @endif
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Propriétaire</p>
-            <h2 class="text-3xl font-bold">{{ $proprietaireCount }}</h2>
+            <h2 class="text-3xl font-bold">{{ $PropriétaireCount }}</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Résident</p>
-            <h2 class="text-3xl font-bold">{{ $residentCount }}</h2>
+            <h2 class="text-3xl font-bold">{{ $RésidentCount }}</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Admin</p>
-            <h2 class="text-3xl font-bold">{{ $adminCount }}</h2>
+            <h2 class="text-3xl font-bold">{{ $AdminCount }}</h2>
         </div>
         <div class="bg-white p-6 rounded-xl shadow-md text-center">
             <p class="text-sm text-gray-500 mb-2">Résidences</p>

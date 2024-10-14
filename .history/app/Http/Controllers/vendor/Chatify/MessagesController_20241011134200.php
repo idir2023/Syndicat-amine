@@ -218,6 +218,7 @@ class MessagesController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
+    
     public function getContacts(Request $request)
     {
         // get all users that received/sent message from/to [Auth user]
@@ -236,10 +237,11 @@ class MessagesController extends Controller
         ->paginate($request->per_page ?? $this->perPage);
 
         $usersList = $users->items();
-
+     
         if (count($usersList) > 0) {
             $contacts = '';
             foreach ($usersList as $user) {
+                
                 $contacts .= Chatify::getContactItem($user);
             }
         } else {

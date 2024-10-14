@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin User',
-            'email' => 'admin@example.com',
+            'email' => 'Admin@example.com',
             'password' => Hash::make('password123'), // You can use any password you want
-            'is_admin' => true // Assuming you have an `is_admin` field to distinguish admin users
+            'is_Admin' => true // Assuming you have an `is_Admin` field to distinguish Admin users
         ]);
 
         // Create 10 residences

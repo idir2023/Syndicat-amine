@@ -76,7 +76,7 @@
 
 
 
-        @role('superadmin|admin|manager principal|manager')
+        @role('Super Admin|Admin|Manager principal|Manager')
             <form action="{{ route('commentaires.store') }}" method="POST" class="w-full">
                 @csrf
                 <div class="p-[0_12px_27px_15px] flex flex-row w-full box-sizing-border">

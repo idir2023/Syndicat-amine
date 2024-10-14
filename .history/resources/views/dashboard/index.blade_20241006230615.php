@@ -56,7 +56,7 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200 text-gray-700">
                             @forelse ($users as $user)
-                                @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
+                                @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']))
                                     <tr>
                                         <td class="px-6 py-4 flex items-center space-x-3">
                                             <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-full">
@@ -73,7 +73,7 @@
                                         <td class="px-6 py-4">{{ $user->phone }}</td>
                                     </tr>
                                 @else
-                                    @if (optional($user->roles->first())->name !== 'admin' && optional($user->roles->first())->name !== 'superadmin')
+                                    @if (optional($user->roles->first())->name !== 'Admin' && optional($user->roles->first())->name !== 'Super Admin')
                                         <tr>
                                             <td class="px-6 py-4 flex items-center space-x-3">
                                                 <img src="https://via.placeholder.com/30" alt="Profile"

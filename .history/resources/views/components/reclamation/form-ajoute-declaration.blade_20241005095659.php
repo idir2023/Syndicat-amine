@@ -1,5 +1,5 @@
 <div class="w-full max-w-[330px]">
-    @role('superadmin|admin|manager principal|manger')
+    @role('Super Admin|Admin|Manager principal|Manager')
     <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data"   class="shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[20px] bg-white p-[16.5px_0_18px_0] flex flex-col w-full max-w-[330px]">
         @csrf
 
@@ -91,7 +91,7 @@
     </form>
     @endrole
 
-@role('superadmin|admin|manager principal|manger')
+@role('Super Admin|Admin|Manager principal|Manager')
     <script>
         function updateSelectedTypes() {
             const selectedTypes = [];

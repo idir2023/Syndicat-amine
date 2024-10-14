@@ -4,7 +4,7 @@
     $user = Auth::user();
     if ($user->residence) {
         $residenceId = $user->residence->id;
-    } elseif ($user->hasRole('admin|superadmin')) {
+    } elseif ($user->hasRole('Admin|Super Admin')) {
         $residenceId = \App\Models\Residence::first()->id;
     } else {
         $residenceId = null;

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Create roles if they don't exist
-        $roles = ['resident', 'proprietaire' , 'manager', 'admin', 'superadmin', 'manager principal'];
+        $roles = ['Résident', 'Propriétaire' , 'Manager', 'Admin', 'Super Admin', 'Manager principal'];
         foreach ($roles as $role) {
             Role::firstOrCreate(['name' => $role]);
         }
@@ -24,76 +24,76 @@ class UserSeeder extends Seeder
         // Create a user for each role
         $users = [
             [
-                'name' => 'Resident',
+                'name' => 'Résident',
                 'prenom' => 'User',
                 'phone' => '123456789',
-                'email' => 'resident@example.com',
+                'email' => 'Résident@example.com',
                 'password' => Hash::make('password'),
-                'adress' => '123 Resident St',
+                'adress' => '123 Résident St',
                 'Num_Immenble' => '1A',
                 'Num_Appartement' => '101',
                 'image' => null,
-                'role' => 'resident',
+                'role' => 'Résident',
             ],
             [
-                'name' => 'Proprietaire',
+                'name' => 'Propriétaire',
                 'prenom' => 'User',
                 'phone' => '123456789',
-                'email' => 'proprietaire@example.com',
+                'email' => 'Propriétaire@example.com',
                 'password' => Hash::make('password'),
-                'adress' => '12355 Resident St',
+                'adress' => '12355 Résident St',
                 'Num_Immenble' => '1A',
                 'Num_Appartement' => '101',
                 'image' => null,
-                'role' => 'proprietaire',
+                'role' => 'Propriétaire',
             ],
             [
                 'name' => 'Manager',
                 'prenom' => 'User',
                 'phone' => '987654321',
-                'email' => 'manager@example.com',
+                'email' => 'Manager@example.com',
                 'password' => Hash::make('password'),
                 'adress' => '456 Manager Rd',
                 'Num_Immenble' => '2B',
                 'Num_Appartement' => '202',
                 'image' => null,
-                'role' => 'manager',
+                'role' => 'Manager',
             ],
             [
                 'name' => 'Admin',
                 'prenom' => 'User',
                 'phone' => '555555555',
-                'email' => 'admin@example.com',
+                'email' => 'Admin@example.com',
                 'password' => Hash::make('password'),
                 'adress' => '789 Admin Blvd',
                 'Num_Immenble' => '3C',
                 'Num_Appartement' => '303',
                 'image' => null,
-                'role' => 'admin',
+                'role' => 'Admin',
             ],
             [
-                'name' => 'SuperAdmin',
+                'name' => 'Super Admin',
                 'prenom' => 'User',
                 'phone' => '111111111',
-                'email' => 'superadmin@example.com',
+                'email' => 'Super Admin@example.com',
                 'password' => Hash::make('password'),
-                'adress' => '101 SuperAdmin Ln',
+                'adress' => '101 Super Admin Ln',
                 'Num_Immenble' => '4D',
                 'Num_Appartement' => '404',
                 'image' => null,
-                'role' => 'superadmin',
+                'role' => 'Super Admin',
             ],
             [
                 'name' => 'Manager Principal',
                 'prenom' => 'User',
                 'phone' => '222222222',
-                'email' => 'managerprincipal@example.com',
+                'email' => 'Managerprincipal@example.com',
                 'password' => Hash::make('password'),
                 'adress' => '202 Manager Principal Ave',
                 'Num_Immenble' => '5E',
                 'Num_Appartement' => '505',
                 'image' => null,
-                'role' => 'manager principal',
+                'role' => 'Manager principal',
             ],
         ];
 

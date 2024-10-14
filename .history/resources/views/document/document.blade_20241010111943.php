@@ -71,7 +71,7 @@
                 @endif
 
                 <!-- Add PDF Form for Admin Roles -->
-                @role('superadmin|admin|manager principal|manger')
+                @role('Super Admin|Admin|Manager principal|Manager')
                     <x-document.form-ajouter-document :residence="$residence->id" />
                 @endrole
             </div>
@@ -221,7 +221,7 @@
 
                     ---------------------------------------------add pdf --------------------------------------------------------
 
-                    @role('superadmin|admin|manager principal|manger')
+                    @role('Super Admin|Admin|Manager principal|Manager')
                         <x-document.form-ajouter-document :residence="$residence->id"></x-document.form-ajouter-document>
                     @endrole
                 </div>

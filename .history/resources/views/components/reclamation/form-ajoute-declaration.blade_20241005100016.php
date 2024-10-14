@@ -6,7 +6,7 @@
         <!-- @endforeach -->
     </div>
 
-    @role('superadmin|admin|manager principal|manger')
+    @role('Super Admin|Admin|Manager principal|Manager')
     <div class="w-full max-w-[330px]"> <!-- Conteneur pour le formulaire -->
         <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data">
             @csrf
@@ -80,7 +80,7 @@
     </div>
     @endrole
 
-    @role('superadmin|admin|manager principal|manger')
+    @role('Super Admin|Admin|Manager principal|Manager')
     <script>
         function updateSelectedTypes() {
             const selectedTypes = [];

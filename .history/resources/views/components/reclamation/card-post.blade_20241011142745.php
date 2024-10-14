@@ -72,7 +72,7 @@
 
 
 
-        @role('superadmin|admin|manager principal|manager')
+        @role('Super Admin|Admin|Manager principal|Manager')
 
             <form action="{{ route('commentaires.store') }}" method="POST" class="w-full">
                 @csrf

@@ -1,5 +1,5 @@
 <div class="w-full max-w-[330px] mx-auto"> <!-- Center the container and set max width -->
-    @role('superadmin|admin|manager principal|manger')
+    @role('Super Admin|Admin|Manager principal|Manager')
     <form method="post" action="{{ route($postUrl) }}" enctype="multipart/form-data">
         @csrf
 
@@ -81,7 +81,7 @@
     </form>
     @endrole
 
-    @role('superadmin|admin|manager principal|manger')
+    @role('Super Admin|Admin|Manager principal|Manager')
     <script>
         function updateSelectedTypes() {
             const selectedTypes = [];

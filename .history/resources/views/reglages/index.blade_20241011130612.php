@@ -15,7 +15,7 @@
             <!-- Buttons on the right -->
 
             <div class="flex space-x-4">
-                @role('superadmin|admin|manager principal|manager|proprietaire')
+                @role('Super Admin|Admin|Manager principal|Manager|Propriétaire')
                     <!-- First Button -->
                     <button id="openModalBtnUser"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
@@ -24,13 +24,13 @@
                         </span>
                     </button>
                 @endrole
-                @role('superadmin')
+                @role('Super Admin')
                     <!-- Second Button -->
                     <x-parameters.parameter-button class=""></x-parameters.parameter-button>
                     <button id="openModalBtnAdmin"
                         class="w-[150px] h-[40px] rounded-[8px] bg-[linear-gradient(90deg,#9EAFCE,#697C9B)] relative flex flex-row p-2 box-sizing-border hover:bg-[linear-gradient(90deg,#697C9B,#9EAFCE)] transition duration-300 ease-in-out transform hover:scale-105">
                         <span class="m-auto inline-block break-words font-['Inter'] font-medium text-[12px] text-[#FFFFFF]">
-                            {{('Ajouter admin')}} +
+                            {{('Ajouter Admin')}} +
                         </span>
                     </button>
                 @endrole
@@ -58,7 +58,7 @@
                             <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
                                 {{('Role')}}
                             </th>
-                            @role('superadmin|admin|manager principal|manager')
+                            @role('Super Admin|Admin|Manager principal|Manager')
                                 <th class="font-['Inter'] font-semibold text-[12px] text-[#6F7D93] p-2 text-center">
                                     {{('Phone')}}
                                 </th>
@@ -94,7 +94,7 @@
                                         class="bg-[#EAF9F0] text-[#6F7D93] px-2 py-1 rounded-full text-[10px] font-['Inter']">{{ $role->name }}</span>
                                 @endforeach
                             </td>
-                            @role('superadmin|admin|manager principal|manager')
+                            @role('Super Admin|Admin|Manager principal|Manager')
                                 <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">
                                     {{ $user->phone }}
                                 </td>
@@ -253,7 +253,7 @@
 
     <!-- Modal structure -->
     <div id="userModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
-        <form action="{{ route('admin.users.store') }}" method="POST"
+        <form action="{{ route('Admin.users.store') }}" method="POST"
             class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
             @csrf
             <input type="hidden" name="residenceId" value="{{ $residence->id }}">
@@ -295,14 +295,14 @@
 
 
     <!-- Modal structure -->
-    <div id="adminModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
-        <form action="{{ route('admin.users.store') }}" method="POST"
+    <div id="AdminModal" class="fixed z-50 inset-0 flex items-center justify-center hidden bg-black bg-opacity-50">
+        <form action="{{ route('Admin.users.store') }}" method="POST"
             class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
             @csrf
-            <input type="hidden" name="role" value="admin">
+            <input type="hidden" name="role" value="Admin">
             <input type="hidden" name="residenceId" value="{{ $residence->id }}">
             <div class="flex justify-between items-center">
-                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{('Ajouter admin')}}</h2>
+                <h2 class="text-lg text-[#3C4C7C] font-semibold">{{('Ajouter Admin')}}</h2>
                 <button type="button" id="closeModalBtnAdmin" class="text-gray-500 hover:text-gray-700 close-modal-btn">
                     &times;
                 </button>
@@ -340,10 +340,10 @@
                 });
             }
 
-            // Open admin modal if button exists
+            // Open Admin modal if button exists
             if (openModalBtnAdmin) {
                 openModalBtnAdmin.addEventListener('click', function() {
-                    document.getElementById('adminModal').classList.remove('hidden');
+                    document.getElementById('AdminModal').classList.remove('hidden');
                 });
             }
 
@@ -354,10 +354,10 @@
                 });
             }
 
-            // Close admin modal if button exists
+            // Close Admin modal if button exists
             if (closeModalBtnAdmin) {
                 closeModalBtnAdmin.addEventListener('click', function() {
-                    document.getElementById('adminModal').classList.add('hidden');
+                    document.getElementById('AdminModal').classList.add('hidden');
                 });
             }
 

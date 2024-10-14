@@ -38,8 +38,8 @@ class UserController extends Controller
             return redirect()->route('formRegister')->withErrors('This invitation has expired.');
         }
 
-        // Check if the role is either 'superadmin' or 'admin'
-        if (in_array($invitation->role, ['superadmin'])) {
+        // Check if the role is either 'Super Admin' or 'Admin'
+        if (in_array($invitation->role, ['Super Admin'])) {
             return view('emails.register.register', [
                 'token' => $token,
                 'email' => $invitation->email,

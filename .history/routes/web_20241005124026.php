@@ -89,7 +89,7 @@ Route::post('/regelement/update/{id}', [ResidenceController::class, 'update'])->
 Route::get '/inscription', [FormRegisterController::class, 'index'])->name('formRegister');
 // Route::post('/inscription', [FormRegisterController::class, 'submit'])->name('formRegister');
 
-Route::post('/admin/users/store', [InvitationController::class, 'store'])->name('admin.users.store');
+Route::post('/Admin/users/store', [InvitationController::class, 'store'])->name('Admin.users.store');
 Route::get('/inscription-termine', [UserController::class, 'index'])->name('register.user');
 Route::post('/inscription-termine', [UserController::class, 'store'])->name('register.user.store');
 

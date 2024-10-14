@@ -10,8 +10,8 @@
         <!-- Statistics Section -->
         <div class="grid grid-cols-6 gap-4 mb-10">
             @foreach ($roleCounts as $role => $count)
-                @if (Auth::user()->hasAnyRole(['superadmin', 'admin']) ||
-                        (Auth::user()->hasAnyRole(['manager principal', 'manager']) && !in_array($role, ['superadmin', 'admin'])))
+                @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']) ||
+                        (Auth::user()->hasAnyRole(['Manager principal', 'Manager']) && !in_array($role, ['Super Admin', 'Admin'])))
                     <div
                         class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
                         <p class="text-sm text-gray-500 mb-2">{{ __('' . $role) }}</p>
@@ -20,7 +20,7 @@
                 @endif
             @endforeach
 
-            @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
+            @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']))
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
                     <p class="text-sm text-gray-500 mb-2">{{ __('Residence') }}</p>
                     <h2 class="text-3xl font-bold text-indigo-600">{{ $residences }}</h2>
@@ -72,7 +72,7 @@
                                         
                                         {{ optional($user->roles->first())->name }}
                                     </td>
-                                    @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
+                                    @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']))
                                     <td class="p-2 text-center font-['Inter'] text-[12px] text-[#3A416F]">
                                         {{ $user->phone }}
                                     </td>
@@ -80,7 +80,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="{{ Auth::user()->hasAnyRole(['superadmin', 'admin']) ? '4' : '3' }}" class="px-6 py-4 text-center">
+                                    <td colspan="{{ Auth::user()->hasAnyRole(['Super Admin', 'Admin']) ? '4' : '3' }}" class="px-6 py-4 text-center">
                                         {{ __('No users found.') }}
                                     </td>
                                 </tr>

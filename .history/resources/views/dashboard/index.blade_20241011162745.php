@@ -10,8 +10,8 @@
         <!-- Statistics Section -->
         <div class="grid grid-cols-6 gap-4 mb-10">
             @foreach ($roleCounts as $role => $count)
-                @if (Auth::user()->hasAnyRole(['superadmin', 'admin']) ||
-                        (Auth::user()->hasAnyRole(['manager principal', 'manager']) && !in_array($role, ['superadmin', 'admin'])))
+                @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']) ||
+                        (Auth::user()->hasAnyRole(['Manager principal', 'Manager']) && !in_array($role, ['Super Admin', 'Admin'])))
                     <div
                         class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
                         <p class="text-sm text-gray-500 mb-2">{{ __('' . $role) }}</p>
@@ -20,7 +20,7 @@
                 @endif
             @endforeach
 
-            @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
+            @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']))
                 <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform transform hover:scale-105">
                     <p class="text-sm text-gray-500 mb-2">{{ __('Residence') }}</p>
                     <h2 class="text-3xl font-bold text-indigo-600">{{ $residences }}</h2>
@@ -49,7 +49,7 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200 text-gray-700">
                             @forelse ($users as $user)
-                                @if (Auth::user()->hasAnyRole(['superadmin', 'admin']))
+                                @if (Auth::user()->hasAnyRole(['Super Admin', 'Admin']))
                                     <tr>
                                         <td class="px-6 py-4 flex items-center space-x-3">
                                             <img src="{{ $user->image ? asset('storage/' . $user->image) : asset('assets/images/avatar.png') }}"
@@ -68,7 +68,7 @@
                                         <td class="px-6 py-4">{{ $user->phone }}</td>
                                     </tr>
                                 @else
-                                    @if (optional($user->roles->first())->name !== 'admin' && optional($user->roles->first())->name !== 'superadmin')
+                                    @if (optional($user->roles->first())->name !== 'Admin' && optional($user->roles->first())->name !== 'Super Admin')
                                         <tr>
                                             <td class="px-6 py-4 flex items-center space-x-3">
                                                 <img src="https://via.placeholder.com/30" alt="Profile"

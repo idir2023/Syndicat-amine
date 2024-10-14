@@ -26,11 +26,11 @@ class FormRegisterController extends Controller
         ]);
 
         // // Retrieve the email addresses
-        // $superAdminEmail = User::where('role', 'superAdmin')->pluck('email')->first();
-        // $adminEmails = User::where('role', 'admin')->pluck('email')->toArray();
+        // $Super AdminEmail = User::where('role', 'Super Admin')->pluck('email')->first();
+        // $AdminEmails = User::where('role', 'Admin')->pluck('email')->toArray();
 
-        // // Combine the superAdmin email with the admin emails
-        // $recipients = array_merge([$superAdminEmail], $adminEmails);
+        // // Combine the Super Admin email with the Admin emails
+        // $recipients = array_merge([$Super AdminEmail], $AdminEmails);
 
         // // Send the email to multiple recipients
         // Mail::to($recipients)->send(new FormSubmissionMail($data));

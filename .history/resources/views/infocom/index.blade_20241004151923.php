@@ -41,7 +41,7 @@
             </div>
 
             <!-- Add Info Section -->
-            @role('superadmin|admin|manager principal|manger')
+            @role('Super Admin|Admin|Manager principal|Manager')
 
             <form
                 class="shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[20px] bg-white p-[16.5px_0_18px_0] flex flex-col w-full max-w-[330px]"

@@ -28,7 +28,7 @@
                         <div class="text-[12px] font-semibold text-[#6F7D93]">
                             {{$inventaire->nom}}
                         </div>
-                        @role('superadmin|admin|manager principal|manger')
+                        @role('Super Admin|Admin|Manager principal|Manager')
                             <button type="button" class="editButton  w-4 h-4"><i class="fa-regular fa-pen-to-square" style="color: #3c4c7c"></i></button>
                         @endrole
                     </div>
@@ -45,7 +45,7 @@
                     </div>
 
                     <!-- Editable form for details -->
-                    @role('superadmin|admin|manager principal|manger')
+                    @role('Super Admin|Admin|Manager principal|Manager')
                         <form class="editForm hidden" action="{{ route('inventaire.update', $inventaire->id) }}" method="POST">
                             @csrf
                             @method('PUT')
@@ -65,7 +65,7 @@
             @endforeach
         </div>
 
-        @role('superadmin|admin|manager principal|manger')
+        @role('Super Admin|Admin|Manager principal|Manager')
             <form   method="POST" action="{{route("inventaire.store")}}"     class="w-1/3 bg-white rounded-lg shadow-md p-5 h-fit">
                 @csrf
                 <div class="text-[14px] font-semibold text-[#3C4C7C] mb-4">
@@ -120,7 +120,7 @@
     </div>
 
 
-    @role('superadmin|admin|manager principal|manger')
+    @role('Super Admin|Admin|Manager principal|Manager')
         <script>
             // Target all edit buttons
             document.querySelectorAll('.editButton').forEach((button, index) => {

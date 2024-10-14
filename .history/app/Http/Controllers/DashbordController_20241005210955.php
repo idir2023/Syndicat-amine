@@ -28,13 +28,13 @@ class DashbordController extends Controller
 
     // Récupérer les statistiques par rôle dans cette résidence
     $superManagerCount = User::where('role', 'Super Manager')->where('residence_id', $residenceId)->count();
-    $managerCount = User::where('role', 'Manager')->where('residence_id', $residenceId)->count();
-    $proprietaireCount = User::where('role', 'Propriétaire')->where('residence_id', $residenceId)->count();
-    $residentCount = User::where('role', 'Résident')->where('residence_id', $residenceId)->count();
-    $adminCount = User::where('role', 'Admin')->where('residence_id', $residenceId)->count();
+    $ManagerCount = User::where('role', 'Manager')->where('residence_id', $residenceId)->count();
+    $PropriétaireCount = User::where('role', 'Propriétaire')->where('residence_id', $residenceId)->count();
+    $RésidentCount = User::where('role', 'Résident')->where('residence_id', $residenceId)->count();
+    $AdminCount = User::where('role', 'Admin')->where('residence_id', $residenceId)->count();
     $residenceCount = Residence::where('id', $residenceId)->count();
 
-    return view('dashboard.index', compact('superManagerCount', 'managerCount', 'proprietaireCount', 'residentCount', 'adminCount', 'residenceCount'));
+    return view('dashboard.index', compact('superManagerCount', 'ManagerCount', 'PropriétaireCount', 'RésidentCount', 'AdminCount', 'residenceCount'));
 }
 
 }
