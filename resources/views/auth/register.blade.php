@@ -137,7 +137,7 @@
                     <div
                         class="rounded-[20px] border-[1px_solid_#9EAFCE] bg-[#FFFFFF] relative m-[0_60px_0_0] flex flex-row justify-between p-[0_20px_0_10px] w-[400px] box-sizing-border">
                         <div class="flex flex-row w-[67px] box-sizing-border">
-                            <div class="bg-[url('../assets/images/r_21.jpeg')] m-[15px_0_15px_0] w-[42px] h-[30px]">
+                            <div class="bg-[url('../assets/images/telephone_41.png')] m-[15px_0_15px_0] w-[42px] h-[30px]">
                             </div>
                             <div
                                 class="bg-[url('../assets/images/down_arrow_1.png')] bg-[50%_50%] bg-cover bg-no-repeat m-[25px_4px_15px_0] w-[20px] h-[20px]">

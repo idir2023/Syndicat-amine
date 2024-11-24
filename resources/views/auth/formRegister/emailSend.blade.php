@@ -10,12 +10,12 @@
 
     <!-- Title of the App -->
     <div style="text-align: center; background-color: #2044ac; color: #fff; padding: 20px;">
-        <h1>SynditChat App</h1>
+        <h1>Bayticare</h1>
     </div>
 
     <!-- Container for the form submission -->
     <div style="max-width: 600px; margin: 20px auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-        <h2 style="text-align: center; color: #333;">New Form Submission</h2>
+        <h2 style="text-align: center; color: #333;">New Form Submission  {{ $data['first_name'] }} {{ $data['last_name'] }}</h2>
 
         <p><strong>Prénom:</strong> {{ $data['first_name'] }}</p>
         <p><strong>Nom:</strong> {{ $data['last_name'] }}</p>

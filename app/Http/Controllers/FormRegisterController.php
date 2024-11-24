@@ -40,7 +40,7 @@ class FormRegisterController extends Controller
         // Mail::to($recipients)->send(new FormSubmissionMail($data));
 
         // Send the email
-        Mail::to('izamine2000@gmail.com')->send(new FormSubmissionMail($data));
+        Mail::to('administrator@beornot.fr')->send(new FormSubmissionMail($data));
 
         // Redirect or return response
         return back()->with('success', 'Form submitted successfully!');

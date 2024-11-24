@@ -37,18 +37,18 @@
             @if (Route::is('reglages.show'))
                 <!-- Select bar HTML code -->
                 {{-- @if ($residencePassed)
-                <p>Current Residence: {{ $residencePassed->active }}</p>
+                <p>Current Residence: {{ $residence->active }}</p>
                 @else
                 <p>No residence selected.</p>
                 @endif --}}
-                <form action="{{ route('residence.update-status', $residencePassed->id) }}" method="POST">
+                <form action="{{ route('residence.update-status', $residence->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <select name="active"
                         class="box-border rounded-[8px] p-2 w-30 h-[60px] bg-[#E9ECEE] font-['Fredoka_One','Roboto_Condensed'] text-[#6F7D93] font-normal text-[20px] ml-4"
                         onchange="this.form.submit()">
-                        <option value="0" {{ $residencePassed->active == 0 ? 'selected' : '' }}>{{__('Active')}}</option>
-                        <option value="1" {{ $residencePassed->active == 1 ? 'selected' : '' }}>{{__('Inactive')}}</option>
+                        <option value="0" {{ $residence->active == 0 ? 'selected' : '' }}>{{__('Active')}}</option>
+                        <option value="1" {{ $residence->active == 1 ? 'selected' : '' }}>{{__('Inactive')}}</option>
                     </select>
                 </form>
 

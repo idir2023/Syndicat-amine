@@ -28,7 +28,7 @@ class FormSubmissionMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Form Submission Mail',
+            subject: 'Formulaire de demande',
         );
     }
 
